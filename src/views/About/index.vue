@@ -142,7 +142,7 @@ export default {
         label3: '冻结钱包',
         label4: '释放钱包',
         label5: '分享奖励',
-        label6: '我的订单',
+        label6: '我的交易平台',
         label7: '账单记录',
         label8: '我的二维码',
         label9: '产品中心'

@@ -36,7 +36,7 @@
             </div>
             <div class="item-footer">
               <div class="right">
-                <mt-button @click.native="match_transfer_action(item.id)" size="small" v-if="item.is_match === 1" style="color: #ff740e">匹配</mt-button>
+                <mt-button @click.native="match_transfer_action(item.id)" size="small" v-if="item.is_match === 1" style="color: #ff740e">成交</mt-button>
               </div>
             </div>
           </div>
