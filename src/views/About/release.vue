@@ -23,7 +23,7 @@
           </div>
         </div>
       </div>
-      <p class="footer" @click="goPage">兑换消费积分</p>
+      <p class="footer" @click="goPage">兑换注册积分</p>
     </div>
   </div>
 </template>

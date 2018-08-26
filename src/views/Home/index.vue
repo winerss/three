@@ -1,7 +1,8 @@
 <template>
   <div id="home">
-    <Header :showTitle="showTitle">
+    <Header :showTitle="showTitle" :showRight="showRight">
       <p slot="title">{{lang.lable1}}</p>
+      <router-link class="message-icon" slot="right" to="/message"><img src="../../assets/img/cc-message.png" alt=""></router-link>
     </Header>
     <div class="container" ref="wrapper">
       <div class="wrapper">
@@ -15,6 +16,11 @@
         </div>
         <div class="box">
           <div class="integration">
+            <div class="consume" @click="goDetail('/balance', 'encoll_point', data.encoll_point)">
+              <p class="title">{{lang.lable44}}</p>
+              <p class="money">{{ data.encoll_point}}</p>
+            </div>
+            <div class="line"></div>
             <div class="consume" @click="goDetail('/balance', 'consume', data.zhu_point)">
               <p class="title">{{lang.lable4}}</p>
               <p class="money">{{ data.zhu_point}}</p>
@@ -73,6 +79,7 @@ export default {
   data () {
     return {
       showTitle: true,
+      showRight: true,
       data: {},
       today: 0,
       yesterday: 0,
@@ -105,6 +112,7 @@ export default {
       this.axios.post(process.env.API_ROOT + '/api/user/get_user_info', params).then((res) => {
         let data = res.data
         this.data = data.data
+        console.log(this.data)
       })
     },
     goDetail (path, type, money) {
@@ -133,6 +141,7 @@ export default {
         lable2: 'Current total income',
         lable3: 'Yesterday is earning',
         lable4: 'Consumption points',
+        lable44: 'Register points',
         lable5: 'Cash integral',
         lable6: 'Send',
         lable7: 'Scan',
@@ -151,6 +160,7 @@ export default {
         lable2: '当前收益',
         lable3: '昨日收益',
         lable4: '消费积分',
+        lable44: '注册积分',
         lable5: '现金积分',
         lable6: '发送',
         lable7: '扫描',
@@ -197,6 +207,12 @@ window.reviced = function (res) {
   font-size .8rem
   background #f5f5f5
   color #000
+  .message-icon
+    height 2.4rem
+    display block
+    img
+      height 1.6rem
+      margin-top .4rem
   .container
     position absolute
     top 2.4rem
@@ -236,7 +252,7 @@ window.reviced = function (res) {
           line-height 1.2rem
         .money
           line-height 1.4rem
-          font-size 1rem
+          font-size .8rem
       .line
         width 2px
         height 2.4rem

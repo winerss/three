@@ -9,11 +9,15 @@
         <div class="item item2">
         </div>
       </router-link>
-      <router-link to="/message">
+      <!-- <router-link to="/message">
+        <div class="item item3">
+        </div>
+      </router-link> -->
+      <router-link to="/product">
         <div class="item item3">
         </div>
       </router-link>
-      <router-link to="/product">
+      <router-link to="/mall">
         <div class="item item4">
         </div>
       </router-link>
@@ -29,7 +33,6 @@
 <script>
 export default {
   mounted () {
-    console.log(localStorage.getItem('sid'))
     if (!localStorage.getItem('sid')) {
       this.$router.push('/login')
     }
@@ -69,15 +72,15 @@ export default {
         background-position 50% .5rem
         background-size 1.6rem auto
       .item3
-        background url('../../assets/img/message.png')
-        background-repeat no-repeat
-        background-position 50% .5rem
-        background-size 1.6rem auto
-      .item4
         background url('../../assets/img/product.png')
         background-repeat no-repeat
         background-position 50% .5rem
         background-size 1.6rem auto
+      .item4
+        background url('../../assets/img/mall.png')
+        background-repeat no-repeat
+        background-position 50% .6rem
+        background-size 1.4rem auto
       .item5
         background url('../../assets/img/mine.png')
         background-repeat no-repeat
@@ -95,15 +98,15 @@ export default {
         background-position 50% .5rem
         background-size 1.6rem auto
       .item3
-        background url('../../assets/img/message_fill.png')
-        background-repeat no-repeat
-        background-position 50% .5rem
-        background-size 1.6rem auto
-      .item4
         background url('../../assets/img/product_fill.png')
         background-repeat no-repeat
         background-position 50% .5rem
         background-size 1.6rem auto
+      .item4
+        background url('../../assets/img/mall_fill.png')
+        background-repeat no-repeat
+        background-position 50% .6rem
+        background-size 1.4rem auto
       .item5
         background url('../../assets/img/mine_fill.png')
         background-repeat no-repeat

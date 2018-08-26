@@ -26,6 +26,7 @@ import messagedetail from '@/views/Message/detail'
 // 我的
 import about from '@/views/About'
 import product from '@/views/About/product'
+import mall from '@/views/About/mall'
 import qrcode from '@/views/About/qrcode'
 import orderRecord from '@/views/About/orderRecord'
 import myorder from '@/views/About/myorder'
@@ -82,13 +83,6 @@ export default new Router({
           component: saleOrder
         }]
       }, {
-        path: '/message',
-        name: 'message',
-        component: message,
-        meta: {
-          title: '消息'
-        }
-      }, {
         path: '/messagedetail/:id',
         name: 'messagedetail',
         component: messagedetail,
@@ -109,6 +103,13 @@ export default new Router({
      */
     // 余额
     {
+      path: '/message',
+      name: 'message',
+      component: message,
+      meta: {
+        title: '消息'
+      }
+    }, {
       path: '/balance/:type',
       name: 'balance',
       component: balance,
@@ -171,6 +172,11 @@ export default new Router({
     /**
      * 我的模块
      */
+    {
+      path: '/mall',
+      name: 'mall',
+      component: mall
+    },
     {
       path: '/product',
       name: 'product',

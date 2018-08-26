@@ -1,7 +1,7 @@
 <template>
-  <div id="product">
+  <div id="mall">
     <Header :showTitle="showTitle" :showLeft="showLeft" :showRight="showRight">
-      <p slot="title">产品中心</p>
+      <p slot="title">二次消费商城</p>
       <p @click="goPage" slot="right">我的订单</p>
     </Header>
     <div class="container">
@@ -33,14 +33,13 @@
         </div>
         <p class="title">支付方式</p>
         <div class="tips">
-          注册积分≥ {{precent * 100}}%
-          <!-- <mt-radio
+          <mt-radio
             v-model="value"
             :options="options">
-          </mt-radio> -->
+          </mt-radio>
         </div>
-        <mt-field label="注册积分" type="number" placeholder="请输入注册积分" v-on:blur.native.capture="changeCount()" v-model='enroll_point'></mt-field>
-        <mt-field label="消费积分" type="number" placeholder="请输入消费积分" v-model="products[type - 1].point - enroll_point"></mt-field>
+        <!-- <mt-field label="注册积分" type="number" placeholder="请输入注册积分" v-on:blur.native.capture="changeCount()" v-model='enroll_point'></mt-field> -->
+        <!-- <mt-field label="消费积分" type="number" placeholder="请输入消费积分" v-model="products[type - 1].point - enroll_point"></mt-field> -->
         <mt-field label="支付密码" type="password" placeholder="请输入≥6的字母+数字的密码" v-model='form.password'></mt-field>
         <mt-button size="small" @click.native="confirm" :class="{ active: isActive }" class="confirm">购买</mt-button>
       </div>
@@ -65,9 +64,10 @@ export default {
         password: '',
         addressDetail: ''
       },
-      enroll_point: Number,
-      zhu_point: Number,
-      value: '1',
+      // enroll_point: Number,
+      // zhu_point: Number,
+      value: '2',
+      options: [],
       // options: [{label: '100%消费积分', value: '1'}, {label: '80%现金积分+20%消费积分', value: '2'}],
       // options: [{label: '注册积分≥', value: '1'}],
       isActive: false,
@@ -124,10 +124,9 @@ export default {
   methods: {
     changeCount () {
       let price = this.products[this.type - 1].point * this.precent
-      console.log(price)
       if (price > this.enroll_point) {
         this.$toast({
-          message: `至少需要${this.precent * 100}%的注册积分`,
+          message: `至少需要${this.precent}%的注册积分`,
           position: 'bottom',
           duration: 1000
         })
@@ -136,9 +135,9 @@ export default {
     mix_encoll () {
       var params = new FormData()
       params.append('sid', localStorage.getItem('sid'))
-      this.axios.post(process.env.API_ROOT + '/api/block/mix_encoll', params).then((res) => {
+      this.axios.post(process.env.API_ROOT + '/api/block/ec_scale', params).then((res) => {
         this.precent = res.data.data
-        console.log(this.precent)
+        this.options = [{label: `${res.data.data * 100}%现金积分+${100 - res.data.data * 100}%消费积分`, value: '2'}]
       })
     },
     goPage () {
@@ -217,8 +216,8 @@ export default {
     confirm () {
       if (!this.isActive) return false
       var params = new FormData()
-      params.append('enroll_point', this.enroll_point)
-      params.append('zhu_point', this.products[this.type - 1].point - this.enroll_point)
+      // params.append('enroll_point', this.enroll_point)
+      // params.append('zhu_point', this.products[this.type - 1].point - this.enroll_point)
       params.append('sid', localStorage.getItem('sid'))
       params.append('type', this.products[this.type - 1].id)
       params.append('sign', this.value)
@@ -251,7 +250,7 @@ export default {
 </script>
 
 <style lang="stylus">
-#product
+#mall
   position absolute
   top 0
   left 0

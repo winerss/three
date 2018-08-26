@@ -64,6 +64,13 @@ export default {
         } else {
           this.title = '现金积分'
         }
+      } else if (type === 'encoll_point') {
+        this.type = 9
+        if (localStorage.getItem('language') === 'en') {
+          this.title = 'Register points'
+        } else {
+          this.title = '注册积分'
+        }
       }
     },
     getData () {

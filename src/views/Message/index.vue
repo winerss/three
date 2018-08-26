@@ -1,6 +1,6 @@
 <template>
   <div id="message">
-    <Header :showTitle="showTitle">
+    <Header :showTitle="showTitle" :showLeft="showLeft">
       <p slot="title">{{lang.title}}</p>
     </Header>
     <div class="container" ref="wrapper">
@@ -18,6 +18,7 @@ export default {
   data () {
     return {
       showTitle: true,
+      showLeft: true,
       items: [],
       lang: {}
     }
