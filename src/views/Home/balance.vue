@@ -64,7 +64,7 @@ export default {
         } else {
           this.title = '现金积分'
         }
-      } else if (type === 'encoll_point') {
+      } else if (type === 'enroll_point') {
         this.type = 9
         if (localStorage.getItem('language') === 'en') {
           this.title = 'Register points'

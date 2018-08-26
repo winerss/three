@@ -16,9 +16,9 @@
         </div>
         <div class="box">
           <div class="integration">
-            <div class="consume" @click="goDetail('/balance', 'encoll_point', data.encoll_point)">
+            <div class="consume" @click="goDetail('/balance', 'enroll_point', data.enroll_point)">
               <p class="title">{{lang.lable44}}</p>
-              <p class="money">{{ data.encoll_point}}</p>
+              <p class="money">{{ data.enroll_point}}</p>
             </div>
             <div class="line"></div>
             <div class="consume" @click="goDetail('/balance', 'consume', data.zhu_point)">
