@@ -8,7 +8,7 @@
         <img style="height: 30px;" src="../../assets/img/logo.jpg" alt="">
       </mt-cell>
       <mt-cell title="用户名">
-        <p>winerss</p>
+        <p>{{data.nickname}}</p>
       </mt-cell>
       <mt-cell title="昵称" is-link></mt-cell>
     </div>
@@ -22,8 +22,22 @@ export default {
   data () {
     return {
       showTitle: true,
-      showLeft: true
+      showLeft: true,
+      data: {}
     }
+  },
+  methods: {
+    get_user_info () {
+      var params = new FormData()
+      params.append('sid', localStorage.getItem('sid'))
+      this.axios.post(process.env.API_ROOT + '/api/user/get_user_info', params).then((res) => {
+        let data = res.data
+        this.data = data.data
+      })
+    }
+  },
+  mounted () {
+    this.get_user_info()
   },
   components: {
     Header
