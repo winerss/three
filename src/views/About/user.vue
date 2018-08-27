@@ -5,7 +5,7 @@
     </Header>
     <div class="container">
       <mt-cell title="头像" is-link>
-        <img style="height: 30px;" src="../../assets/img/avatar.png" alt="">
+        <img style="height: 30px;" src="../../assets/img/logo.jpg" alt="">
       </mt-cell>
       <mt-cell title="用户名">
         <p>winerss</p>

@@ -5,10 +5,10 @@
     </Header>
     <div class="container">
       <div class="logo">
-        <img src="../../assets/img/avatar.png" alt="">
+        <img src="../../assets/img/logo.jpg" alt="">
       </div>
-      <mt-field label="账号" placeholder="用户名" v-model='form.name'></mt-field>
-      <mt-field label="用户地址" placeholder="请输入登录密码" type="password" v-model='form.password'></mt-field>
+      <mt-field label="用户名" placeholder="用户名" v-model='form.name'></mt-field>
+      <mt-field label="登录密码" placeholder="请输入登录密码" type="password" v-model='form.password'></mt-field>
       <mt-button :class="{ active: isActive }" @click="login" class="confirm" size="small" type="default">登录</mt-button>
       <div class="bottom"><p @click="goPages('/register')">新用户注册</p><p @click="goPages('/password')">找回密码</p></div>
     </div>
