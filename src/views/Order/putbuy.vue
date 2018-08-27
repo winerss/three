@@ -21,7 +21,7 @@
         <mt-button v-show="!codeSta" style="font-size: 0.6rem;" size="small" type="primary">{{time + ' 秒后获取'}}</mt-button>
       </mt-cell>
     </div>
-    <mt-field label="支付密码" type="password" placeholder="请输入≥6的字母+数字的密码" v-model="form.password"></mt-field>
+    <mt-field label="交易密码" type="password" placeholder="请输入≥6的字母+数字的密码" v-model="form.password"></mt-field>
     <p class="total">总价：CNY {{form.amount * form.price}}</p>
     <mt-button :class="{ active: isActive }" class="confirm" @click="confirm" size="small" type="default">确认买单</mt-button>
   </div>
@@ -129,6 +129,15 @@ export default {
     },
     confirm () {
       if (!this.isActive) return false
+      let reg = /^(13[0-9]|15[012356789]|17[3678]|18[0-9]|14[57])[0-9]{8}$/
+      if (!reg.test(this.form.tel)) {
+        this.$toast({
+          message: '请检查您的手机格式',
+          position: 'bottom',
+          duration: 1000
+        })
+        return false
+      }
       var params = new FormData()
       params.append('sid', localStorage.getItem('sid'))
       params.append('type', 1)

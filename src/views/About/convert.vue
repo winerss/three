@@ -5,7 +5,7 @@
     </Header>
     <div class="container">
       <mt-field label="转入数量" placeholder="数量不能低于10，并小于20%" v-model='form.amount'></mt-field>
-      <mt-field label="支付密码" type="password" placeholder="请输入≥6的字母+数字的密码" v-model='form.password'></mt-field>
+      <mt-field label="交易密码" type="password" placeholder="请输入≥6的字母+数字的密码" v-model='form.password'></mt-field>
       <mt-button size="small" :class="{ active: isActive }" @click="confirm" class="confirm">兑换消费积分</mt-button>
     </div>
   </div>

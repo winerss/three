@@ -6,7 +6,7 @@
     </mt-radio>
     <mt-field v-show="this.value === '1'" label="卖单单价"  :value="common"></mt-field>
     <mt-field label="卖单数量" placeholder="请输入100~2000且100的倍数" v-model="form.amount"></mt-field>
-    <mt-field label="支付密码" type="password" placeholder="请输入≥6的字母+数字的密码" v-model="form.password"></mt-field>
+    <mt-field label="交易密码" type="password" placeholder="请输入≥6的字母+数字的密码" v-model="form.password"></mt-field>
     <div class="total">
       <p>总价：CNY {{total}}</p>
       <p>手续费：CNY {{fear * common * form.amount}}</p>
@@ -122,6 +122,15 @@ export default {
     },
     confirm () {
       if (!this.isActive) return false
+      let reg = /^(13[0-9]|15[012356789]|17[3678]|18[0-9]|14[57])[0-9]{8}$/
+      if (!reg.test(this.form.tel)) {
+        this.$toast({
+          message: '请检查您的手机格式',
+          position: 'bottom',
+          duration: 1000
+        })
+        return false
+      }
       var params = new FormData()
       params.append('sid', localStorage.getItem('sid'))
       params.append('type', 2)

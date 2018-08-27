@@ -8,9 +8,9 @@
       <div class="wrapper">
         <div class="box">
           <div class="information">
-            <div class="header" @click="goPage('/user')">
+            <div class="header">
               <div class="nickName">{{data.nickname}}</div>
-              <div class="avatar"><img src="../../assets/img/logo.jpg" alt=""></div>
+              <!-- <div class="avatar"><img src="../../assets/img/logo.jpg" alt=""></div> -->
             </div>
             <p class="copyContent">{{address}}</p>
             <p  v-clipboard:copy="address"

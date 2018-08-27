@@ -77,7 +77,7 @@ export default {
         title: '设置',
         tel: '手机号码',
         modlog: '修改登录密码',
-        modpay: '修改支付密码',
+        modpay: '修改交易密码',
         lang: '语言设置',
         clear: '清除缓存',
         about: '关于',

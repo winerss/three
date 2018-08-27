@@ -73,7 +73,7 @@ export default {
       var params = new FormData()
       params.append('tel', this.form.tel)
       if (this.params === 'pay') {
-        params.append('type', '修改支付密码')
+        params.append('type', '修改交易密码')
       } else {
         params.append('type', '修改密码')
       }
@@ -128,7 +128,7 @@ export default {
       if (localStorage.getItem('language') === 'en') {
         this.title = 'Reset PayPassword'
       } else {
-        this.title = '重置支付密码'
+        this.title = '重置交易密码'
       }
     } else {
       if (localStorage.getItem('language') === 'en') {

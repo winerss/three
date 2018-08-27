@@ -26,7 +26,7 @@ import messagedetail from '@/views/Message/detail'
 // 我的
 import about from '@/views/About'
 import product from '@/views/About/product'
-import mall from '@/views/About/mall'
+// import mall from '@/views/About/mall'
 import qrcode from '@/views/About/qrcode'
 import orderRecord from '@/views/About/orderRecord'
 import myorder from '@/views/About/myorder'
@@ -54,6 +54,14 @@ import setpass from '@/views/Setting/changePass/set'
 import language from '@/views/Setting/language'
 // 关于app
 import aboutApp from '@/views/Setting/about'
+// 商城
+import mall from '@/views/Mall'
+import mallDetail from '@/views/Mall/detail'
+import cart from '@/views/Mall/cart'
+import confirm from '@/views/Mall/confirm'
+import addressEdit from '@/views/Mall/addressEdit'
+import address from '@/views/Mall/address'
+import mallOrder from '@/views/Mall/mallOrder'
 Vue.use(Router)
 
 export default new Router({
@@ -90,6 +98,10 @@ export default new Router({
           title: '消息'
         }
       }, {
+        path: '/mall',
+        name: 'mall',
+        component: mall
+      }, {
         path: '/about',
         name: 'about',
         component: about,
@@ -97,6 +109,37 @@ export default new Router({
           title: '我的'
         }
       }]
+    },
+    // 商城
+    {
+      path: '/mallDetail/:id',
+      name: 'detail',
+      component: mallDetail
+    },
+    {
+      path: '/cart',
+      name: 'cart',
+      component: cart
+    },
+    {
+      path: '/confirm',
+      name: 'confirm',
+      component: confirm
+    },
+    {
+      path: '/addressEdit',
+      name: 'addressEdit',
+      component: addressEdit
+    },
+    {
+      path: '/address',
+      name: 'address',
+      component: address
+    },
+    {
+      path: '/mallOrder',
+      name: 'mallOrder',
+      component: mallOrder
     },
     /**
      * Home模块
@@ -172,11 +215,6 @@ export default new Router({
     /**
      * 我的模块
      */
-    {
-      path: '/mall',
-      name: 'mall',
-      component: mall
-    },
     {
       path: '/product',
       name: 'product',

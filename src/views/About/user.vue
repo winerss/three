@@ -4,13 +4,13 @@
       <p slot="title">个人资料</p>
     </Header>
     <div class="container">
-      <mt-cell title="头像" is-link>
+      <!-- <mt-cell title="头像" is-link>
         <img style="height: 30px;" src="../../assets/img/logo.jpg" alt="">
-      </mt-cell>
+      </mt-cell> -->
       <mt-cell title="用户名">
         <p>{{data.nickname}}</p>
       </mt-cell>
-      <mt-cell title="昵称" is-link></mt-cell>
+      <!-- <mt-cell title="昵称" is-link></mt-cell> -->
     </div>
   </div>
 </template>

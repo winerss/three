@@ -17,9 +17,9 @@
     <p class="price">用户名和推荐人输入后将不能更改，请仔细和对</p>
     <mt-field label="用户名" placeholder="请输入用户名"  v-model="form.name"></mt-field>
     <mt-field label="推荐人" placeholder="请输入推荐人用户名" v-model="form.oName"></mt-field>
-    <p class="price">设置登录密码和支付密码</p>
+    <p class="price">设置登录密码和交易密码</p>
     <mt-field label="登录密码" type="password" placeholder="请输入密码" v-model="form.password"></mt-field>
-    <mt-field label="支付密码" type="password" placeholder="请输入支付密码" v-model="form.ppassword"></mt-field>
+    <mt-field label="交易密码" type="password" placeholder="请输入交易密码" v-model="form.ppassword"></mt-field>
     <mt-button :class="{ active: isActive }" @click.native="register" class="confirm" size="small" type="default">立即注册</mt-button>
   </div>
 </template>
@@ -126,7 +126,7 @@ export default {
       }
       if (this.form.ppassword.length < 6 || this.form.ppassword.length > 15) {
         this.$toast({
-          message: '支付密码长度不正确',
+          message: '交易密码长度不正确',
           position: 'bottom',
           duration: 1000
         })

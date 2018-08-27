@@ -147,7 +147,7 @@ export default {
         lable3: '请输入用户地址',
         lable4: '发送数量',
         lable5: '请输入发送数量',
-        lable6: '支付密码',
+        lable6: '交易密码',
         lable7: '请输入≥6的字母+数字的密码',
         lable8: '可用资产本次可发送个中安瑞宝资产',
         lable9: '确认转账'

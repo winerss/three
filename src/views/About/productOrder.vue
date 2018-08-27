@@ -16,6 +16,11 @@
                                 <p>收货人：{{item.name}}</p>
                                 <p>联系方式：{{item.phone}}</p>
                             </div>
+                            <div class="detail">
+                                <p v-show="item.type === '1'">报单购买</p>
+                                <p v-show="item.type === '2'">重复消费</p>
+                                <p>{{item.detail}}</p>
+                            </div>
                             <div class="bottom">
                                 <p>积分数：{{item.price}}</p>
                                 <p v-show="item.is_fa === '0'">发货状态：未发货</p>

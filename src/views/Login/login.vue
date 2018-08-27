@@ -5,7 +5,7 @@
     </Header>
     <div class="container">
       <div class="logo">
-        <img src="../../assets/img/logo.jpg" alt="">
+        <!-- <img src="../../assets/img/logo.jpg" alt=""> -->
       </div>
       <mt-field label="用户名" placeholder="用户名" v-model='form.name'></mt-field>
       <mt-field label="登录密码" placeholder="请输入登录密码" type="password" v-model='form.password'></mt-field>
