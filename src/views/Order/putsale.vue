@@ -4,7 +4,7 @@
       v-model="value"
       :options="options">
     </mt-radio>
-    <mt-field v-show="this.value === '1'" label="卖单单价"  :value="common"></mt-field>
+    <mt-field v-show="this.value === '1'" label="卖单单价"  v-model="common"></mt-field>
     <mt-field label="卖单数量" placeholder="请输入100~2000且100的倍数" v-model="form.amount"></mt-field>
     <mt-field label="交易密码" type="password" placeholder="请输入≥6的字母+数字的密码" v-model="form.password"></mt-field>
     <div class="total">

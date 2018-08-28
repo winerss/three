@@ -33,7 +33,7 @@
         </div>
         <p class="title">支付方式</p>
         <div class="tips">
-          注册积分≥ {{precent * 100}}%
+          注册积分小于{{precent * 100}}%
           <!-- <mt-radio
             v-model="value"
             :options="options">
@@ -125,9 +125,9 @@ export default {
     changeCount () {
       let price = this.products[this.type - 1].point * this.precent
       console.log(price)
-      if (price > this.enroll_point) {
+      if (this.enroll_point >= price) {
         this.$toast({
-          message: `至少需要${this.precent * 100}%的注册积分`,
+          message: `注册积分需要小于${this.precent * 100}%`,
           position: 'bottom',
           duration: 1000
         })

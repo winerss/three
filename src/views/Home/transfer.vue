@@ -4,6 +4,10 @@
       <p slot="title">{{lang.lable1}}</p>
     </Header>
     <div class="container">
+    <mt-radio
+      v-model="value"
+      :options="options">
+    </mt-radio>
       <mt-field :label="lang.lable2" :placeholder="lang.lable3" v-model='form.address'></mt-field>
       <mt-field :label="lang.lable4" :placeholder="lang.lable5" v-model="form.number"></mt-field>
       <mt-cell title="手机归属地" is-link to="/citys">
@@ -34,6 +38,12 @@ export default {
       title: '',
       codeSta: true,
       time: 60,
+      value: '1',
+      options: [{
+        label: '消费积分', value: '1'
+      }, {
+        label: '注册积分', value: '2'
+      }],
       form: {
         address: '',
         number: '',
@@ -108,6 +118,7 @@ export default {
       params.append('host', this.form.address)
       params.append('amount', this.form.number)
       params.append('tel', this.form.tel)
+      params.append('type', this.value)
       params.append('erji', this.form.password)
       params.append('code', this.form.code)
       this.axios.post(process.env.API_ROOT + '/api/transfer/from_host', params).then((res) => {

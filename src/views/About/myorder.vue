@@ -6,9 +6,10 @@
     <div class="container">
       <mt-navbar class="page-part" v-model="selected">
         <mt-tab-item @click.native="getdata()" id="1">全部</mt-tab-item>
-        <mt-tab-item @click.native="getdata('0')" id="2">待交易</mt-tab-item>
-        <mt-tab-item @click.native="getdata('3')" id="3">交易中</mt-tab-item>
-        <mt-tab-item @click.native="getdata('1')" id="4">已完成</mt-tab-item>
+        <mt-tab-item @click.native="getdata('2')" id="2">已取消</mt-tab-item>
+        <mt-tab-item @click.native="getdata('0')" id="3">待交易</mt-tab-item>
+        <mt-tab-item @click.native="getdata('3')" id="4">交易中</mt-tab-item>
+        <mt-tab-item @click.native="getdata('1')" id="5">已完成</mt-tab-item>
       </mt-navbar>
       <div class="content">
         <div class="wrapper" ref="wrapper">
@@ -145,6 +146,12 @@ export default {
         } else if (status === '1') { // 完成
           response.data.data.forEach(element => {
             if (element.status === '1') {
+              this.data.push(element)
+            }
+          })
+        }  else if (status === '2') { // 取消
+          response.data.data.forEach(element => {
+            if (element.status === '2') {
               this.data.push(element)
             }
           })
