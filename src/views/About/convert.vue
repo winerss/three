@@ -44,6 +44,7 @@ export default {
       var params = new FormData()
       params.append('sid', localStorage.getItem('sid'))
       params.append('amount', this.form.amount)
+      params.append('erji', this.form.password)
       this.axios.post(process.env.API_ROOT + '/api/transfer/ice_zhuce', params).then((res) => {
         let data = res.data
         this.$toast({
@@ -51,6 +52,9 @@ export default {
           position: 'bottom',
           duration: 1000
         })
+        if (data.code === 1) {
+          this.$router.push('/home')
+        }
       })
     }
   },

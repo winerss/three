@@ -9,7 +9,8 @@
       :options="options">
     </mt-radio>
       <mt-field :label="lang.lable2" :placeholder="lang.lable3" v-model='form.address'></mt-field>
-      <mt-field :label="lang.lable4" :placeholder="lang.lable5" v-model="form.number"></mt-field>
+      <mt-field v-show="value==='1'" :label="lang.lable4" :placeholder="lang.lable5" v-model="form.number"></mt-field>
+      <mt-field v-show="value==='2'" :label="lang.lable4" :placeholder="lang.lable55" v-model="form.number"></mt-field>
       <mt-cell title="手机归属地" is-link to="/citys">
         <p>{{ selectedCity.city }}（+{{ selectedCity.tel }}）</p>
       </mt-cell>
@@ -146,6 +147,7 @@ export default {
         lable2: 'User address',
         lable3: 'Please enter user address',
         lable4: 'Send quantity',
+        lable55: 'Please enter the number of',
         lable5: 'Please enter the number of',
         lable6: 'Pay the password',
         lable7: 'Please enter payment passv',
@@ -157,6 +159,7 @@ export default {
         lable2: '用户地址',
         lable3: '请输入用户地址',
         lable4: '发送数量',
+        lable55: '请输入注册积分发送数量',
         lable5: '请输入消费积分发送数量',
         lable6: '交易密码',
         lable7: '请输入≥6的字母+数字的密码',
