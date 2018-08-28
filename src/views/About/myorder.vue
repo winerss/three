@@ -31,7 +31,7 @@
                 </div>
                 <div class="right">
                   <p>总计（元）</p>
-                  <p>{{item.amount * item.price}}</p>
+                  <p>{{(item.amount * item.price).toFixed(5)}}</p>
                 </div>
               </div>
               <div class="item-footer">

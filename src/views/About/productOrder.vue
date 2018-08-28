@@ -105,7 +105,7 @@ export default {
             background #ffffff
             padding .4rem .6rem
             margin-top .4rem
-            .top, .center, .bottom
+            .top, .center,.detail .bottom
                 display flex
                 line-height 1.4rem
                 justify-content space-between
