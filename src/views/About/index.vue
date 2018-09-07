@@ -2,53 +2,73 @@
   <div id="about">
     <Header :showTitle="showTitle" :showRight="showRight">
       <p slot="title">{{lang.title}}</p>
-      <p slot="right" @click="goPage('/setting')">{{lang.label}}</p>
+      <!-- <p slot="right" @click="goPage('/setting')">{{lang.label}}</p> -->
     </Header>
     <div class="container" ref="wrapper">
       <div class="wrapper">
-        <div class="box">
-          <div class="information">
-            <div class="header">
-              <div class="nickName">{{data.nickname}}</div>
-              <!-- <div class="avatar"><img src="../../assets/img/logo.jpg" alt=""></div> -->
-            </div>
-            <p class="copyContent">{{address}}</p>
-            <p  v-clipboard:copy="address"
-                v-clipboard:success="onCopy" class="copy">{{lang.label2}}</p>
+        <div class="information">
+          <div class="header">
+            <div class="nickName">{{data.nickname}}</div>
+            <!-- <div class="avatar"><img src="../../assets/img/logo.jpg" alt=""></div> -->
+          </div>
+          <p class="copyContent">{{address}}</p>
+          <p  v-clipboard:copy="address"
+              v-clipboard:success="onCopy" class="copy">{{lang.label2}}</p>
+        </div>
+        <div class="packet">
+          <div class="consume" @click="goPages('/freeze/', data.ice_point)">
+            <p class="title">{{lang.label3}}</p>
+            <p class="money">{{data.ice_point}}</p>
+          </div>
+          <div class="line"></div>
+          <div class="cash" @click="goPages('/release/', data.all_point)">
+            <p class="title">{{lang.label4}}</p>
+            <p class="money">{{data.all_point}}</p>
           </div>
         </div>
-        <div class="box">
-          <div class="packet">
-            <div class="consume" @click="goPages('/freeze/', data.ice_point)">
-              <p class="title">{{lang.label3}}</p>
-              <p class="money">{{data.ice_point}}</p>
-            </div>
-            <div class="line"></div>
-            <div class="cash" @click="goPages('/release/', data.all_point)">
-              <p class="title">{{lang.label4}}</p>
-              <p class="money">{{data.all_point}}</p>
-            </div>
+        <div class="icon-group">
+          <div class="item" @click="goPage('/myorder')">
+            <img src="../../assets/img/platform.png" alt="">
+            <p>我的交易平台</p>
+          </div>
+          <div class="item center" @click="goPage('/orderRecord')">
+            <img src="../../assets/img/record.png" alt="">
+            <p>账单记录</p>
+          </div>
+          <div class="item" @click="goPage('/reward')">
+            <img src="../../assets/img/share.png" alt="">
+            <p>分享奖励</p>
           </div>
         </div>
-        <div class="box">
-          <div class="items">
-            <!-- <mt-cell :title="lang.label9" is-link to="/product">
-              <img slot="icon" src="../../assets/img/product.png" width="24" height="24">
-            </mt-cell> -->
-            <mt-cell :title="lang.label6" is-link to="/myorder">
-              <img slot="icon" src="../../assets/img/order.png" width="24" height="24">
-            </mt-cell>
-            <mt-cell :title="lang.label7" is-link to="/orderRecord">
-              <img slot="icon" src="../../assets/img/record.png" width="24" height="24">
-            </mt-cell>
-            <mt-cell :title="lang.label5" is-link to="/reward">
-              <img slot="icon" src="../../assets/img/share.png" width="24" height="24">
-            </mt-cell>
-            <mt-cell :title="lang.label8" is-link to="/qrcode">
-              <img slot="icon" src="../../assets/img/qrcode.png" width="24" height="24">
-            </mt-cell>
+        <div class="icon-group">
+          <div class="item" @click="goPage('/qrcode')">
+            <img src="../../assets/img/qrcode.png" alt="">
+            <p>我的二维码</p>
+          </div>
+          <div class="item center" @click="goPage('/changeTel')">
+            <img src="../../assets/img/tel.png" alt="">
+            <p>手机号码</p>
+          </div>
+          <div class="item" @click="goPage('/changePass/login')">
+            <img src="../../assets/img/password.png" alt="">
+            <p>修改登录密码</p>
           </div>
         </div>
+        <div class="icon-group">
+          <div class="item" @click="goPage('/changePass/pay')">
+            <img src="../../assets/img/payp.png" alt="">
+            <p>修改支付密码</p>
+          </div>
+          <div class="item center"  @click.native="clear">
+            <img src="../../assets/img/dataed.png" alt="">
+            <p>清除缓存</p>
+          </div>
+          <div class="item" @click="goPage('/aboutapp')">
+            <img src="../../assets/img/about.png" alt="">
+            <p>关于</p>
+          </div>
+        </div>
+        <mt-button @click.native="clear" size="small" style="display: block;width: 90%;background: #f1ad46;color: #fff;margin: 2rem auto;">退出</mt-button>
       </div>
     </div>
   </div>
@@ -82,6 +102,10 @@ export default {
         duration: 1000
       })
     },
+    logout () {
+      localStorage.clear()
+      this.$router.push('/login')
+    },
     _initScroll () {
       this.$nextTick(() => {
         if (!this.scroll) {
@@ -94,6 +118,15 @@ export default {
           this.scroll.refresh()
         }
       })
+    },
+    clear () {
+      localStorage.clear()
+      this.$toast({
+        message: '缓存已清除',
+        position: 'bottom',
+        duration: 1000
+      })
+      this.$router.push('/login')
     },
     get_user_info () {
       var params = new FormData()
@@ -166,14 +199,14 @@ export default {
   top 0
   left 0
   right 0
-  bottom 2.6rem
+  bottom 2.8rem
   font-size .8rem
   overflow hidden
   background #f5f5f5
   color #fff
   .container
     position absolute
-    top 2.4rem
+    top 2.8rem
     bottom 0
     margin-bottom 2rem
     left 0
@@ -183,14 +216,15 @@ export default {
       padding .8rem
       background #fff
     .information
-      padding .5rem .8rem
-      background #ff740e
-      border-radius .4rem
+      padding 0 1.8rem 1.5rem
+      background #111216
+      color #f1ad46
+      border-bottom 1px solid #f1ad46
       .header
         display flex
         justify-content space-between
         .nickName
-          line-height 4rem
+          line-height 2rem
           overflow hidden
           text-overflow ellipsis
           white-space nowrap
@@ -205,7 +239,7 @@ export default {
             border-radius 100%
             margin .5rem
       .copyContent
-        line-height 1.6rem
+        line-height 2rem
         overflow hidden
         text-overflow ellipsis
         white-space nowrap
@@ -216,8 +250,9 @@ export default {
       height 2.4rem
       padding .5rem 0
       text-align center
-      border-radius .4rem
-      background #ff740e
+      background #111216
+      color #f1ad46
+      margin-bottom .8rem
       .consume, .cash
         flex 1
         .title
@@ -228,7 +263,23 @@ export default {
       .line
         width 2px
         height 2.4rem
-        background #fff
+        background #f1ad46
+    .icon-group
+      display flex
+      padding .6rem 0
+      background #fff
+      border-top 1px solid #f5f5f5
+      .center
+        border-left 1px solid #f5f5f5
+        border-right 1px solid #f5f5f5
+      .item
+        flex 1
+        text-align center
+        color #f1ad46
+        font-size .6rem
+        line-height 1.2rem
+        img
+          height 1.6rem
     .items
       .mint-cell-wrapper
         background-image none

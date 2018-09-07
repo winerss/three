@@ -1,12 +1,12 @@
 <template>
   <div id="convert">
     <Header :showLeft="showLeft" :showTitle="showTitle">
-      <p slot="title">兑换消费积分</p>
+      <p slot="title">兑换注册积分</p>
     </Header>
     <div class="container">
       <mt-field label="转入数量" placeholder="数量不能低于10，并小于20%" v-model='form.amount'></mt-field>
       <mt-field label="交易密码" type="password" placeholder="请输入≥6的字母+数字的密码" v-model='form.password'></mt-field>
-      <mt-button size="small" :class="{ active: isActive }" @click="confirm" class="confirm">兑换消费积分</mt-button>
+      <mt-button size="small" :class="{ active: isActive }" @click="confirm" class="confirm">兑换注册积分</mt-button>
     </div>
   </div>
 </template>
@@ -85,7 +85,7 @@ export default {
       width 80px
   .container
     position absolute
-    top 2.4rem
+    top 2.8rem
     bottom 0
     left 0
     right 0

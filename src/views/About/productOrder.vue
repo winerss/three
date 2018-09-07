@@ -89,7 +89,7 @@ export default {
   color #000
   .container
     position absolute
-    top 2.4rem
+    top 2.8rem
     bottom 0
     left 0
     right 0
@@ -105,8 +105,13 @@ export default {
             background #ffffff
             padding .4rem .6rem
             margin-top .4rem
-            .top, .center,.detail .bottom
+            .top, .center,.detail, .bottom
                 display flex
                 line-height 1.4rem
                 justify-content space-between
+                p
+                    width 50%
+                    overflow: hidden;
+                    text-overflow:ellipsis;
+                    white-space: nowrap;
 </style>

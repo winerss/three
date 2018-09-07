@@ -51,7 +51,7 @@ export default {
 <style lang="stylus">
 #putup
   .navbar
-    margin-top 2.4rem
+    margin-top 2.8rem
     display flex
     background #ddd
     font-size .8rem

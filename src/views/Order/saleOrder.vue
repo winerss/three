@@ -17,21 +17,21 @@
             <div class="text">
               <p class="nick-name">{{item.self_nickname}}</p>
               <p class="item-time">{{item.create_time}}</p>
-              <p class="item-sign" v-if="item.sign === '1'">挂释放钱包</p>
-              <p class="item-sign" v-if="item.sign === '2'">挂现金积分</p>
+              <p class="item-sign" style="color: #f1ad46;" v-if="item.sign === '1'">挂释放钱包</p>
+              <p class="item-sign" style="color: #26a2ff;" v-if="item.sign === '2'">挂现金积分</p>
             </div>
             <div class="item-body">
               <div class="left">
                 <p>数量（个）</p>
-                <p>{{item.amount}}</p>
+                <p class="money">{{item.amount}}</p>
               </div>
               <div class="center">
                 <p>单价（元）</p>
-                <p>{{item.price}}</p>
+                <p class="money">{{item.price}}</p>
               </div>
               <div class="right">
                 <p>总计（元）</p>
-                <p>{{(item.amount * item.price).toFixed(5)}}</p>
+                <p class="money">{{(item.amount * item.price).toFixed(5)}}</p>
               </div>
             </div>
             <div class="item-footer">
@@ -131,7 +131,7 @@ export default {
 <style lang="stylus">
 #saleOrder
   position absolute
-  top 2.4rem
+  top 2.8rem
   width 100%
   bottom 0
   overflow hidden
@@ -146,7 +146,7 @@ export default {
     background #fff
     line-height 2rem
     text-align center
-    color #999
+    color #f1ad46
     p
       flex 1
   .title-price
@@ -159,7 +159,7 @@ export default {
     background #fff
     line-height 2rem
     text-align center
-    color #999
+    color #333
     p
       flex 1
   .content
@@ -172,23 +172,25 @@ export default {
       color #999
       .item
         margin-bottom .4rem
-        border-top 1px solid #ddd
-        border-bottom 1px solid #ddd
+        border-top 1px solid #f5f5f5
+        border-bottom 1px solid #f5f5f5
         background #fff
         .text
           padding 0 .6rem
           display flex
           justify-content space-between
-          line-height 1.6rem
+          line-height 2.6rem
           padding-right .6rem
         .item-body
           padding 0 .6rem
-          border-top 1px solid #ebebeb
-          border-bottom 1px solid #ebebeb
+          border-top 1px solid #f5f5f5
+          border-bottom 1px solid #f5f5f5
           display flex
           justify-content space-between
-          line-height 1.6rem
+          line-height 1.8rem
           text-align center
+          .money
+            color #333
         .item-footer
           overflow hidden
           button

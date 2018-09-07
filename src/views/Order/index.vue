@@ -55,7 +55,7 @@ export default {
   top 0
   left 0
   right 0
-  bottom 2.6rem
+  bottom 2.8rem
   font-size .8rem
   .header
     position fixed
@@ -64,16 +64,12 @@ export default {
     top 0
     left 0
     right 0
-    height 2.4rem
+    height 2.8rem
     padding 0 .8rem
-    line-height 2.4rem
+    line-height 3.4rem
     font-weight bold
-    background: -webkit-linear-gradient(left, #ff740e, #ff3d33); /* Safari 5.1 - 6.0 */
-    background: -o-linear-gradient(right, #ff740e, #ff3d33); /* Opera 11.1 - 12.0 */
-    background: -moz-linear-gradient(right, #ff740e, #ff3d33); /* Firefox 3.6 - 15 */
-    background: linear-gradient(to right, #ff740e, #ff3d33); /* 标准的语法（必须放在最后） */
-    background #ebebeb
-    color #333
+    background #111216
+    color #fff
     font-size .8rem
     border-bottom 1px solid #999
     .center
@@ -84,16 +80,16 @@ export default {
       .btn-group
         height 1.4rem
         width 80%
-        margin-top .5rem
+        margin-top .7rem
         display flex
         justify-content center
         align-items center
         overflow hidden
-        border 1px solid #ff740e;
+        border 1px solid #f1ad46;
         font-size 0
         p
           display inline-block
-          line-height 1.4rem
+          line-height 2rem
           width 100%
           text-align center
           font-size .8rem
@@ -101,17 +97,17 @@ export default {
           a
             display inline-block
             width 100%
-            color #333
+            color #f1ad46
           .router-link-active
             background #ff740e
             color #fff
     .right
       position absolute
       right .8rem
-      line-height 2.6rem
+      line-height 2.8rem
       p
         img
-          height 1.2rem
+          height 1.4rem
           float left
-          margin .6rem .2rem 0 0
+          margin .7rem .2rem 0 0
 </style>

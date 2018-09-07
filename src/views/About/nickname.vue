@@ -44,13 +44,13 @@ export default {
   top 0
   left 0
   right 0
-  bottom 2.6rem
+  bottom 2.8rem
   font-size .8rem
   background #fff
   color #000
   .container
     position absolute
-    top 2.4rem
+    top 2.8rem
     bottom 0
     left 0
     right 0

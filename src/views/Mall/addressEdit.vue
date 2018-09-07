@@ -40,7 +40,7 @@ export default {
   right 0
   .container
     position absolute
-    top 2.4rem
+    top 2.8rem
     bottom 2.6rem
     left 0
     right 0

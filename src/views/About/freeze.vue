@@ -72,7 +72,7 @@ export default {
   color #000
   .container
     position absolute
-    top 2.4rem
+    top 2.8rem
     bottom 0
     left 0
     right 0
@@ -83,7 +83,7 @@ export default {
       display none
     .income
       margin .8rem 0
-      padding .5rem 0
+      padding 1.5rem 0
       text-align center
       background #ff740e
       border-radius .4rem

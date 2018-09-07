@@ -65,7 +65,7 @@ export default {
 #orderRecord
   .container
     position absolute
-    top 2.4rem
+    top 2.8rem
     bottom 0
     left 0
     right 0

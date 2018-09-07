@@ -78,13 +78,10 @@ export default {
   top 0
   left 0
   right 0
-  height 2.4rem
-  line-height 2.6rem
+  height 2.8rem
+  line-height 3rem
   font-weight bold
-  background: -webkit-linear-gradient(left, #ff740e, #ff3d33); /* Safari 5.1 - 6.0 */
-  background: -o-linear-gradient(right, #ff740e, #ff3d33); /* Opera 11.1 - 12.0 */
-  background: -moz-linear-gradient(right, #ff740e, #ff3d33); /* Firefox 3.6 - 15 */
-  background: linear-gradient(to right, #ff740e, #ff3d33); /* 标准的语法（必须放在最后） */
+  background #111216
   color #fff
   justify-content space-between
   text-align center
@@ -94,7 +91,7 @@ export default {
     left 0
     right 0
     top 0
-    height 2.4rem
+    height 3.4rem
     z-index 1
   .left
     position absolute
@@ -103,9 +100,11 @@ export default {
     img
       float left
       height .8rem
-      margin-top .8rem
+      margin-top 1.1rem
   .right
     position absolute
     z-index 4
     right .6rem
+    img
+      margin-top .6rem
 </style>

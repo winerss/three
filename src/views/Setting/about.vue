@@ -5,15 +5,15 @@
     </Header>
     <div class="container">
       <div class="logo">
-        <img src="../../assets/img/logo-icon.jpg" alt="">
+        <img src="../../assets/img/logo.jpg" alt="">
         <p class="info">{{lang.version}} 1.0.0</p>
       </div>
       <div class="items">
-        <mt-cell :title="lang.label" is-link>
+        <mt-cell :title="lang.label">
           <p>{{lang.content}}</p>
         </mt-cell>
-        <mt-cell :title="lang.label2" is-link>
-        </mt-cell>
+        <!-- <mt-cell :title="lang.label2" is-link>
+        </mt-cell> -->
       </div>
     </div>
   </div>
@@ -71,7 +71,7 @@ export default {
   color #000
   .container
     position absolute
-    top 2.4rem
+    top 2.8rem
     bottom 0
     left 0
     right 0

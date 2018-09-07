@@ -18,8 +18,8 @@
               <div style="overflow:hidden;display:flex;justify-content:space-between;line-height: 2rem;padding: 0 .6rem;">
                 <p>{{item.username}}</p>
                 <p>{{item.create_time}}</p>
-                <p class="item-sign" v-if="item.sign === '1'">挂释放钱包</p>
-                <p class="item-sign" v-if="item.sign === '2'">挂现金积分</p>
+                <p class="item-sign" style="color: #f1ad46;" v-if="item.sign === '1'">挂释放钱包</p>
+                <p class="item-sign" style="color: #26a2ff;" v-if="item.sign === '2'">挂现金积分</p>
               </div>
               <div class="item-body">
                 <div class="left">
@@ -149,7 +149,7 @@ export default {
               this.data.push(element)
             }
           })
-        }  else if (status === '2') { // 取消
+        } else if (status === '2') { // 取消
           response.data.data.forEach(element => {
             if (element.status === '2') {
               this.data.push(element)
@@ -205,7 +205,7 @@ export default {
         outline none
   .container
     position absolute
-    top 2.4rem
+    top 2.8rem
     bottom 0
     left 0
     right 0

@@ -1,8 +1,8 @@
 <template>
   <div id="putbuy">
     <div class="price">
-      <p>最高价：CNY {{max}}</p>
-      <p>最低价：CNY {{min}}</p>
+      <p><span style="color:#ff740e;">最高价：</span>CNY {{max}}</p>
+      <p><span style="color:#ff740e;">最低价：</span>CNY {{min}}</p>
     </div>
     <mt-radio
       v-model="value"
@@ -176,8 +176,11 @@ export default {
       line-height 26px
       flex 1
       background #f5f5f5
-      color #666
+      color #333
       text-align center
+  .mint-radiolist
+    .mint-radiolist-title
+      margin 0
   .mint-cell
     border-bottom 1px solid #ddd
     background #fff

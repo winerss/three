@@ -122,7 +122,7 @@ export default {
 #mall
   position absolute
   top 0
-  bottom 2.6rem
+  bottom 2.8rem
   left 0
   right 0
   .item

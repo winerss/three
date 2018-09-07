@@ -62,7 +62,7 @@ export default {
   background #f5f5f5
   .container
     position absolute
-    top 2.4rem
+    top 2.8rem
     left 0
     right 0
     bottom 0

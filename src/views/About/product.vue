@@ -33,7 +33,7 @@
         </div>
         <p class="title">支付方式</p>
         <div class="tips">
-          注册积分小于{{precent * 100}}%
+          注册积分小于等于{{precent * 100}}%
           <!-- <mt-radio
             v-model="value"
             :options="options">
@@ -125,9 +125,9 @@ export default {
     changeCount () {
       let price = this.products[this.type - 1].point * this.precent
       console.log(price)
-      if (this.enroll_point >= price) {
+      if (this.enroll_point > price) {
         this.$toast({
-          message: `注册积分需要小于${this.precent * 100}%`,
+          message: `注册积分需要小于等于${this.precent * 100}%`,
           position: 'bottom',
           duration: 1000
         })
@@ -283,7 +283,7 @@ export default {
       width 80px
   .container
     position absolute
-    top 2.4rem
+    top 2.8rem
     bottom 0
     left 0
     right 0

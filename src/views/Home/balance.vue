@@ -127,7 +127,7 @@ export default {
     margin-top 3.2rem
     .income
       margin .8rem .6rem
-      padding .5rem 0
+      padding 1.5rem 0
       text-align center
       background #ff740e
       border-radius .4rem

@@ -2,56 +2,73 @@
   <div id="home">
     <Header :showTitle="showTitle" :showRight="showRight">
       <p slot="title">{{lang.lable1}}</p>
-      <router-link class="message-icon" slot="right" to="/message"><img src="../../assets/img/cc-message.png" alt=""></router-link>
+      <router-link class="message-icon" slot="right" to="/message"><img src="../../assets/img/message.png" alt=""></router-link>
     </Header>
     <div class="container" ref="wrapper">
       <div class="wrapper">
-        <div class="box">
-          <div class="income">
-            <p class="current">{{lang.lable2}}</p>
-            <p class="curMoney" @click="goDetail('/balance', 'balance', today)">{{ today }}</p>
-            <p class="yesterday">{{lang.lable3}}</p>
-            <p class="yesMoney">{{yesterday}}</p>
+        <div class="center" @click="H5toNativeUrl">
+          <div class="imgwrap"><div class="img"><img src="../../assets/img/scan.png" alt=""></div></div>
+          <p class="title">{{lang.lable10}}</p>
+        </div>
+        <div class="integration">
+          <div class="consume" @click="goDetail('/balance', 'balance', today)">
+            <p class="title">{{lang.lable2}}</p>
+            <p class="money">{{ today}}</p>
+          </div>
+          <div class="line"></div>
+          <div class="consume">
+            <p class="title">{{lang.lable3}}</p>
+            <p class="money">{{ yesterday}}</p>
           </div>
         </div>
-        <div class="box">
-          <div class="integration">
-            <div class="consume" @click="goDetail('/balance', 'enroll_point', data.enroll_point)">
-              <p class="title">{{lang.lable44}}</p>
-              <p class="money">{{ data.enroll_point}}</p>
-            </div>
-            <div class="line"></div>
-            <div class="consume" @click="goDetail('/balance', 'consume', data.zhu_point)">
-              <p class="title">{{lang.lable4}}</p>
-              <p class="money">{{ data.zhu_point}}</p>
-            </div>
-            <div class="line"></div>
-            <div class="cash" @click="goDetail('/balance', 'cash', data.cash_point)">
-              <p class="title">{{lang.lable5}}</p>
-              <p class="money">{{ data.cash_point }}</p>
-            </div>
+        <div class="integration">
+          <div class="consume" @click="goDetail('/balance', 'enroll_point', data.enroll_point)">
+            <p class="title">{{lang.lable44}}</p>
+            <p class="money">{{ data.enroll_point}}</p>
+          </div>
+          <div class="line"></div>
+          <div class="consume" @click="goDetail('/balance', 'consume', data.zhu_point)">
+            <p class="title">{{lang.lable4}}</p>
+            <p class="money">{{ data.zhu_point}}</p>
+          </div>
+          <div class="line"></div>
+          <div class="cash" @click="goDetail('/balance', 'cash', data.cash_point)">
+            <p class="title">{{lang.lable5}}</p>
+            <p class="money">{{ data.cash_point }}</p>
           </div>
         </div>
-        <div class="box">
-          <div class="operation">
-            <div class="left" @click="goDetail('/transfer')">
-              <div class="imgwrap"><div class="img"><img src="../../assets/img/plane.png" alt=""></div></div>
-              <p class="title">{{lang.lable6}}</p>
-              <p class="descripte">{{lang.lable7}}</p>
-            </div>
-            <div class="center" @click="H5toNativeUrl">
-              <div class="imgwrap"><div class="img"><img src="../../assets/img/scan.png" alt=""></div></div>
-              <p class="title">{{lang.lable10}}</p>
-              <p class="descripte">{{lang.lable11}}</p>
-            </div>
-            <div class="right" @click="goDetail('/receive')">
-              <div class="imgwrap"><div class="img"><img src="../../assets/img/qrcode.png" alt=""></div></div>
-              <p class="title">{{lang.lable8}}</p>
-              <p class="descripte">{{lang.lable9}}</p>
-            </div>
+        <!-- <div class="income">
+          <p class="current">{{lang.lable2}}</p>
+          <p class="curMoney" @click="goDetail('/balance', 'balance', today)">{{ today }}</p>
+          <p class="yesterday">{{lang.lable3}}</p>
+          <p class="yesMoney">{{yesterday}}</p>
+        </div> -->
+        <p style="height:.8rem;"></p>
+        <div class="operation">
+          <div class="left" @click="goDetail('/transfer')">
+            <div class="imgwrap"><div class="img"><img src="../../assets/img/plane.png" alt=""></div></div>
+            <p class="title">{{lang.lable6}}</p>
+            <!-- <p class="descripte">{{lang.lable7}}</p> -->
+          </div>
+          <div class="right" @click="goDetail('/receive')">
+            <div class="imgwrap"><div class="img"><img src="../../assets/img/plane1.png" alt=""></div></div>
+            <p class="title">{{lang.lable8}}</p>
+            <!-- <p class="descripte">{{lang.lable9}}</p> -->
           </div>
         </div>
-        <div class="box">
+        <div class="operation">
+          <div class="left" @click="goDetail('/mall')">
+            <div class="imgwrap"><div class="img"><img src="../../assets/img/mall.png" alt=""></div></div>
+            <p class="title">商城</p>
+            <!-- <p class="descripte">{{lang.lable7}}</p> -->
+          </div>
+          <div class="right" @click="goDetail('/message')">
+            <div class="imgwrap"><div class="img"><img src="../../assets/img/cc-message.png" alt=""></div></div>
+            <p class="title">信息</p>
+            <!-- <p class="descripte">{{lang.lable9}}</p> -->
+          </div>
+        </div>
+        <!-- <div class="box">
           <div class="notice">
             <div class="left" @click="goDetail('/noticeList')">
               <img src="../../assets/img/notice.png" alt="">
@@ -66,7 +83,7 @@
             <p class="detail">{{lang.lable15}}</p>
           </div>
         </div>
-        <p class="bottom">-----{{lang.lable16}}！-----</p>
+        <p class="bottom">-----{{lang.lable16}}！-----</p> -->
       </div>
     </div>
   </div>
@@ -162,11 +179,11 @@ export default {
         lable4: '消费积分',
         lable44: '注册积分',
         lable5: '现金积分',
-        lable6: '发送',
+        lable6: '转出',
         lable7: '扫描',
-        lable8: '接收',
+        lable8: '转入',
         lable9: '免手续费',
-        lable10: '扫码支付',
+        lable10: '扫一扫',
         lable11: '快速到账',
         lable12: '公告',
         lable13: '更多',
@@ -203,7 +220,7 @@ window.reviced = function (res) {
   top 0
   left 0
   right 0
-  bottom 2.6rem
+  bottom 2.8rem
   font-size .8rem
   background #f5f5f5
   color #000
@@ -215,7 +232,7 @@ window.reviced = function (res) {
       margin-top .4rem
   .container
     position absolute
-    top 2.4rem
+    top 2.8rem
     bottom 0
     left 0
     right 0
@@ -227,9 +244,8 @@ window.reviced = function (res) {
     .income
       padding .8rem 0
       text-align center
-      background #ff740e
-      border-radius .4rem
-      color #fff
+      background #111216
+      color #f1ad46
       .current
         font-size .8rem
       .curMoney
@@ -238,54 +254,53 @@ window.reviced = function (res) {
       .yesMoney
         font-size 1rem
         line-height 2rem
+    .center
+      height 6rem
+      background #111216
+      color #ebebeb
+      text-align center
+      line-height 1.4rem
+      img
+        margin-top 1rem
+        width 2rem
     .integration
       display flex
-      height 2.4rem
-      padding .5rem 0
+      height 3rem
+      padding .8rem 0
       text-align center
-      border-radius .4rem
-      background #ff740e
-      color #fff
+      background #111216
+      color #f1ad46
       .consume, .cash
         flex 1
         .title
-          line-height 1.2rem
+          line-height 1.6rem
+          font-size .8rem
         .money
           line-height 1.4rem
-          font-size .8rem
+          font-size .6rem
       .line
         width 2px
-        height 2.4rem
-        background #fff
+        height 2rem
+        margin-top .5rem
+        background #f1ad46
     .operation
       display flex
       padding .8rem 0
-      border-radius .4rem
-      .left,.center,.right
+      background #fff
+      border-top 1px solid #f5f5f5
+      .left,.right
         flex 1
         text-align center
         .imgwrap
-          height 3.4rem
-          width 3.4rem
-          margin 0 auto
-          border-radius 50%
-          border .1rem solid #ff740e
-          .img
-            width 2.8rem
-            height 2.8rem
-            margin .25rem auto
-            border-radius 50%
-            // background #fff
-            img
-              width 1.8rem
-              height 1.8rem
-              margin .5rem auto
+          img
+            height 2rem
+            width 2rem
         .title
+          color #f1ad46
           line-height 2rem
-          color #333
-        .descripte
-          font-size .6rem
-          color #999
+          font-size .8rem
+      .right
+        border-left 1px solid #f5f5f5
     .notice
       display flex
       justify-content space-between

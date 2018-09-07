@@ -169,9 +169,14 @@ export default {
     padding 0 .8rem
     background #ddd
     color #fff
+  .mint-radiolist
+    .mint-radiolist-title
+      margin 0
   .mint-cell
     border-bottom 1px solid #ddd
     background #fff
+    .mint-radio-label
+      font-size .8rem
     .mint-cell-wrapper
       background-image none
     .mint-cell-title
