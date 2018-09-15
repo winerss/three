@@ -99,7 +99,7 @@ export default {
             width 100%
             color #f1ad46
           .router-link-active
-            background #ff740e
+            background #f1ad46
             color #fff
     .right
       position absolute

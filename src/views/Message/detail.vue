@@ -105,7 +105,7 @@ export default {
             padding-right .4rem
           .class-b
             text-align left
-            background #ff740e
+            background #f1ad46
             border-radius .4rem
             color #fff
             padding-left .4rem
@@ -119,7 +119,7 @@ export default {
     line-height 2rem
     text-align center
     background #ccc
-    color #ff740e
+    color #f1ad46
     input
       float left
       width 60%
@@ -132,5 +132,5 @@ export default {
       height 2rem
       border none
       color #fff
-      background #ff740e
+      background #f1ad46
 </style>

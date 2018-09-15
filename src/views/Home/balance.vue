@@ -129,7 +129,7 @@ export default {
       margin .8rem .6rem
       padding 1.5rem 0
       text-align center
-      background #ff740e
+      background #f1ad46
       border-radius .4rem
       .current
         font-size .8rem
@@ -145,7 +145,7 @@ export default {
           height 10px
           width 10px
           margin-right .5rem
-          background #ff740e
+          background #f1ad46
       .items
         color #333
         .item

@@ -7,6 +7,10 @@
       <div class="income">
         <p class="current">当前值</p>
         <p class="curMoney">{{ curMoney }}</p>
+        <div class="month">
+          <p>锁仓时间: {{mydate.date}}</p>
+          <p>释放时间: {{mydate.expire_time}}</p>
+        </div>
       </div>
       <div class="detail">
         <p class="title"><span></span>资产明细</p>
@@ -36,7 +40,8 @@ export default {
       showTitle: true,
       showLeft: true,
       items: [],
-      curMoney: 0
+      curMoney: 0,
+      mydate: {}
     }
   },
   methods: {
@@ -48,6 +53,13 @@ export default {
         let data = res.data.data
         this.items = data
       })
+    },
+    getdate () {
+      var params = new FormData()
+      params.append('sid', localStorage.getItem('sid'))
+      this.axios.post(process.env.API_ROOT + '/api/block/get_month', params).then((res) => {
+        this.mydate = res.data.data
+      })
     }
   },
   components: {
@@ -56,6 +68,7 @@ export default {
   mounted () {
     this.curMoney = this.$route.params.id
     this.getData()
+    this.getdate()
   }
 }
 </script>
@@ -85,7 +98,7 @@ export default {
       margin .8rem 0
       padding 1.5rem 0
       text-align center
-      background #ff740e
+      background #f1ad46
       border-radius .4rem
       color #fff
       .current
@@ -93,6 +106,9 @@ export default {
       .curMoney
         font-size 1.6rem
         line-height 3rem
+      .month
+        display flex
+        justify-content space-around
     .detail
       margin-top 1rem
       .title
@@ -102,7 +118,7 @@ export default {
           height 10px
           width 10px
           margin-right .5rem
-          background #ff740e
+          background #f1ad46
       .items
         color #333
         .item

@@ -120,11 +120,11 @@ export default {
       background #999
       color #ccc
     .active
-      background #ff740e
+      background #f1ad46
       color #fff
     .bottom
       margin-top 4rem
       display flex
       justify-content space-around
-      color #ff740e
+      color #f1ad46
 </style>

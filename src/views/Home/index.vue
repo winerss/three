@@ -43,11 +43,21 @@
           <p class="yesterday">{{lang.lable3}}</p>
           <p class="yesMoney">{{yesterday}}</p>
         </div> -->
+        <mt-swipe :auto="4000">
+          <mt-swipe-item v-for="item in banner" :key="item.id">
+            <img style="width: 100%;height:100%;" :src="url + item.img" alt="">
+          </mt-swipe-item>
+        </mt-swipe>
         <p style="height:.8rem;"></p>
         <div class="operation">
           <div class="left" @click="goDetail('/transfer')">
             <div class="imgwrap"><div class="img"><img src="../../assets/img/plane.png" alt=""></div></div>
             <p class="title">{{lang.lable6}}</p>
+            <!-- <p class="descripte">{{lang.lable7}}</p> -->
+          </div>
+          <div class="middle" @click="goDetail('/myorder')">
+            <div class="imgwrap"><div class="img"><img src="../../assets/img/platform.png" alt=""></div></div>
+            <p class="title">我的交易平台</p>
             <!-- <p class="descripte">{{lang.lable7}}</p> -->
           </div>
           <div class="right" @click="goDetail('/receive')">
@@ -62,9 +72,13 @@
             <p class="title">商城</p>
             <!-- <p class="descripte">{{lang.lable7}}</p> -->
           </div>
-          <div class="right" @click="goDetail('/message')">
-            <div class="imgwrap"><div class="img"><img src="../../assets/img/cc-message.png" alt=""></div></div>
-            <p class="title">信息</p>
+          <div class="middle" @click="goDetail('/orderRecord')">
+            <div class="imgwrap"><div class="img"><img src="../../assets/img/record.png" alt=""></div></div>
+            <p class="title">账单记录</p>
+          </div>
+          <div class="right" @click="goDetail('/noticeList')">
+            <div class="imgwrap"><div class="img"><img src="../../assets/img/notice.png" alt=""></div></div>
+            <p class="title">公告</p>
             <!-- <p class="descripte">{{lang.lable9}}</p> -->
           </div>
         </div>
@@ -100,10 +114,13 @@ export default {
       data: {},
       today: 0,
       yesterday: 0,
-      lang: {}
+      lang: {},
+      banner: [],
+      url: ''
     }
   },
   created () {
+    this.url = process.env.API_ROOT
     globalVue = this
   },
   methods: {
@@ -146,12 +163,20 @@ export default {
         this.today = res.data.data.today
         this.yesterday = res.data.data.yesterday
       })
+    },
+    get_banner () {
+      var params = new FormData()
+      params.append('sid', localStorage.getItem('sid'))
+      this.axios.post(process.env.API_ROOT + '/api/block/banner', params).then((res) => {
+        this.banner = res.data.data
+      })
     }
   },
   mounted () {
     this._initScroll()
     this.get_user_info()
     this.get_today()
+    this.get_banner()
     let lang = {
       en: {
         lable1: 'Fairy grass mill',
@@ -263,6 +288,8 @@ window.reviced = function (res) {
       img
         margin-top 1rem
         width 2rem
+    .mint-swipe
+      height 6rem
     .integration
       display flex
       height 3rem
@@ -288,7 +315,7 @@ window.reviced = function (res) {
       padding .8rem 0
       background #fff
       border-top 1px solid #f5f5f5
-      .left,.right
+      .left,.middle,.right
         flex 1
         text-align center
         .imgwrap
@@ -299,7 +326,8 @@ window.reviced = function (res) {
           color #f1ad46
           line-height 2rem
           font-size .8rem
-      .right
+      .middle
+        border-right 1px solid #f5f5f5
         border-left 1px solid #f5f5f5
     .notice
       display flex
@@ -314,7 +342,7 @@ window.reviced = function (res) {
     .tips
       padding .8rem
       border-radius .4rem
-      background #ff740e
+      background #f1ad46
       color #fff
       .detail
         text-align center

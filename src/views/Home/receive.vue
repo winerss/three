@@ -112,7 +112,7 @@ export default {
       color #666
       line-height 1.4rem
     .copy
-      color #ff740e
+      color #f1ad46
       text-align center
       font-size 1rem
       margin-top 1rem

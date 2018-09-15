@@ -89,7 +89,7 @@ export default {
       margin .8rem 0
       padding 1.5rem 0
       text-align center
-      background #ff740e
+      background #f1ad46
       border-radius .4rem
       color #fff
       .current
@@ -106,7 +106,7 @@ export default {
           height 10px
           width 10px
           margin-right .5rem
-          background #ff740e
+          background #f1ad46
       .items
         padding-bottom 2.4rem
         color #333
@@ -128,5 +128,5 @@ export default {
       line-height 2rem
       text-align center
       background #ccc
-      color #ff740e
+      color #f1ad46
 </style>

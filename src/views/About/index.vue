@@ -27,14 +27,14 @@
           </div>
         </div>
         <div class="icon-group">
-          <div class="item" @click="goPage('/myorder')">
+          <!-- <div class="item" @click="goPage('/myorder')">
             <img src="../../assets/img/platform.png" alt="">
             <p>我的交易平台</p>
           </div>
           <div class="item center" @click="goPage('/orderRecord')">
             <img src="../../assets/img/record.png" alt="">
             <p>账单记录</p>
-          </div>
+          </div> -->
           <div class="item" @click="goPage('/reward')">
             <img src="../../assets/img/share.png" alt="">
             <p>分享奖励</p>

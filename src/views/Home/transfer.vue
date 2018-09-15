@@ -18,7 +18,7 @@
       <div class="telphone">
         <mt-cell title="验证码">
           <input type="text" v-model="form.code">
-          <p v-show="codeSta" @click="getCode" style="font-size: 0.6rem;color:#ff740e;">获取验证码</p>
+          <p v-show="codeSta" @click="getCode" style="font-size: 0.6rem;color:#f1ad46;">获取验证码</p>
           <mt-button v-show="!codeSta" style="font-size: 0.6rem;" size="small" type="primary">{{time + ' 秒后获取'}}</mt-button>
         </mt-cell>
       </div>
@@ -215,10 +215,10 @@ export default {
       background #999
       color #ccc
     .active
-      background #ff740e
+      background #f1ad46
       color #fff
     .tips
       text-align center
       .num
-        color #ff740e
+        color #f1ad46
 </style>

@@ -13,7 +13,9 @@
         <div class="product">
           <div class="right">
             <p class="name">{{products[type - 1].title}}</p>
-            <p class="coin">{{products[type - 1].point}}积分</p>
+            <p class="coin">价格：{{products[type - 1].point}}</p>
+            <!-- <p style="font-size: .6rem;">分享收益比例: {{products[type - 1].reword * 100}}%</p> -->
+            <!-- <p style="font-size: .6rem;margin-top:.2rem;">数量：{{products[type - 1].inventory}}</p> -->
           </div>
         </div>
         <p class="title">收货地址</p>
@@ -39,8 +41,15 @@
             :options="options">
           </mt-radio> -->
         </div>
+        <select v-model="pri" style="display:block;width:96%;border:none;background: #f5f5f5;border:1px solid #ccc;height:2rem;margin: 1rem auto;">
+          <option v-for="item in headData"
+            :key="item.id"
+            :value="item">{{item}}</option>
+        </select>
+        <mt-field label="数量" type="number" placeholder="请输入数量" readonly  v-model='form.amount'></mt-field>
         <mt-field label="注册积分" type="number" placeholder="请输入注册积分" v-on:blur.native.capture="changeCount()" v-model='enroll_point'></mt-field>
-        <mt-field label="消费积分" type="number" placeholder="请输入消费积分" v-model="products[type - 1].point - enroll_point"></mt-field>
+        <!-- <mt-field label="消费积分" type="number" placeholder="请输入消费积分" v-model="(products[type - 1].point * form.amount) - enroll_point"></mt-field> -->
+        <mt-field label="消费积分" type="number" placeholder="请输入消费积分" v-model="zhu_point"></mt-field>
         <mt-field label="交易密码" type="password" placeholder="请输入≥6的字母+数字的密码" v-model='form.password'></mt-field>
         <mt-button size="small" @click.native="confirm" :class="{ active: isActive }" class="confirm">购买</mt-button>
       </div>
@@ -58,13 +67,16 @@ export default {
       showTitle: true,
       showRight: true,
       type: '1',
+      pri: '请选择',
       form: {
         address: '',
         name: '',
         tel: '',
         password: '',
-        addressDetail: ''
+        addressDetail: '',
+        amount: Number
       },
+      headData: ['请选择', '1000', '2000', '3000', '6000', '12000', '30000', '60000'],
       enroll_point: Number,
       zhu_point: Number,
       value: '1',
@@ -110,9 +122,12 @@ export default {
     this.url = process.env.API_ROOT
   },
   watch: {
+    pri (curVal, oldVal) {
+　　  this.form.amount = curVal / this.products[this.type - 1].point
+　　},
     form: {
       handler (newValue, oldValue) {
-        if (oldValue.address && oldValue.tel && oldValue.password && oldValue.name) {
+        if (oldValue.address && oldValue.tel && oldValue.amount && oldValue.password && oldValue.name) {
           this.isActive = true
         } else {
           this.isActive = false
@@ -123,7 +138,7 @@ export default {
   },
   methods: {
     changeCount () {
-      let price = this.products[this.type - 1].point * this.precent
+      let price = this.products[parseInt(this.type - 1)].point * this.precent * this.form.amount
       console.log(price)
       if (this.enroll_point > price) {
         this.$toast({
@@ -132,13 +147,13 @@ export default {
           duration: 1000
         })
       }
+      this.zhu_point = this.products[this.type - 1].point * this.form.amount - this.enroll_point
     },
     mix_encoll () {
       var params = new FormData()
       params.append('sid', localStorage.getItem('sid'))
       this.axios.post(process.env.API_ROOT + '/api/block/mix_encoll', params).then((res) => {
         this.precent = res.data.data
-        console.log(this.precent)
       })
     },
     goPage () {
@@ -197,6 +212,7 @@ export default {
       this.form.address = this.selectedp + this.selectedc + this.selecteda
     },
     picker (type) {
+      this.pri = '请选择'
       this.type = type
     },
     getProduct () {
@@ -209,6 +225,7 @@ export default {
             point: element.point,
             reword: element.reword,
             title: element.title,
+            inventory: element.inventory,
             key: (index + 1).toString()
           })
         })
@@ -227,10 +244,11 @@ export default {
       }
       var params = new FormData()
       params.append('enroll_point', this.enroll_point)
-      params.append('zhu_point', this.products[this.type - 1].point - this.enroll_point)
+      params.append('zhu_point', this.zhu_point)
       params.append('sid', localStorage.getItem('sid'))
       params.append('type', this.products[this.type - 1].id)
       params.append('sign', this.value)
+      params.append('amount', this.form.amount)
       params.append('receive_name', this.form.name)
       params.append('receive_address', this.form.address + this.form.addressDetail)
       params.append('receive_tel', this.form.tel)
@@ -302,7 +320,7 @@ export default {
         padding 0 .8rem
         margin .8rem 0
         line-height 2rem
-        color #ff740e
+        color #f1ad46
         background #fff
       .product
         overflow hidden
@@ -339,6 +357,6 @@ export default {
         margin 1rem auto
         background #ddd
       .active
-        background #ff740e
+        background #f1ad46
         color #fff
 </style>

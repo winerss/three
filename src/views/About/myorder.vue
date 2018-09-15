@@ -37,15 +37,15 @@
               </div>
               <div class="item-footer">
                 <div class="left">
-                  <mt-button size="small" v-if="item.type === '1'" style="color: #ff740e">买单</mt-button>
+                  <mt-button size="small" v-if="item.type === '1'" style="color: #f1ad46">买单</mt-button>
                   <mt-button size="small" v-if="item.type === '2'" style="color: #f00">卖单</mt-button>
                 </div>
                 <div class="right">
-                  <mt-button size="small" v-if="item.status === '1'" style="color: #ff740e">已完成</mt-button>
-                  <mt-button size="small" v-if="item.status === '1' || item.status === '3'" @click.native="getTel(item.id)" style="color: #ff740e">拨打电话</mt-button>
-                  <mt-button size="small" v-if="item.status === '1' || item.status === '3'" @click.native="contact(item.id)" style="color: #ff740e">联系买家</mt-button>
-                  <mt-button size="small" v-if="item.can_cancel === 1" @click.native="cancel(item.id)" style="color: #ff740e">取消订单</mt-button>
-                  <mt-button size="small" v-if="item.can_shou === 1 && item.status === '3'" @click="confirm(item.id)" style="backgroundColor: #ff740e;color:#fff;">确认收款</mt-button>
+                  <mt-button size="small" v-if="item.status === '1'" style="color: #f1ad46">已完成</mt-button>
+                  <mt-button size="small" v-if="item.status === '1' || item.status === '3'" @click.native="getTel(item.id)" style="color: #f1ad46">拨打电话</mt-button>
+                  <mt-button size="small" v-if="item.status === '1' || item.status === '3'" @click.native="contact(item.id)" style="color: #f1ad46">联系买家</mt-button>
+                  <mt-button size="small" v-if="item.can_cancel === 1" @click.native="cancel(item.id)" style="color: #f1ad46">取消订单</mt-button>
+                  <mt-button size="small" v-if="item.can_shou === 1 && item.status === '3'" @click="confirm(item.id)" style="backgroundColor: #f1ad46;color:#fff;">确认收款</mt-button>
                 </div>
               </div>
             </div>

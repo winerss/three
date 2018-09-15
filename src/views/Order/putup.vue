@@ -66,6 +66,6 @@ export default {
         width 80%
         color #333
       .router-link-active
-        color #ff740e
-        border-bottom .1rem solid #ff740e
+        color #f1ad46
+        border-bottom .1rem solid #f1ad46
 </style>

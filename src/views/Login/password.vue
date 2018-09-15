@@ -11,7 +11,7 @@
     <mt-field label="手机号码" v-model="form.tel" placeholder="请输入手机号码"></mt-field>
     <mt-cell title="验证码">
       <input type="text" v-model="form.code">
-      <p v-show="codeSta" @click="getCode" style="font-size: 0.8rem;color:#ff740e;">获取验证码</p>
+      <p v-show="codeSta" @click="getCode" style="font-size: 0.8rem;color:#f1ad46;">获取验证码</p>
       <mt-button v-show="!codeSta" size="small" style="font-size: 0.6rem;" type="primary">{{time + ' 秒后获取'}}</mt-button>
     </mt-cell>
     <mt-field label="用户名" placeholder="请输入用户名"  v-model="form.name"></mt-field>
@@ -153,7 +153,7 @@ export default {
     line-height 26px
     padding 0 .8rem
     background #ddd
-    color #ff740e
+    color #f1ad46
   .total
     display flex
     p
@@ -161,7 +161,7 @@ export default {
       line-height 26px
       flex 1
       background #ddd
-      color #ff740e
+      color #f1ad46
       text-align center
   .confirm
     display block
@@ -170,6 +170,6 @@ export default {
     background #999
     color #ccc
   .active
-    background #ff740e
+    background #f1ad46
     color #fff
 </style>

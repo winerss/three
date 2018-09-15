@@ -100,6 +100,6 @@ export default {
       margin 1rem auto
       background #ddd
     .active
-      background #ff740e
+      background #f1ad46
       color #fff
 </style>

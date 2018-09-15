@@ -54,7 +54,7 @@ export default {
         title: '更换手机号',
         label: '手机号',
         tips: '如果你更改了手机号，下次登陆可使用新手机号登录。',
-        btn: '跟换手机号'
+        btn: '更换手机号'
       }
     }
     if (localStorage.getItem('language') === 'en') {
@@ -103,6 +103,6 @@ export default {
       display block
       width 90%
       margin 1rem auto
-      background #ff740e
+      background #f1ad46
       color #fff
 </style>
