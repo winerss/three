@@ -17,8 +17,8 @@
       <mt-field label="手机号码" v-model="form.tel" readonly placeholder="请输入手机号码"></mt-field>
       <div class="telphone">
         <mt-cell title="验证码">
-          <input type="text" v-model="form.code">
-          <p v-show="codeSta" @click="getCode" style="font-size: 0.6rem;color:#f1ad46;">获取验证码</p>
+          <input type="text" v-model="form.code" placeholder="请输入验证码">
+          <p v-show="codeSta" @click="getCode" style="font-size: 0.6rem;color:#cda041;">获取验证码</p>
           <mt-button v-show="!codeSta" style="font-size: 0.6rem;" size="small" type="primary">{{time + ' 秒后获取'}}</mt-button>
         </mt-cell>
       </div>
@@ -180,45 +180,58 @@ export default {
 #transfer
   position absolute
   top 0
-  left 0
-  right 0
+  left 0.6rem
+  right .6rem
   bottom 0
   font-size .8rem
-  background #f5f5f5
   color #333
   overflow-y scroll
   -webkit-overflow-scrolling touch
   &::-webkit-scrollbar
     display none
+  .mint-radio-core
+    background-color none
+    border 1px solid #cda041
+  .mint-radio-input:checked + .mint-radio-core
+    background-color #cda041
+    border-color #cda041
   .container
     margin-top 3.2rem
+    .mint-radiolist
+      .mint-cell-title
+        width 180px !important
     .mint-cell
-      border-bottom 1px solid #ddd
-      background #fff
+      border-bottom 1px solid #999
+      background none
       .mint-cell-wrapper
         background-image none
+        font-size .8rem
       .mint-cell-title
         width 80px
+        color #cda041
+        flex inherit
       .mint-cell-text
         vertical-align top
         font-size .8rem
       .mint-cell-value
+        p
+          font-size .8rem
         input
           font-size .8rem
-          color #333
+          color #999
           outline none
-          background #fff
+          background none
     .confirm
       display block
-      width 90%
-      margin 1rem auto
+      width 80%
+      margin 2.5rem auto
       background #999
       color #ccc
     .active
-      background #f1ad46
+      background #cda041
       color #fff
     .tips
       text-align center
       .num
-        color #f1ad46
+        color #cda041
 </style>

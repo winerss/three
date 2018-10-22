@@ -85,6 +85,6 @@ export default {
       width 90%;
       margin 1rem auto
     .active
-      background #f1ad46
+      background #cda041
       color #fff
 </style>

@@ -98,7 +98,7 @@ export default {
       margin .8rem 0
       padding .5rem 0
       text-align center
-      background #f1ad46
+      background #cda041
       border-radius .4rem
       color #fff
       .current
@@ -115,7 +115,7 @@ export default {
       padding .5rem 0
       text-align center
       border-radius .4rem
-      background #f1ad46
+      background #cda041
       color #fff
       .consume, .cash
         flex 1
@@ -137,7 +137,7 @@ export default {
           height 10px
           width 10px
           margin-right .5rem
-          background #f1ad46
+          background #cda041
       .items
         color #333
         .item

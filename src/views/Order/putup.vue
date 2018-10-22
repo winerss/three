@@ -53,7 +53,6 @@ export default {
   .navbar
     margin-top 2.8rem
     display flex
-    background #ddd
     font-size .8rem
     p
       flex 1
@@ -64,8 +63,8 @@ export default {
         display inline-block
         height 2.3rem
         width 80%
-        color #333
+        color #ebebeb
       .router-link-active
-        color #f1ad46
-        border-bottom .1rem solid #f1ad46
+        color #cda041
+        border-bottom .1rem solid #cda041
 </style>

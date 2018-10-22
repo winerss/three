@@ -8,7 +8,7 @@
         <div class="banner" :style="{backgroundImage:'url(' + url + data.img + ')'}"></div>
         <h4>{{data.title}}</h4>
         <div class="bottom">
-          <div class="price">￥{{data.point}}</div>
+          <div class="price">￥{{data.price}}</div>
           <div class="num-input">
             <button @click="changeNum('mins')" class="mins" size="small">-</button>
             <input type="number" v-model="buyCount">
@@ -131,7 +131,7 @@ export default {
         background-repeat no-repeat
         background-position center
       h4
-        color #333
+        color #cda041
         padding 0 .4rem
         line-height 1.6rem
         font-size 1rem
@@ -161,7 +161,7 @@ export default {
             padding 0
             border 1px solid  #ccc
             background none
-            color #666
+            color #ebebeb
             border-radius 4px
             outline none
           input
@@ -171,15 +171,16 @@ export default {
             margin 0 4px
             text-align center
             border 1px solid #ccc
+            background none
             border-radius 4px
             outline none
-            color #666
+            color #ebebeb
       .text
         margin-top .4em
         line-height 1.2rem
         text-indent 20px
         padding 0 .4rem
-        color #666
+        color #888
   footer
     position fixed
     height 2.6rem

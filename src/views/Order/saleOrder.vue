@@ -17,8 +17,8 @@
             <div class="text">
               <p class="nick-name">{{item.self_nickname}}</p>
               <p class="item-time">{{item.create_time}}</p>
-              <p class="item-sign" style="color: #f1ad46;" v-if="item.sign === '1'">挂释放钱包</p>
-              <p class="item-sign" style="color: #26a2ff;" v-if="item.sign === '2'">挂现金积分</p>
+              <p class="item-sign" style="color: #cda041;" v-if="item.sign === '1'">挂释放钱包</p>
+              <p class="item-sign" style="color: #cda041;" v-if="item.sign === '2'">挂现金积分</p>
             </div>
             <div class="item-body">
               <div class="left">
@@ -36,7 +36,7 @@
             </div>
             <div class="item-footer">
               <div class="right">
-                <mt-button @click.native="match_transfer_action(item.id)" size="small" v-if="item.is_match === 1" style="color: #f1ad46">成交</mt-button>
+                <mt-button @click.native="match_transfer_action(item.id)" size="small" v-if="item.is_match === 1" style="color: #cda041">成交</mt-button>
               </div>
             </div>
           </div>
@@ -135,46 +135,44 @@ export default {
   width 100%
   bottom 0
   overflow hidden
-  background #f5f5f5
   .title
     display flex
     position absolute
     z-index 2
     top 0
     width 100%
-    height 2rem
-    background #fff
-    line-height 2rem
+    height 2.6rem
+    line-height 2.6rem
     text-align center
-    color #f1ad46
+    color #cda041
+    border-bottom 1px solid rgb(105, 105, 105)
     p
       flex 1
   .title-price
     display flex
     position absolute
     z-index 2
-    top 2rem
+    top 2.6rem
     width 100%
-    height 2rem
-    background #fff
-    line-height 2rem
+    height 2.6rem
+    line-height 2.6rem
     text-align center
-    color #333
+    color #ebebeb
+    border-bottom 1px solid rgb(105, 105, 105)
     p
       flex 1
   .content
     position absolute
-    top 4.4rem
+    top 5.2rem
     left 0
     right 0
     bottom 0
     .items
-      color #999
+      color #ebebeb
       .item
-        margin-bottom .4rem
-        border-top 1px solid #f5f5f5
-        border-bottom 1px solid #f5f5f5
-        background #fff
+        margin-bottom .6rem
+        border-top 1px solid rgb(105, 105, 105)
+        border-bottom 1px solid  rgb(105, 105, 105)
         .text
           padding 0 .6rem
           display flex
@@ -183,14 +181,12 @@ export default {
           padding-right .6rem
         .item-body
           padding 0 .6rem
-          border-top 1px solid #f5f5f5
-          border-bottom 1px solid #f5f5f5
           display flex
           justify-content space-between
           line-height 1.8rem
           text-align center
           .money
-            color #333
+            color #ebebeb
         .item-footer
           overflow hidden
           button

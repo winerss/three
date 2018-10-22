@@ -36,39 +36,39 @@
             <p>账单记录</p>
           </div> -->
           <div class="item" @click="goPage('/reward')">
-            <img src="../../assets/img/share.png" alt="">
+            <div class="imgwrap"><div class="img"><img src="../../assets/img/share.png" alt=""></div></div>
             <p>分享奖励</p>
           </div>
         </div>
         <div class="icon-group">
           <div class="item" @click="goPage('/qrcode')">
-            <img src="../../assets/img/qrcode.png" alt="">
+            <div class="imgwrap"><div class="img"><img src="../../assets/img/qrcode.png" alt=""></div></div>
             <p>我的二维码</p>
           </div>
           <div class="item center" @click="goPage('/changeTel')">
-            <img src="../../assets/img/tel.png" alt="">
+            <div class="imgwrap"><div class="img"><img src="../../assets/img/tel.png" alt=""></div></div>
             <p>手机号码</p>
           </div>
           <div class="item" @click="goPage('/changePass/login')">
-            <img src="../../assets/img/password.png" alt="">
+            <div class="imgwrap"><div class="img"><img src="../../assets/img/password.png" alt=""></div></div>
             <p>修改登录密码</p>
           </div>
         </div>
         <div class="icon-group">
           <div class="item" @click="goPage('/changePass/pay')">
-            <img src="../../assets/img/payp.png" alt="">
+            <div class="imgwrap"><div class="img"><img src="../../assets/img/payp.png" alt=""></div></div>
             <p>修改支付密码</p>
           </div>
-          <div class="item center"  @click.native="clear">
-            <img src="../../assets/img/dataed.png" alt="">
+          <div class="item center"  @click="clear">
+            <div class="imgwrap"><div class="img"><img src="../../assets/img/dataed.png" alt=""></div></div>
             <p>清除缓存</p>
           </div>
           <div class="item" @click="goPage('/aboutapp')">
-            <img src="../../assets/img/about.png" alt="">
+            <div class="imgwrap"><div class="img"><img src="../../assets/img/about.png" alt=""></div></div>
             <p>关于</p>
           </div>
         </div>
-        <mt-button @click.native="clear" size="small" style="display: block;width: 90%;background: #f1ad46;color: #fff;margin: 2rem auto;">退出</mt-button>
+        <mt-button @click.native="clear" size="small" style="display: block;width: 90%;background: #cda041;color: #fff;margin: 2rem auto;">退出</mt-button>
       </div>
     </div>
   </div>
@@ -202,15 +202,15 @@ export default {
   bottom 2.8rem
   font-size .8rem
   overflow hidden
-  background #f5f5f5
   color #fff
   .container
     position absolute
     top 2.8rem
     bottom 0
-    margin-bottom 2rem
     left 0
     right 0
+    .wrapper
+      padding-bottom 2.8rem
     .box
       margin-top .8rem
       padding .8rem
@@ -218,8 +218,8 @@ export default {
     .information
       padding 0 1.8rem 1.5rem
       background #111216
-      color #f1ad46
-      border-bottom 1px solid #f1ad46
+      color #cda041
+      border-bottom 1px solid #cda041
       .header
         display flex
         justify-content space-between
@@ -251,35 +251,43 @@ export default {
       padding .5rem 0
       text-align center
       background #111216
-      color #f1ad46
+      color #cda041
       margin-bottom .8rem
       .consume, .cash
         flex 1
         .title
           line-height 1.2rem
+          color #ebebeb
         .money
           line-height 1.4rem
           font-size 1rem
       .line
         width 2px
         height 2.4rem
-        background #f1ad46
+        background #cda041
     .icon-group
       display flex
       padding .6rem 0
-      background #fff
-      border-top 1px solid #f5f5f5
+      border-top 1px solid #cda041
       .center
-        border-left 1px solid #f5f5f5
-        border-right 1px solid #f5f5f5
+        border-left 1px solid #cda041
+        border-right 1px solid #cda041
       .item
         flex 1
         text-align center
-        color #f1ad46
-        font-size .6rem
-        line-height 1.2rem
+        color #ebebeb
+        font-size .8rem
+        line-height 2rem
+        .imgwrap
+          margin 0 auto
+          height 3rem
+          width 3rem
+          background url('../../assets/img/bubble.png')
+          background-size cover
         img
           height 1.6rem
+          width 1.6rem
+          margin .7rem
     .items
       .mint-cell-wrapper
         background-image none

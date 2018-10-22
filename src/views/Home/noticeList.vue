@@ -65,7 +65,6 @@ export default {
     bottom 0
     left 0
     right 0
-    background #f5f5f5
     overflow-y scroll
     -webkit-overflow-scrolling touch
     &::-webkit-scrollbar
@@ -76,8 +75,8 @@ export default {
         background-image none
       .mint-cell
         margin-top .4rem
-        color #333
-        background #fff
+        color #fff
+        background none
         border-bottom 1px solid #ddd
         .mint-cell-text
           font-size .8rem

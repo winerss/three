@@ -11,7 +11,7 @@
         <mt-field :label="lang.label2" v-model="form.tel" readonly :placeholder="lang.placeholder"></mt-field>
         <mt-cell class="share" :title="lang.label3">
           <input type="text" v-model="form.code" :placeholder="lang.placeholder2">
-          <p v-show="codeSta" @click="getCode" style="font-size: 0.8rem;color:#f1ad46;">获取验证码</p>
+          <p v-show="codeSta" @click="getCode" style="font-size: 0.8rem;color:#cda041;">获取验证码</p>
           <mt-button v-show="!codeSta" size="small"  style="font-size: 0.6rem;" type="primary">{{time + ' 秒后获取'}}</mt-button>
         </mt-cell>
       </div>
@@ -170,12 +170,11 @@ export default {
 #change-pass
   position absolute
   top 0
-  left 0
-  right 0
+  left 0.6rem
+  right 0.6rem
   bottom 0
   font-size .8rem
-  background #f5f5f5
-  color #000
+  color #999
   .container
     position absolute
     top 2.8rem
@@ -188,31 +187,35 @@ export default {
       display none
     .items
       .mint-cell
-        border-bottom 1px solid #ddd
-        background #fff
+        border-bottom 1px solid #999
+        background none
         .mint-cell-wrapper
           background-image none
+          .mint-cell-value
+            font-size .8rem
         .mint-cell-title
           width 80px
         .mint-cell-text
           vertical-align top
           font-size .8rem
         .mint-cell-value
+          p
+            font-size .8rem
           input
             font-size .8rem
-            color #333
+            color #999
             outline none
-            background #fff
+            background none
     .tips
       margin-top 1rem
       color #999
     .confirm
       display block
-      width 90%
+      width 80%
       margin 1rem auto
       background #999
       color #ccc
     .active
-      background #f1ad46
+      background #cda041
       color #fff
 </style>

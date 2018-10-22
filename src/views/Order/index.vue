@@ -71,7 +71,7 @@ export default {
     background #111216
     color #fff
     font-size .8rem
-    border-bottom 1px solid #999
+    border-bottom 1px solid #e5d099
     .center
       width 60%
       margin 0 auto
@@ -85,7 +85,7 @@ export default {
         justify-content center
         align-items center
         overflow hidden
-        border 1px solid #f1ad46;
+        border 1px solid #cda041;
         font-size 0
         p
           display inline-block
@@ -97,9 +97,9 @@ export default {
           a
             display inline-block
             width 100%
-            color #f1ad46
+            color #cda041
           .router-link-active
-            background #f1ad46
+            background #cda041
             color #fff
     .right
       position absolute

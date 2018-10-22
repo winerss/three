@@ -17,8 +17,8 @@
     <mt-field label="手机号码" v-model="form.tel" readonly placeholder="请输入手机号码"></mt-field>
     <div class="telphone">
       <mt-cell title="验证码">
-        <input type="text" v-model="form.code">
-        <p v-show="codeSta" @click="getCode" style="font-size: 0.8rem;color:#f1ad46;">获取验证码</p>
+        <input type="text" v-model="form.code" placeholder="请输入验证码">
+        <p v-show="codeSta" @click="getCode" style="font-size: 0.8rem;color:#cda041;">获取验证码</p>
         <mt-button v-show="!codeSta" size="small" style="font-size: 0.6rem;" type="primary">{{time + ' 秒后获取'}}</mt-button>
       </mt-cell>
     </div>
@@ -163,6 +163,17 @@ export default {
 
 <style lang="stylus">
 #putsale
+  position absolute
+  top 5.2rem
+  left .6rem
+  right .6rem
+  bottom 0
+  .mint-radio-input:checked + .mint-radio-core
+    background-color #cda041
+    border-color #cda041
+  .mint-radiolist
+    .mint-cell-title
+      width 180px !important
   .price
     height 26px
     line-height 26px
@@ -173,32 +184,38 @@ export default {
     .mint-radiolist-title
       margin 0
   .mint-cell
-    border-bottom 1px solid #ddd
-    background #fff
+    border-bottom 1px solid #999
+    background none
     .mint-radio-label
       font-size .8rem
     .mint-cell-wrapper
       background-image none
     .mint-cell-title
       width 80px
+      color #cda041
+      flex inherit
     .mint-cell-text
       vertical-align top
       font-size .8rem
     .mint-cell-value
+      p
+        font-size .8rem
       input
         font-size .8rem
-        color #333
+        color #999
         outline none
-        background #fff
+        background none
   .total
     display flex
+    justify-content space-between
+    padding 0 .6rem
+    background: #cda041;
+    color: #ebebeb;
     p
       height 26px
       line-height 26px
       flex 1
-      background #ddd
       color #fff
-      text-align center
   .confirm
     display block
     width 90%
@@ -206,6 +223,6 @@ export default {
     background #999
     color #ccc
   .active
-    background #f1ad46
+    background #cda041
     color #fff
 </style>

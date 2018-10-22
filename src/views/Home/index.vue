@@ -1,25 +1,21 @@
 <template>
   <div id="home">
-    <Header :showTitle="showTitle" :showRight="showRight">
+    <!-- <Header :showTitle="showTitle" :showRight="showRight">
       <p slot="title">{{lang.lable1}}</p>
       <router-link class="message-icon" slot="right" to="/message"><img src="../../assets/img/message.png" alt=""></router-link>
-    </Header>
+    </Header> -->
+    <header>
+      <router-link class="message-icon" to="/message"><img src="../../assets/img/message.png" alt=""></router-link>
+      <p>瑞宝科技</p>
+      <div @click="H5toNativeUrl" class="scan"><img src="../../assets/img/scan.png" alt=""></div>
+    </header>
     <div class="container" ref="wrapper">
       <div class="wrapper">
-        <div class="center" @click="H5toNativeUrl">
-          <div class="imgwrap"><div class="img"><img src="../../assets/img/scan.png" alt=""></div></div>
-          <p class="title">{{lang.lable10}}</p>
-        </div>
-        <div class="integration">
-          <div class="consume" @click="goDetail('/balance', 'balance', today)">
-            <p class="title">{{lang.lable2}}</p>
-            <p class="money">{{ today}}</p>
-          </div>
-          <div class="line"></div>
-          <div class="consume">
-            <p class="title">{{lang.lable3}}</p>
-            <p class="money">{{ yesterday}}</p>
-          </div>
+        <div class="now-money" :class="{active:isActive}">
+          <p class="title">{{lang.lable2}}</p>
+          <p class="money1"  @click="goDetail('/balance', 'balance', today)">{{ today}}</p>
+          <p class="title">{{lang.lable3}}</p>
+          <p class="money2">{{ yesterday}}</p>
         </div>
         <div class="integration">
           <div class="consume" @click="goDetail('/balance', 'enroll_point', data.enroll_point)">
@@ -37,67 +33,45 @@
             <p class="money">{{ data.cash_point }}</p>
           </div>
         </div>
-        <!-- <div class="income">
-          <p class="current">{{lang.lable2}}</p>
-          <p class="curMoney" @click="goDetail('/balance', 'balance', today)">{{ today }}</p>
-          <p class="yesterday">{{lang.lable3}}</p>
-          <p class="yesMoney">{{yesterday}}</p>
-        </div> -->
         <mt-swipe :auto="4000">
+          <mt-swipe-item>
+            <img style="width: 100%;height:100%;" src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1277172664,3643576554&fm=26&gp=0.jpg" alt="">
+          </mt-swipe-item>
+        </mt-swipe>
+        <!-- <mt-swipe :auto="4000">
           <mt-swipe-item v-for="item in banner" :key="item.id">
             <img style="width: 100%;height:100%;" :src="url + item.img" alt="">
           </mt-swipe-item>
-        </mt-swipe>
+        </mt-swipe> -->
         <p style="height:.8rem;"></p>
         <div class="operation">
           <div class="left" @click="goDetail('/transfer')">
-            <div class="imgwrap"><div class="img"><img src="../../assets/img/plane.png" alt=""></div></div>
+            <div class="imgwrap "><div class="img"><img src="../../assets/img/plane.png" alt=""></div></div>
             <p class="title">{{lang.lable6}}</p>
-            <!-- <p class="descripte">{{lang.lable7}}</p> -->
           </div>
           <div class="middle" @click="goDetail('/myorder')">
-            <div class="imgwrap"><div class="img"><img src="../../assets/img/platform.png" alt=""></div></div>
+            <div class="imgwrap  "><div class="img"><img src="../../assets/img/platform.png" alt=""></div></div>
             <p class="title">我的交易平台</p>
-            <!-- <p class="descripte">{{lang.lable7}}</p> -->
           </div>
           <div class="right" @click="goDetail('/receive')">
-            <div class="imgwrap"><div class="img"><img src="../../assets/img/plane1.png" alt=""></div></div>
+            <div class="imgwrap  "><div class="img"><img src="../../assets/img/plane1.png" alt=""></div></div>
             <p class="title">{{lang.lable8}}</p>
-            <!-- <p class="descripte">{{lang.lable9}}</p> -->
           </div>
         </div>
         <div class="operation">
           <div class="left" @click="goDetail('/mall')">
-            <div class="imgwrap"><div class="img"><img src="../../assets/img/mall.png" alt=""></div></div>
+            <div class="imgwrap  "><div class="img"><img src="../../assets/img/mall.png" alt=""></div></div>
             <p class="title">商城</p>
-            <!-- <p class="descripte">{{lang.lable7}}</p> -->
           </div>
           <div class="middle" @click="goDetail('/orderRecord')">
-            <div class="imgwrap"><div class="img"><img src="../../assets/img/record.png" alt=""></div></div>
+            <div class="imgwrap  "><div class="img"><img src="../../assets/img/record.png" alt=""></div></div>
             <p class="title">账单记录</p>
           </div>
           <div class="right" @click="goDetail('/noticeList')">
-            <div class="imgwrap"><div class="img"><img src="../../assets/img/notice.png" alt=""></div></div>
+            <div class="imgwrap  "><div class="img"><img src="../../assets/img/notice.png" alt=""></div></div>
             <p class="title">公告</p>
-            <!-- <p class="descripte">{{lang.lable9}}</p> -->
           </div>
         </div>
-        <!-- <div class="box">
-          <div class="notice">
-            <div class="left" @click="goDetail('/noticeList')">
-              <img src="../../assets/img/notice.png" alt="">
-              {{lang.lable12}}
-            </div>
-            <div class="right" @click="goDetail('/noticeList')">{{lang.lable13}}</div>
-          </div>
-        </div>
-        <div class="box">
-          <div class="tips">
-            <p class="title">{{lang.lable14}}</p>
-            <p class="detail">{{lang.lable15}}</p>
-          </div>
-        </div>
-        <p class="bottom">-----{{lang.lable16}}！-----</p> -->
       </div>
     </div>
   </div>
@@ -116,10 +90,12 @@ export default {
       yesterday: 0,
       lang: {},
       banner: [],
-      url: ''
+      url: '',
+      isActive: true
     }
   },
   created () {
+    this.isActive = false
     this.url = process.env.API_ROOT
     globalVue = this
   },
@@ -176,7 +152,7 @@ export default {
     this._initScroll()
     this.get_user_info()
     this.get_today()
-    this.get_banner()
+    // this.get_banner()
     let lang = {
       en: {
         lable1: 'Fairy grass mill',
@@ -222,6 +198,11 @@ export default {
     } else {
       this.lang = lang.cn
     }
+    setTimeout(() => {
+      this.$nextTick(function () {
+        this.isActive = true
+      })
+    }, 500)
   },
   components: {
     Header
@@ -240,6 +221,7 @@ window.reviced = function (res) {
 </script>
 
 <style lang="stylus">
+@import '../../../static/animate.css'
 #home
   position absolute
   top 0
@@ -247,14 +229,41 @@ window.reviced = function (res) {
   right 0
   bottom 2.8rem
   font-size .8rem
-  background #f5f5f5
   color #000
-  .message-icon
-    height 2.4rem
-    display block
-    img
-      height 1.6rem
-      margin-top .4rem
+  header
+    position: fixed;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2.8rem;
+    line-height: 2.8rem;
+    font-weight: bold;
+    background: #0f0f0f;
+    color: #cda041;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    text-align: center;
+    font-size: 0.8rem;
+    border-bottom: 1px solid #e5d099;
+    .message-icon
+      height 2.8rem
+      display block
+      padding-left .6rem
+      img
+        height 1.6rem
+        margin-top .6rem
+    .scan
+      height 2.8rem
+      display block
+      padding-right .6rem
+      img
+        height 1.4rem
+        margin-top .7rem
   .container
     position absolute
     top 2.8rem
@@ -262,26 +271,48 @@ window.reviced = function (res) {
     left 0
     right 0
     overflow hidden
-    .box
-      padding .8rem
-      margin-top .8rem
-      background #fff
-    .income
-      padding .8rem 0
+    .wrapper
+      padding-top 1rem
+    .now-money
+      width 90%
+      margin 0 auto
+      padding 1rem 0 0
+      color #ebebeb
+      background #0f0f0f
       text-align center
-      background #111216
-      color #f1ad46
-      .current
+      border-radius .4rem
+      -webkit-transition: transform .5s, opacity .5s, box-shadow .5s ease-out .2s;
+      -moz-transition: transform .5s, opacity .5s, box-shadow .5s ease-out .2s;
+      -ms-transition: transform .5s, opacity .5s, box-shadow .5s ease-out .2s;
+      -o-transition: transform .5s, opacity .5s, box-shadow .5s ease-out .2s;
+      transition: transform .5s, opacity .5s, box-shadow .5s ease-out .2s;
+      transition-timing-function: ease-out;
+      -moz-transition-timing-function: ease-out; /* Firefox 4 */
+      -webkit-transition-timing-function: ease-out; /* Safari 和 Chrome */
+      -o-transition-timing-function: ease-out; /* Opera */
+      box-shadow:0 0px 0px 0 rgba(33,33,33,0);
+      transform-origin: top left;
+      transform:rotateX(-180deg) rotateY(20deg);
+      -webkit-transform:rotateX(-180deg) rotateY(20deg);
+      opacity: 0;
+      &.active
+        transform:rotateX(0deg) rotateY(0deg);
+        -webkit-transform:rotateX(0deg) rotateY(0deg);
+        opacity:1;
+        box-shadow 0px 2px 1px 3px #cda041
+      .title1
         font-size .8rem
-      .curMoney
-        font-size 1.6rem
-        line-height 3rem
-      .yesMoney
-        font-size 1rem
         line-height 2rem
+      .money1
+        font-size 1.6rem
+        color #cda041
+        line-height 3rem
+      .money2
+        font-size 1rem
+        color #cda041
+        line-height 3rem
     .center
-      height 6rem
-      background #111216
+      height 8rem
       color #ebebeb
       text-align center
       line-height 1.4rem
@@ -289,46 +320,55 @@ window.reviced = function (res) {
         margin-top 1rem
         width 2rem
     .mint-swipe
-      height 6rem
+      height 8rem
     .integration
       display flex
       height 3rem
       padding .8rem 0
       text-align center
-      background #111216
-      color #f1ad46
+      color #cda041
       .consume, .cash
         flex 1
         .title
           line-height 1.6rem
-          font-size .8rem
+          font-size .6rem
+          color #ebebeb
         .money
           line-height 1.4rem
-          font-size .6rem
+          font-size .8rem
       .line
         width 2px
         height 2rem
         margin-top .5rem
-        background #f1ad46
     .operation
       display flex
       padding .8rem 0
-      background #fff
-      border-top 1px solid #f5f5f5
+      border-top 1px solid #cda041
       .left,.middle,.right
         flex 1
         text-align center
         .imgwrap
+          margin 0 auto
+          height 3.4rem
+          width 3.4rem
+          background url('../../assets/img/bubble.png')
+          background-size cover
           img
             height 2rem
             width 2rem
+            margin .7rem
         .title
-          color #f1ad46
+          color #ebebeb
           line-height 2rem
           font-size .8rem
+          width 100px
+          margin 0 auto
+          overflow hidden
+          text-overflow ellipsis
+          white-space nowrap
       .middle
-        border-right 1px solid #f5f5f5
-        border-left 1px solid #f5f5f5
+        border-right 1px solid #cda041
+        border-left 1px solid #cda041
     .notice
       display flex
       justify-content space-between
@@ -342,7 +382,6 @@ window.reviced = function (res) {
     .tips
       padding .8rem
       border-radius .4rem
-      background #f1ad46
       color #fff
       .detail
         text-align center

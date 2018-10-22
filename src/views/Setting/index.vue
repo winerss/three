@@ -129,6 +129,6 @@ export default {
       display block
       width 90%
       margin 1rem auto
-      background #f1ad46
+      background #cda041
       color #fff
 </style>

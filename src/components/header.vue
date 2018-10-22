@@ -81,11 +81,12 @@ export default {
   height 2.8rem
   line-height 3rem
   font-weight bold
-  background #111216
-  color #fff
+  background rgb(15,15,15)
+  color #cda041
   justify-content space-between
   text-align center
   font-size .8rem
+  border-bottom: 1px solid rgb(229, 208, 153);
   .center
     position absolute
     left 0

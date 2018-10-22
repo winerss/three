@@ -70,12 +70,10 @@ export default {
 #change-index
   position absolute
   top 0
-  left 0
-  right 0
+  left 0.6rem
+  right 0.6rem
   bottom 0
   font-size .8rem
-  background #f5f5f5
-  color #000
   .container
     position absolute
     top 2.8rem
@@ -87,8 +85,9 @@ export default {
         background-image none
       .mint-cell
         margin-top .8rem
-        color #333
-        border-bottom 1px solid #ddd
+        color #cda041
+        background none
+        border-bottom 1px solid #999
         .mint-cell-text
           font-size .8rem
       .mint-cell:last-child
@@ -97,12 +96,11 @@ export default {
       margin-top .8rem
       padding 0 .8rem
       line-height 1.4rem
-      background #fff
       color #999
     .confirm
       display block
-      width 90%
+      width 80%
       margin 1rem auto
-      background #f1ad46
+      background #cda041
       color #fff
 </style>

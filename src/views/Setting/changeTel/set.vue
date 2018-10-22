@@ -8,10 +8,10 @@
         <mt-cell :title="lang.label" is-link to="/citys">
           <p>{{ selectedCity.city }}（+{{ selectedCity.tel }}）</p>
         </mt-cell>
-        <mt-field :label="lang.label2" :laceholder="lang.placeholder" v-model="form.tel"></mt-field>
+        <mt-field :label="lang.label2" :placeholder="lang.placeholder" v-model="form.tel"></mt-field>
         <mt-cell class="share" :title="lang.label3">
           <input type="text" v-model="form.code" :placeholder="lang.placeholder2">
-          <p v-show="codeSta" @click="getCode" style="font-size: 0.8rem;color:#f1ad46;">获取验证码</p>
+          <p v-show="codeSta" @click="getCode" style="font-size: 0.8rem;color:#cda041;">获取验证码</p>
           <mt-button v-show="!codeSta" size="small" style="font-size: 0.6rem;" type="primary">{{time + ' 秒后获取'}}</mt-button>
         </mt-cell>
       </div>
@@ -144,11 +144,10 @@ export default {
 #change-set
   position absolute
   top 0
-  left 0
-  right 0
+  left 0.6rem
+  right .6rem
   bottom 0
   font-size .8rem
-  background #f5f5f5
   color #000
   .container
     position absolute
@@ -159,27 +158,28 @@ export default {
     .items
       .mint-cell
         border-bottom 1px solid #ddd
-        background #fff
+        background none
         .mint-cell-wrapper
           background-image none
         .mint-cell-title
           width 80px
+          color #cda041
         .mint-cell-text
           vertical-align top
           font-size .8rem
         .mint-cell-value
-          input
+          input,p
             font-size .8rem
-            color #333
+            color #999
             outline none
-            background #fff
+            background none
     .confirm
       display block
-      width 90%
+      width 80%
       margin 1rem auto
       background #999
       color #ccc
     .active
-      background #f1ad46
+      background #cda041
       color #fff
 </style>

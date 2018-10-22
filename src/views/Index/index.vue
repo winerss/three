@@ -57,7 +57,6 @@ export default {
     bottom 0rem
     height 2.8rem
     display flex
-    border-top 1px solid #fafbfe
     line-height 4.2rem
     font-size .8rem
     a
@@ -94,7 +93,7 @@ export default {
         background-position 50% .1rem
         background-size 1.4rem auto
     .router-link-active
-      color #ff992e
+      color #cda041
       .item1
         background url('../../assets/img/homepage_fill.png')
         background-repeat no-repeat

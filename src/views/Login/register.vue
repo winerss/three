@@ -11,7 +11,7 @@
     <mt-field label="手机号码" v-model="form.tel" placeholder="请输入手机号码"></mt-field>
     <mt-cell class="share" title="验证码">
       <input type="text" placeholder="请输入验证码" v-model="form.code">
-      <p v-show="codeSta" @click="getCode" style="font-size: 0.8rem;color:#f1ad46;">获取验证码</p>
+      <p v-show="codeSta" @click="getCode" style="font-size: 0.8rem;color:#cda041;">获取验证码</p>
       <mt-button v-show="!codeSta" style="font-size: 0.6rem;" size="small" type="primary">{{time + ' 秒后获取'}}</mt-button>
     </mt-cell>
     <p class="price">用户名和推荐人输入后将不能更改，请仔细和对</p>
@@ -176,31 +176,40 @@ export default {
 
 <style lang="stylus">
 #register
+  position absolute
+  top 0
+  bottom 0
+  left .6rem
+  right .6rem
   .telphone
     border-top 1px solid #ddd
     margin-top 2.8rem
   .mint-cell
-    border-bottom 1px solid #ddd
-    background #fff
+    border-bottom 1px solid #999
+    background none
     .mint-cell-wrapper
       background-image none
+      .mint-cell-value
+        font-size .8rem
     .mint-cell-title
       width 80px
+      font-size .8rem
+      color #cda041
     .mint-cell-text
       vertical-align top
       font-size .8rem
     .mint-cell-value
       input
         font-size .8rem
-        color #333
+        color #999
         outline none
-        background #fff
+        background none
   .price
     height 26px
     line-height 26px
     padding 0 .8rem
-    background #ddd
-    color #f1ad46
+    background #cda041
+    color #ebebeb
   .total
     display flex
     p
@@ -208,15 +217,15 @@ export default {
       line-height 26px
       flex 1
       background #ddd
-      color #f1ad46
+      color #cda041
       text-align center
   .confirm
     display block
-    width 90%
-    margin 1rem auto
+    width 80%
+    margin 2.5rem auto
     background #999
     color #ccc
   .active
-    background #f1ad46
+    background #cda041
     color #fff
 </style>

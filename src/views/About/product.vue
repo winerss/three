@@ -122,9 +122,6 @@ export default {
     this.url = process.env.API_ROOT
   },
   watch: {
-    pri (curVal, oldVal) {
-　　  this.form.amount = curVal / this.products[this.type - 1].point
-　　},
     form: {
       handler (newValue, oldValue) {
         if (oldValue.address && oldValue.tel && oldValue.amount && oldValue.password && oldValue.name) {
@@ -134,6 +131,9 @@ export default {
         }
       },
       deep: true
+    },
+    pri (curVal, oldVal) {
+      this.form.amount = curVal / this.products[this.type - 1].point
     }
   },
   methods: {
@@ -296,9 +296,12 @@ export default {
     width 100%
   .mint-cell-wrapper
     background-image none
+    .mint-cell-value
+      font-size .8rem
   .mint-field
     .mint-cell-title
       width 80px
+      font-size .8rem
   .container
     position absolute
     top 2.8rem
@@ -320,7 +323,7 @@ export default {
         padding 0 .8rem
         margin .8rem 0
         line-height 2rem
-        color #f1ad46
+        color #cda041
         background #fff
       .product
         overflow hidden
@@ -357,6 +360,6 @@ export default {
         margin 1rem auto
         background #ddd
       .active
-        background #f1ad46
+        background #cda041
         color #fff
 </style>

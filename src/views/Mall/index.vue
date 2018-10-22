@@ -1,6 +1,6 @@
 <template>
   <div id="mall">
-    <Header :showTitle="showTitle" :showRight="showRight">
+    <Header :showTitle="showTitle" :showLeft="showLeft" :showRight="showRight">
       <p slot="title">商城</p>
       <p slot="right" @click="goPage('/productOrder')">我的订单</p>
     </Header>
@@ -27,7 +27,7 @@
             <h4>{{item.title}}</h4>
             <p class="content">{{item.content || '暂无数据'}}</p>
             <div class="bottom">
-              <p class="price">￥{{item.point}}</p>
+              <p class="price">￥{{item.price}}</p>
               <p class="cart" @click.stop="addCart(item)"><img src="../../assets/img/cart.png" alt=""></p>
             </div>
           </div>
@@ -47,6 +47,7 @@ export default {
   data () {
     return {
       url: '',
+      showLeft: true,
       showTitle: true,
       showRight: true,
       // product: []
@@ -122,7 +123,7 @@ export default {
 #mall
   position absolute
   top 0
-  bottom 2.8rem
+  bottom 0
   left 0
   right 0
   .item
@@ -178,7 +179,6 @@ export default {
     bottom 0
     left 0
     right 0
-    background #fff
     .items
       position absolute
       top 0

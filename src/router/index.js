@@ -98,10 +98,6 @@ export default new Router({
           title: '消息'
         }
       }, {
-        path: '/mall',
-        name: 'mall',
-        component: mall
-      }, {
         path: '/about',
         name: 'about',
         component: about,
@@ -111,6 +107,11 @@ export default new Router({
       }]
     },
     // 商城
+    {
+      path: '/mall',
+      name: 'mall',
+      component: mall
+    },
     {
       path: '/mallDetail/:id',
       name: 'detail',

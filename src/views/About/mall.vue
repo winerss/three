@@ -292,7 +292,7 @@ export default {
         padding 0 .8rem
         margin .8rem 0
         line-height 2rem
-        color #f1ad46
+        color #cda041
         background #fff
       .product
         overflow hidden
@@ -329,6 +329,6 @@ export default {
         margin 1rem auto
         background #ddd
       .active
-        background #f1ad46
+        background #cda041
         color #fff
 </style>

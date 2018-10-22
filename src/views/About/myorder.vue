@@ -18,8 +18,8 @@
               <div style="overflow:hidden;display:flex;justify-content:space-between;line-height: 2rem;padding: 0 .6rem;">
                 <p>{{item.username}}</p>
                 <p>{{item.create_time}}</p>
-                <p class="item-sign" style="color: #f1ad46;" v-if="item.sign === '1'">挂释放钱包</p>
-                <p class="item-sign" style="color: #26a2ff;" v-if="item.sign === '2'">挂现金积分</p>
+                <p class="item-sign" style="color: #cda041;" v-if="item.sign === '1'">挂释放钱包</p>
+                <p class="item-sign" style="color: #cda041;" v-if="item.sign === '2'">挂现金积分</p>
               </div>
               <div class="item-body">
                 <div class="left">
@@ -37,15 +37,15 @@
               </div>
               <div class="item-footer">
                 <div class="left">
-                  <mt-button size="small" v-if="item.type === '1'" style="color: #f1ad46">买单</mt-button>
+                  <mt-button size="small" v-if="item.type === '1'" style="color: #cda041">买单</mt-button>
                   <mt-button size="small" v-if="item.type === '2'" style="color: #f00">卖单</mt-button>
                 </div>
                 <div class="right">
-                  <mt-button size="small" v-if="item.status === '1'" style="color: #f1ad46">已完成</mt-button>
-                  <mt-button size="small" v-if="item.status === '1' || item.status === '3'" @click.native="getTel(item.id)" style="color: #f1ad46">拨打电话</mt-button>
-                  <mt-button size="small" v-if="item.status === '1' || item.status === '3'" @click.native="contact(item.id)" style="color: #f1ad46">联系买家</mt-button>
-                  <mt-button size="small" v-if="item.can_cancel === 1" @click.native="cancel(item.id)" style="color: #f1ad46">取消订单</mt-button>
-                  <mt-button size="small" v-if="item.can_shou === 1 && item.status === '3'" @click="confirm(item.id)" style="backgroundColor: #f1ad46;color:#fff;">确认收款</mt-button>
+                  <mt-button size="small" v-if="item.status === '1'" style="color: #cda041">已完成</mt-button>
+                  <mt-button size="small" v-if="item.status === '1' || item.status === '3'" @click.native="getTel(item.id)" style="color: #cda041">拨打电话</mt-button>
+                  <mt-button size="small" v-if="item.status === '1' || item.status === '3'" @click.native="contact(item.id)" style="color: #cda041">联系买家</mt-button>
+                  <mt-button size="small" v-if="item.can_cancel === 1" @click.native="cancel(item.id)" style="color: #cda041">取消订单</mt-button>
+                  <mt-button size="small" v-if="item.can_shou === 1 && item.status === '3'" @click="confirm(item.id)" style="backgroundColor: #cda041;color:#fff;">确认收款</mt-button>
                 </div>
               </div>
             </div>
@@ -185,7 +185,6 @@ export default {
   right 0
   bottom ０
   font-size .8rem
-  background #f5f5f5
   color #000
   .mint-popup-bottom
     width 100%
@@ -209,6 +208,11 @@ export default {
     bottom 0
     left 0
     right 0
+    .mint-navbar
+      background none
+      .is-selected
+       color #cda041
+       border-bottom: 3px solid #cda041;
     .content
       position absolute
       top 4rem

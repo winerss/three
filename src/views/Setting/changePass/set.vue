@@ -113,8 +113,7 @@ export default {
   right 0
   bottom 0
   font-size .8rem
-  background #f5f5f5
-  color #000
+  color #999
   .container
     position absolute
     top 2.8rem
@@ -128,13 +127,19 @@ export default {
     .items
       .mint-cell-wrapper
         background-image none
+        .mint-cell-value
+          font-size .8rem
       .mint-field
         .mint-cell-title
           width 80px
+        .mint-cell-value
+          input
+            background none
       .mint-cell
         margin-top .8rem
-        color #333
-        border-bottom 1px solid #ddd
+        color #999
+        background none
+        border-bottom 1px solid #999
         .mint-cell-text
           font-size .8rem
       .mint-cell:last-child
@@ -146,6 +151,6 @@ export default {
       display block
       width 90%
       margin 1rem auto
-      background #f1ad46
+      background #cda041
       color #fff
 </style>

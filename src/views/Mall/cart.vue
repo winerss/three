@@ -183,7 +183,6 @@ export default {
   bottom 0
   left 0
   right 0
-  background #f5f5f5
   color #666
   .container
     position absolute
@@ -196,27 +195,27 @@ export default {
         position relative
         height 40px
         line-height 40px
-        background #fff
         border-bottom 1px solid #ebebeb
         .selectGoods
           position relative
           float left
           margin-left .4rem
           margin-top 12px
-          width: 16px
-          height: 16px
+          width: 18px
+          height: 18px
           background: none
-          border: 1px solid #333
+          border: 2px solid #cda041
+          box-sizing border-box
           border-radius: 50%
           font-size: 0
           outline: none
           span
             position absolute
-            background: #333
+            background: #fff
             width: 8px
             height: 8px
-            top 4px
-            left 4px
+            top 3px
+            left 3px
             display: inline-block
             border-radius: 50%
         p
@@ -228,6 +227,7 @@ export default {
           float right
           line-height 20px
           margin-top 8px
+          color #ebebeb
           .mins
             float left
           .plus
@@ -239,7 +239,7 @@ export default {
             padding 0
             border 1px solid  #ccc
             background none
-            color #666
+            color #ebebeb
             border-radius 4px
             outline none
           input
@@ -251,7 +251,8 @@ export default {
             border 1px solid #ccc
             border-radius 4px
             outline none
-            color #666
+            color #ebebeb
+            background none
   footer
     position fixed
     height 4.7rem
@@ -262,10 +263,8 @@ export default {
       padding 0 .6rem
       height 1.6rem
       line-height 1.6rem
-      background #fff
     .btn-group
       margin-top .5rem
-      background #fff
       height 2.6rem
       width 100%
       display flex
