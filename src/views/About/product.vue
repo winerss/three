@@ -285,8 +285,13 @@ export default {
   right 0
   bottom 0
   font-size .8rem
-  background #f5f5f5
-  color #000
+  // background #f5f5f5
+  color #999
+  .mint-navbar
+    background none
+    .mint-tab-item.is-selected 
+      border-bottom: 3px solid #cda041;
+      color: #cda041;
   .address-picker
     display flex
   .picker
@@ -294,6 +299,15 @@ export default {
     text-align center
   .mint-popup-bottom
     width 100%
+  .mint-cell
+    background none
+    border-bottom 1px solid #999
+    .mint-cell-title
+      color #cda041
+    .mint-cell-value
+      input
+        background none
+        color #999
   .mint-cell-wrapper
     background-image none
     .mint-cell-value
@@ -323,12 +337,11 @@ export default {
         padding 0 .8rem
         margin .8rem 0
         line-height 2rem
-        color #cda041
-        background #fff
+        color #ebebeb
+        background #cda041
       .product
         overflow hidden
         padding .8rem
-        background #fff
         .left
           float left
           img
@@ -340,6 +353,7 @@ export default {
           .name
             font-size 1rem
             margin-top .5rem
+            color #cda041
           .coin
             font-size .6rem
             line-height 2rem
@@ -347,7 +361,7 @@ export default {
         padding 0 .8rem
         margin-top .8rem
         line-height 2rem
-        background #fff
+        color #999
         margin-bottom .8rem
         img
           float left
@@ -356,7 +370,7 @@ export default {
           height 16px
       .confirm
         display block
-        width 90%
+        width 80%
         margin 1rem auto
         background #ddd
       .active

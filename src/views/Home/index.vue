@@ -34,15 +34,9 @@
           </div>
         </div>
         <mt-swipe :auto="4000">
-          <mt-swipe-item>
-            <img style="width: 100%;height:100%;" src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1277172664,3643576554&fm=26&gp=0.jpg" alt="">
+          <mt-swipe-item v-for="item in banner" class="banner" :key="item.id" :style="{backgroundImage: 'url(' +  url + item.img + ')'}">
           </mt-swipe-item>
         </mt-swipe>
-        <!-- <mt-swipe :auto="4000">
-          <mt-swipe-item v-for="item in banner" :key="item.id">
-            <img style="width: 100%;height:100%;" :src="url + item.img" alt="">
-          </mt-swipe-item>
-        </mt-swipe> -->
         <p style="height:.8rem;"></p>
         <div class="operation">
           <div class="left" @click="goDetail('/transfer')">
@@ -122,7 +116,6 @@ export default {
       this.axios.post(process.env.API_ROOT + '/api/user/get_user_info', params).then((res) => {
         let data = res.data
         this.data = data.data
-        console.log(this.data)
       })
     },
     goDetail (path, type, money) {
@@ -145,6 +138,7 @@ export default {
       params.append('sid', localStorage.getItem('sid'))
       this.axios.post(process.env.API_ROOT + '/api/block/banner', params).then((res) => {
         this.banner = res.data.data
+        console.log(this.banner)
       })
     }
   },
@@ -152,7 +146,7 @@ export default {
     this._initScroll()
     this.get_user_info()
     this.get_today()
-    // this.get_banner()
+    this.get_banner()
     let lang = {
       en: {
         lable1: 'Fairy grass mill',
@@ -340,6 +334,10 @@ window.reviced = function (res) {
         width 2px
         height 2rem
         margin-top .5rem
+    .banner
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
     .operation
       display flex
       padding .8rem 0

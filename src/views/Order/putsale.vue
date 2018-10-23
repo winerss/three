@@ -117,7 +117,7 @@ export default {
     },
     feared () {
       this.axios.post(process.env.API_ROOT + '/api/transfer/poundage').then((res) => {
-        this.fear = parseFloat(res.data.data)
+        this.fear = parseFloat(res.data.data.sx_scale)
       })
     },
     confirm () {

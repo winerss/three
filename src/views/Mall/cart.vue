@@ -8,7 +8,7 @@
         <div class="item" v-for="(item, index) in items" :key="index">
           <p class="selectGoods" @click="select(item)"><span v-show="item.status === true"></span></p>
           <p>商品名：{{item.title}}</p>
-          <p>金额：{{item.single_price}}</p>
+          <p>金额：{{item.price}}</p>
           <div class="num-input">
             <button @click="changeNum('mins', item)" class="mins" size="small">-</button>
             <input type="number" v-model="item.num">
@@ -62,7 +62,7 @@ export default {
       this.allPrice = 0
       this.items.forEach(element => {
         if (element.status) {
-          this.allPrice += element.single_price * element.num
+          this.allPrice += element.price * element.num
           i++
         }
       })
@@ -84,7 +84,7 @@ export default {
       this.allPrice = 0
       this.items.forEach(element => {
         if (element.status) {
-          this.allPrice += element.single_price * element.num
+          this.allPrice += element.price * element.num
           i++
         }
       })
@@ -127,7 +127,7 @@ export default {
       this.allPrice = 0
       this.items.forEach(element => {
         if (element.status) {
-          this.allPrice += element.single_price * element.num
+          this.allPrice += element.price * element.num
           i++
         }
       })
@@ -147,11 +147,12 @@ export default {
       var params = new FormData()
       params.append('sid', localStorage.getItem('sid'))
       this.axios.post(process.env.API_ROOT + '/api/block/get_buy_car', params).then((res) => {
+        console.log(res)
         res.data.data.forEach(element => {
           this.items.push({
             create_time: element.create_time,
             id: element.id,
-            single_price: element.single_price,
+            price: element.price,
             num: element.num,
             price: element.price,
             shop_id: element.shop_id,
@@ -159,7 +160,7 @@ export default {
             uid: element.uid,
             status: true
           })
-          this.allPrice += element.single_price * element.num
+          this.allPrice += element.price * element.num
         })
         this.allNum = this.items.length
         console.log(this.items)
@@ -274,5 +275,6 @@ export default {
         height 1.6rem
         margin 0 .4rem
         padding 0 .8rem
+        background #cda041
         color #fff
 </style>

@@ -8,7 +8,7 @@
         <div class="banner" :style="{backgroundImage:'url(' + url + data.img + ')'}"></div>
         <h4>{{data.title}}</h4>
         <div class="bottom">
-          <div class="price">￥{{data.price}}</div>
+          <div class="price">￥{{data.point}}</div>
           <div class="num-input">
             <button @click="changeNum('mins')" class="mins" size="small">-</button>
             <input type="number" v-model="buyCount">

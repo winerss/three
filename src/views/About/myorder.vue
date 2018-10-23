@@ -185,7 +185,7 @@ export default {
   right 0
   bottom ０
   font-size .8rem
-  color #000
+  color #999
   .mint-popup-bottom
     width 100%
   .mint-cell
@@ -224,7 +224,7 @@ export default {
           margin-bottom .4rem
           border-top 1px solid #ddd
           border-bottom 1px solid #ddd
-          background #fff
+          color #999
           .item-time
             text-align right
             line-height 1.6rem
@@ -245,4 +245,6 @@ export default {
               padding 0 .4rem
               font-size .8rem
               height 1.4rem
+              background #cda041
+              color #ebebeb !important
 </style>

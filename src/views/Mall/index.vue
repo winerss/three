@@ -27,7 +27,7 @@
             <h4>{{item.title}}</h4>
             <p class="content">{{item.content || '暂无数据'}}</p>
             <div class="bottom">
-              <p class="price">￥{{item.price}}</p>
+              <p class="price">￥{{item.point}}</p>
               <p class="cart" @click.stop="addCart(item)"><img src="../../assets/img/cart.png" alt=""></p>
             </div>
           </div>
@@ -88,6 +88,7 @@ export default {
       params.append('shop_id', item.id)
       params.append('num', 1)
       this.axios.post(process.env.API_ROOT + '/api/block/add_buy_car', params).then((res) => {
+        console.log(res)
         this.$toast({
           message: res.data.msg,
           position: 'bottom',
@@ -131,17 +132,16 @@ export default {
     width 44%
     margin-left 4%
     margin-top 1rem
-    background #fff
     border-radius 6px
     overflow hidden
-    box-shadow 0px 0px 5px 2px #ccc
+    box-shadow 0px 0px 5px 2px #cda041
     .banner
       height 7rem
       background-size cover
       background-repeat no-repeat
       background-position center
     h4
-      color #333
+      color #999
       padding 0 .4rem
       margin-top .3rem
     .content
@@ -169,8 +169,8 @@ export default {
     right 1rem
     padding 6px
     border-radius 50%
-    background rgba(255,255,255,0.6)
-    box-shadow 0px 0px 4px 4px #ccc
+    background rgba(0,0,0,0.6)
+    box-shadow 0px 0px 4px 4px #cda041
     img
       height 24px
   .container

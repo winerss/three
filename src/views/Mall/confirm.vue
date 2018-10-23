@@ -1,3 +1,4 @@
+
 <template>
   <div id="mall-confirm">
     <Header :showLeft="showLeft">
@@ -27,9 +28,9 @@
             <div class="item" v-for="(item, index) in items" :key="index">
               <p>{{item.id}}</p>
               <p>{{item.title}}</p>
-              <p>{{parseFloat(item.single_price)}}</p>
+              <p>{{parseFloat(item.price)}}</p>
               <p>{{parseInt(item.num)}}</p>
-              <p>{{parseFloat(item.single_price) * parseInt(item.num)}}</p>
+              <p>{{parseFloat(item.price) * parseInt(item.num)}}</p>
             </div>
             <div class="total">合计 {{items.length}} 金额： {{allPrice}}</div>
           </div>
@@ -270,8 +271,9 @@ export default {
     }
     this.mix_encoll()
     this.items = JSON.parse(window.localStorage.getItem('confirm'))
+    console.log(this.items)
     this.items.forEach(element => {
-      this.allPrice += parseFloat(element.num) * parseFloat(element.single_price)
+      this.allPrice += parseFloat(element.num) * parseFloat(element.price)
     })
     this.getArea()
     this._initScroll()
@@ -284,8 +286,8 @@ export default {
   position absolute
   top 0
   bottom 0
-  left 0
-  right 0
+  left 0.6rem
+  right 0.6rem
   .address-picker
     display flex
   .picker
@@ -293,13 +295,23 @@ export default {
     text-align center
   .mint-popup-bottom
     width 100%
+  .mint-cell
+    background none
+    border-bottom 1px solid #999
+    .mint-cell-title
+      color #ebebeb
+    .mint-cell-value
+      input
+        background none
+        color #999
   .mint-field
     .mint-cell-title
       width 80px
+      color #ebebeb
   .mint-cell-wrapper, .mint-radiolist-label
     background none
     font-size .8rem
-    color #333
+    color #999
   .mint-cell:last-child
     background none
   .container
@@ -308,19 +320,16 @@ export default {
     bottom 2.6rem
     left 0
     right 0
-    background #f5f5f5
     .wrapper
       .address
-        background #fff
       .pay-type
         margin-top .4rem
-        background #fff
         font-size 0.8rem
         .mint-radiolist
           display flex
       .lists
-        background #fff
         margin-top .4rem
+        color #ebebeb
         .title, .item
           display flex
           height 2rem
@@ -331,8 +340,8 @@ export default {
             overflow hidden
             text-overflow ellipsis
             white-space nowrap
-        .item:nth-child(2n+1)
-          background #f5f5f5
+        .title
+          background #cda041
         .total
           line-height 2rem
           padding 0 .4rem
