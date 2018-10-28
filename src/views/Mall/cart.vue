@@ -211,7 +211,7 @@ export default {
           outline: none
           span
             position absolute
-            background: #fff
+            background: #cda041
             width: 8px
             height: 8px
             top 3px

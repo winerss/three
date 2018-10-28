@@ -41,15 +41,20 @@
             :options="options">
           </mt-radio> -->
         </div>
-        <select v-model="pri" style="display:block;width:96%;border:none;background: #f5f5f5;border:1px solid #ccc;height:2rem;margin: 1rem auto;">
-          <option v-for="item in headData"
-            :key="item.id"
-            :value="item">{{item}}</option>
-        </select>
-        <mt-field label="数量" type="number" placeholder="请输入数量" readonly  v-model='form.amount'></mt-field>
-        <mt-field label="注册积分" type="number" placeholder="请输入注册积分" v-on:blur.native.capture="changeCount()" v-model='enroll_point'></mt-field>
+        <div style="display:flex;padding: 0 .6rem;overflow:hidden;">
+          <p style="flex-shrink:1;width: 180px;max-width: 120px;line-height:2rem;color:#cda041;">注册积分比例(%)</p>
+          <select v-model="pri" style="flex-shrink:0;width:60%;border:none;background: #000;border:1px solid #000;outline:none; color:#fff;height:2rem;">
+            <option v-for="item in headData"
+              :key="item.id"
+              :value="item">{{item}}</option>
+          </select>
+        </div>
+        <mt-field label="数量" type="number" placeholder="请输入数量"  v-model='form.amount' @keyup.native="changeAmount"></mt-field>
+        <mt-field label="注册积分" type="number" placeholder="请输入注册积分" readonly v-model='enroll_point'></mt-field>
+        <!-- <mt-field label="注册积分" type="number" placeholder="请输入注册积分" v-on:blur.native.capture="changeCount()" v-model='enroll_point'></mt-field> -->
         <!-- <mt-field label="消费积分" type="number" placeholder="请输入消费积分" v-model="(products[type - 1].point * form.amount) - enroll_point"></mt-field> -->
-        <mt-field label="消费积分" type="number" placeholder="请输入消费积分" v-model="zhu_point"></mt-field>
+        <!-- <mt-field label="消费积分" type="number" placeholder="请输入消费积分" v-model="zhu_point"></mt-field> -->
+        <mt-field label="现金积分" type="number" placeholder="请输入现金积分" readonly v-model="cash_point"></mt-field>
         <mt-field label="交易密码" type="password" placeholder="请输入≥6的字母+数字的密码" v-model='form.password'></mt-field>
         <mt-button size="small" @click.native="confirm" :class="{ active: isActive }" class="confirm">购买</mt-button>
       </div>
@@ -67,18 +72,18 @@ export default {
       showTitle: true,
       showRight: true,
       type: '1',
-      pri: '请选择',
+      pri: '100',
       form: {
         address: '',
         name: '',
         tel: '',
         password: '',
         addressDetail: '',
-        amount: Number
+        amount: 0
       },
-      headData: ['请选择', '1000', '2000', '3000', '6000', '12000', '30000', '60000'],
+      headData: ['100', '50', '60', '70', '80', '90'],
       enroll_point: Number,
-      zhu_point: Number,
+      cash_point: Number,
       value: '1',
       // options: [{label: '100%消费积分', value: '1'}, {label: '80%现金积分+20%消费积分', value: '2'}],
       // options: [{label: '注册积分≥', value: '1'}],
@@ -133,22 +138,35 @@ export default {
       deep: true
     },
     pri (curVal, oldVal) {
-      this.form.amount = curVal / this.products[this.type - 1].point
+      if (this.form.amount !== 0) {
+        this.enroll_point = (curVal / 100) * this.form.amount * this.products[this.type - 1].point
+        this.cash_point = this.form.amount * this.products[this.type - 1].point - this.enroll_point
+      }
+    },
+    type (curVal, oldVal) {
+      if (this.form.amount !== 0) {
+        this.enroll_point = (this.pri / 100) * this.form.amount * this.products[this.type - 1].point
+        this.cash_point = this.form.amount * this.products[this.type - 1].point - this.enroll_point
+      }
     }
   },
   methods: {
-    changeCount () {
-      let price = this.products[parseInt(this.type - 1)].point * this.precent * this.form.amount
-      console.log(price)
-      if (this.enroll_point > price) {
-        this.$toast({
-          message: `注册积分需要小于等于${this.precent * 100}%`,
-          position: 'bottom',
-          duration: 1000
-        })
-      }
-      this.zhu_point = this.products[this.type - 1].point * this.form.amount - this.enroll_point
+    changeAmount () {
+      console.log(this.pri)
+      this.enroll_point = (this.pri / 100) * this.form.amount * this.products[this.type - 1].point
+      this.cash_point = this.form.amount * this.products[this.type - 1].point - this.enroll_point
     },
+    // changeCount () {
+    //   let price = this.products[parseInt(this.type - 1)].point * this.precent * this.form.amount
+    //   if (this.enroll_point > price) {
+    //     this.$toast({
+    //       message: `注册积分需要小于等于${this.precent * 100}%`,
+    //       position: 'bottom',
+    //       duration: 1000
+    //     })
+    //   }
+    //   this.cash_point = this.products[this.type - 1].point * this.form.amount - this.enroll_point
+    // },
     mix_encoll () {
       var params = new FormData()
       params.append('sid', localStorage.getItem('sid'))
@@ -212,8 +230,14 @@ export default {
       this.form.address = this.selectedp + this.selectedc + this.selecteda
     },
     picker (type) {
-      this.pri = '请选择'
       this.type = type
+    },
+    change_cash () {
+      var params = new FormData()
+      params.append('sid', localStorage.getItem('sid'))
+      this.axios.post(process.env.API_ROOT + '/api/transfer/change_cash', params).then((res) => {
+        console.log(res)
+      })
     },
     getProduct () {
       var params = new FormData()
@@ -244,7 +268,7 @@ export default {
       }
       var params = new FormData()
       params.append('enroll_point', this.enroll_point)
-      params.append('zhu_point', this.zhu_point)
+      params.append('cash_point', this.cash_point)
       params.append('sid', localStorage.getItem('sid'))
       params.append('type', this.products[this.type - 1].id)
       params.append('sign', this.value)
@@ -269,6 +293,7 @@ export default {
     this.getProduct()
     this.getArea()
     this.mix_encoll()
+    this.change_cash()
   },
   components: {
     Header
@@ -338,7 +363,6 @@ export default {
         margin .8rem 0
         line-height 2rem
         color #ebebeb
-        background #cda041
       .product
         overflow hidden
         padding .8rem

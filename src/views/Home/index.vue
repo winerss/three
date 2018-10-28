@@ -23,10 +23,10 @@
             <p class="money">{{ data.enroll_point}}</p>
           </div>
           <div class="line"></div>
-          <div class="consume" @click="goDetail('/balance', 'consume', data.zhu_point)">
+          <!-- <div class="consume" @click="goDetail('/balance', 'consume', data.zhu_point)">
             <p class="title">{{lang.lable4}}</p>
             <p class="money">{{ data.zhu_point}}</p>
-          </div>
+          </div> -->
           <div class="line"></div>
           <div class="cash" @click="goDetail('/balance', 'cash', data.cash_point)">
             <p class="title">{{lang.lable5}}</p>
@@ -293,7 +293,7 @@ window.reviced = function (res) {
         transform:rotateX(0deg) rotateY(0deg);
         -webkit-transform:rotateX(0deg) rotateY(0deg);
         opacity:1;
-        box-shadow 0px 2px 1px 3px #cda041
+        box-shadow 0px 0px 10px 2px #cda041
       .title1
         font-size .8rem
         line-height 2rem

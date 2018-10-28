@@ -128,7 +128,7 @@ export default {
         transform:rotateX(0deg) rotateY(0deg);
         -webkit-transform:rotateX(0deg) rotateY(0deg);
         opacity:1;
-        box-shadow 0px 2px 1px 3px #cda041
+        box-shadow 0px 0px 10px 2px #cda041
       .current
         font-size .8rem
       .curMoney

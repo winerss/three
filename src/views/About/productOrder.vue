@@ -85,7 +85,6 @@ export default {
   right 0
   bottom 0
   font-size .8rem
-  background #f5f5f5
   color #000
   .container
     position absolute
@@ -102,7 +101,8 @@ export default {
       overflow auto
       .items
         .item
-            background #ffffff
+            border-bottom 1px solid #999
+            color #999
             padding .4rem .6rem
             margin-top .4rem
             .top, .center,.detail, .bottom

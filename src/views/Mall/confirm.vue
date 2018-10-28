@@ -348,6 +348,7 @@ export default {
   footer
     position fixed
     height 2.6rem
+    left 0
     display flex
     bottom 0
     width 100%

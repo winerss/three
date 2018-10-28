@@ -175,7 +175,12 @@ export default {
   right .6rem
   bottom 0
   .mint-radio-input:checked + .mint-radio-core
-    background-color #cda041
+    background-color rgb(205,160,65)
+    border-color #cda041
+  .mint-radio-input:checked + .mint-radio-core::after
+    background-color #000
+  .mint-radio-input + .mint-radio-core
+    background-color rgba(0,0,0,0)
     border-color #cda041
   .mint-radiolist
     .mint-cell-title

@@ -38,6 +38,8 @@ import nickname from '@/views/About/nickname'
 import avatar from '@/views/About/avatar'
 import convert from '@/views/About/convert'
 import productOrder from '@/views/About/productOrder'
+import tixian from '@/views/About/tixian'
+
 // 设置
 import setting from '@/views/Setting'
 // 登陆注册
@@ -91,13 +93,6 @@ export default new Router({
           component: saleOrder
         }]
       }, {
-        path: '/messagedetail/:id',
-        name: 'messagedetail',
-        component: messagedetail,
-        meta: {
-          title: '消息'
-        }
-      }, {
         path: '/about',
         name: 'about',
         component: about,
@@ -150,6 +145,13 @@ export default new Router({
       path: '/message',
       name: 'message',
       component: message,
+      meta: {
+        title: '消息'
+      }
+    }, {
+      path: '/messagedetail/:id',
+      name: 'messagedetail',
+      component: messagedetail,
       meta: {
         title: '消息'
       }
@@ -270,6 +272,11 @@ export default new Router({
       path: '/productOrder',
       name: 'productOrder',
       component: productOrder
+    },
+    {
+      path: '/tixian',
+      name: 'tixian',
+      component: tixian
     },
     {
       path: '/convert',

@@ -39,6 +39,10 @@
             <div class="imgwrap"><div class="img"><img src="../../assets/img/share.png" alt=""></div></div>
             <p>分享奖励</p>
           </div>
+          <div class="item" @click="goPage('/tixian')">
+            <div class="imgwrap"><div class="img"><img src="../../assets/img/tixian.png" alt=""></div></div>
+            <p>立即提现</p>
+          </div>
         </div>
         <div class="icon-group">
           <div class="item" @click="goPage('/qrcode')">

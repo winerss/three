@@ -1,28 +1,13 @@
 <template>
-  <div id="transfer">
+  <div id="tixian">
     <Header :showLeft="showLeft" :showTitle="showTitle">
       <p slot="title">{{lang.lable1}}</p>
     </Header>
     <div class="container">
-    <mt-radio
-      v-model="value"
-      :options="options">
-    </mt-radio>
-      <mt-field :label="lang.lable2" :placeholder="lang.lable3" v-model='form.address'></mt-field>
-      <mt-field v-show="value==='1'" :label="lang.lable4" :placeholder="lang.lable5" v-model="form.number"></mt-field>
-      <mt-field v-show="value==='2'" :label="lang.lable4" :placeholder="lang.lable55" v-model="form.number"></mt-field>
-      <mt-cell title="手机归属地" is-link to="/citys">
-        <p>{{ selectedCity.city }}（+{{ selectedCity.tel }}）</p>
-      </mt-cell>
-      <mt-field label="手机号码" v-model="form.tel" readonly placeholder="请输入手机号码"></mt-field>
-      <div class="telphone">
-        <mt-cell title="验证码">
-          <input type="text" v-model="form.code" placeholder="请输入验证码">
-          <p v-show="codeSta" @click="getCode" style="font-size: 0.6rem;color:#cda041;">获取验证码</p>
-          <mt-button v-show="!codeSta" style="font-size: 0.6rem;" size="small" type="primary">{{time + ' 秒后获取'}}</mt-button>
-        </mt-cell>
-      </div>
-      <mt-field :label="lang.lable6" type="password" :placeholder="lang.lable7" v-model="form.password"></mt-field>
+      <p style="color: #cda041;line-height: 1.4rem">释放积分: {{all_point}}</p>
+      <mt-field label="数量" placeholder="提现最多为释放积分的30%" @keyup.native="filter" v-model='form.amount'></mt-field>
+      <mt-field label="银行卡号" placeholder="请输入银行卡号" v-model='form.bank'></mt-field>
+      <mt-field label="开户行地址" placeholder="请输入开户行地址" v-model='form.bank_address'></mt-field>
       <mt-button :class="{ active: isActive }" class="confirm" size="small" @click="comfirm" type="default">{{lang.lable9}}</mt-button>
       <!-- <p class="tips">{{lang.lable8}}</p> -->
     </div>
@@ -40,29 +25,20 @@ export default {
       codeSta: true,
       time: 60,
       value: '1',
-      // options: [{
-      //   label: '消费积分', value: '1'
-      // }, {
-      //   label: '注册积分', value: '2'
-      // }],
-      options: [{
-        label: '注册积分', value: '1'
-      }],
       form: {
-        address: '',
-        number: '',
-        password: '',
-        code: '',
-        tel: ''
+        bank_address: '',
+        bank: '',
+        amount: ''
       },
       isActive: false,
-      lang: {}
+      lang: {},
+      all_point: 0
     }
   },
   watch: {
     form: {
       handler (newValue, oldValue) {
-        if (oldValue.tel && oldValue.address && oldValue.number && oldValue.password && oldValue.code) {
+        if (oldValue.bank_address && oldValue.bank && oldValue.amount) {
           this.isActive = true
         } else {
           this.isActive = false
@@ -77,55 +53,30 @@ export default {
     }
   },
   methods: {
+    filter () {
+      if (this.form.amount >= this.all_point * 0.3) {
+        this.$toast({
+          message: '提现最多为释放积分的30%',
+          position: 'bottom',
+          duration: 1000
+        })
+      }
+    },
     get_user_info () {
       var params = new FormData()
       params.append('sid', localStorage.getItem('sid'))
       this.axios.post(process.env.API_ROOT + '/api/user/get_user_info', params).then((res) => {
-        this.form.tel = res.data.data.tel
+        this.all_point = res.data.data.all_point
       })
-    },
-    getCode () {
-      let reg = /^(13[0-9]|15[012356789]|17[3678]|18[0-9]|14[57])[0-9]{8}$/
-      if (!reg.test(this.form.tel)) {
-        this.$toast({
-          message: '请检查您的手机格式',
-          position: 'bottom',
-          duration: 1000
-        })
-        return false
-      }
-      this.codeSta = false
-      var params = new FormData()
-      params.append('tel', this.form.tel)
-      params.append('type', '积分转移')
-      this.axios.post(process.env.API_ROOT + '/api/block/send_codes', params).then((res) => {
-        let data = res.data
-        this.$toast({
-          message: data.msg,
-          position: 'bottom',
-          duration: 1000
-        })
-      })
-      let timer = setInterval(() => {
-        this.time--
-        if (this.time === 0) {
-          clearInterval(timer)
-          this.codeSta = true
-          this.time = 60
-        }
-      }, 1000)
     },
     comfirm () {
       if (!this.isActive) return false
       var params = new FormData()
       params.append('sid', localStorage.getItem('sid'))
-      params.append('host', this.form.address)
-      params.append('amount', this.form.number)
-      params.append('tel', this.form.tel)
-      params.append('type', this.value)
-      params.append('erji', this.form.password)
-      params.append('code', this.form.code)
-      this.axios.post(process.env.API_ROOT + '/api/transfer/from_host', params).then((res) => {
+      params.append('bank', this.form.bank)
+      params.append('bank_address', this.form.bank_address)
+      params.append('amount', this.form.amount)
+      this.axios.post(process.env.API_ROOT + '/api/transfer/change_cash', params).then((res) => {
         let data = res.data
         this.$toast({
           message: data.msg,
@@ -133,7 +84,7 @@ export default {
           duration: 1000
         })
         if (data.code === 1) {
-          this.$router.push('/home')
+          this.$router.push('/about')
         }
       })
     }
@@ -158,7 +109,7 @@ export default {
         lable9: 'Confirmation of transfer'
       },
       cn: {
-        lable1: '发送',
+        lable1: '提现',
         lable2: '用户地址',
         lable3: '请输入用户地址',
         lable4: '发送数量',
@@ -180,7 +131,7 @@ export default {
 </script>
 
 <style lang="stylus">
-#transfer
+#tixian
   position absolute
   top 0
   left 0.6rem

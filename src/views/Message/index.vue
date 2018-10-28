@@ -81,7 +81,6 @@ export default {
   bottom 0
   font-size .8rem
   overflow hidden
-  background #f5f5f5
   color #999
   .container
     position absolute
@@ -89,4 +88,7 @@ export default {
     bottom 0
     left 0
     right 0
+    .mint-cell
+      background none
+      border-bottom 1px solid #e5d099
 </style>
