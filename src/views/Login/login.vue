@@ -80,6 +80,14 @@ export default {
   bottom 0
   font-size .8rem
   color #000
+  input:-webkit-autofill , textarea:-webkit-autofill, select:-webkit-autofill
+    -webkit-text-fill-color: #ededed !important;
+    -webkit-box-shadow: 0 0 0px 1000px transparent  inset !important;
+    background-color:transparent;
+    background-image: none;
+    transition: background-color 50000s ease-in-out 0s; //背景色透明  生效时长  过渡效果  启用时延迟的时间
+  input
+    background-color:transparent;
   .container
     position absolute
     top 2.8rem

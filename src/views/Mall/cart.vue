@@ -154,7 +154,6 @@ export default {
             id: element.id,
             price: element.price,
             num: element.num,
-            price: element.price,
             shop_id: element.shop_id,
             title: element.title,
             uid: element.uid,

@@ -289,7 +289,7 @@ export default {
   color #999
   .mint-navbar
     background none
-    .mint-tab-item.is-selected 
+    .mint-tab-item.is-selected
       border-bottom: 3px solid #cda041;
       color: #cda041;
   .address-picker
