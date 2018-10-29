@@ -1,69 +1,68 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 // 底部导航
-import index from '@/views/Index'
+const index = resolve => require(['@/views/Index'], resolve)
 // 首页
-import home from '@/views/Home'
-import balance from '@/views/Home/balance'
-import transfer from '@/views/Home/transfer'
-import receive from '@/views/Home/receive'
-import noticeList from '@/views/Home/noticeList'
-import noticeDetail from '@/views/Home/noticeDetail'
+const home = resolve => require(['@/views/Home'], resolve)
+const balance = resolve => require(['@/views/Home/balance'], resolve)
+const transfer = resolve => require(['@/views/Home/transfer'], resolve)
+const receive = resolve => require(['@/views/Home/receive'], resolve)
+const noticeList = resolve => require(['@/views/Home/noticeList'], resolve)
+const noticeDetail = resolve => require(['@/views/Home/noticeDetail'], resolve)
 
 // 订单
-import order from '@/views/Order'
-import buyOrder from '@/views/Order/buyOrder'
-import saleOrder from '@/views/Order/saleOrder'
-import putup from '@/views/Order/putup'
-import putsale from '@/views/Order/putsale'
-import putbuy from '@/views/Order/putbuy'
-import citys from '@/views/Order/citys'
+const order = resolve => require(['@/views/Order'], resolve)
+const buyOrder = resolve => require(['@/views/Order/buyOrder'], resolve)
+const saleOrder = resolve => require(['@/views/Order/saleOrder'], resolve)
+const putup = resolve => require(['@/views/Order/putup'], resolve)
+const putsale = resolve => require(['@/views/Order/putsale'], resolve)
+const putbuy = resolve => require(['@/views/Order/putbuy'], resolve)
+const citys = resolve => require(['@/views/Order/citys'], resolve)
 
 // 信息
-import message from '@/views/Message'
-import messagedetail from '@/views/Message/detail'
-
+const message = resolve => require(['@/views/Message'], resolve)
+const messagedetail = resolve => require(['@/views/Message/detail'], resolve)
 // 我的
-import about from '@/views/About'
-import product from '@/views/About/product'
-// import mall from '@/views/About/mall'
-import qrcode from '@/views/About/qrcode'
-import orderRecord from '@/views/About/orderRecord'
-import myorder from '@/views/About/myorder'
-import reward from '@/views/About/reward'
-import release from '@/views/About/release'
-import freeze from '@/views/About/freeze'
-import user from '@/views/About/user'
-import nickname from '@/views/About/nickname'
-import avatar from '@/views/About/avatar'
-import convert from '@/views/About/convert'
-import productOrder from '@/views/About/productOrder'
-import tixian from '@/views/About/tixian'
-
+const about = resolve => require(['@/views/About'], resolve)
+const product = resolve => require(['@/views/About/product'], resolve)
+const qrcode = resolve => require(['@/views/About/qrcode'], resolve)
+const orderRecord = resolve => require(['@/views/About/orderRecord'], resolve)
+const myorder = resolve => require(['@/views/About/myorder'], resolve)
+const reward = resolve => require(['@/views/About/reward'], resolve)
+const release = resolve => require(['@/views/About/release'], resolve)
+const freeze = resolve => require(['@/views/About/freeze'], resolve)
+const user = resolve => require(['@/views/About/user'], resolve)
+const nickname = resolve => require(['@/views/About/nickname'], resolve)
+const avatar = resolve => require(['@/views/About/avatar'], resolve)
+const convert = resolve => require(['@/views/About/convert'], resolve)
+const productOrder = resolve => require(['@/views/About/productOrder'], resolve)
+const tixian = resolve => require(['@/views/About/tixian'], resolve)
 // 设置
-import setting from '@/views/Setting'
+const setting = resolve => require(['@/views/Setting'], resolve)
+
 // 登陆注册
-import login from '@/views/Login/login'
-import register from '@/views/Login/register'
-import password from '@/views/Login/password'
+const login = resolve => require(['@/views/Login/login'], resolve)
+const register = resolve => require(['@/views/Login/register'], resolve)
+const password = resolve => require(['@/views/Login/password'], resolve)
+
 // 设置新手机号
-import changeTel from '@/views/Setting/changeTel'
-import set from '@/views/Setting/changeTel/set'
+const changeTel = resolve => require(['@/views/Setting/changeTel'], resolve)
+const set = resolve => require(['@/views/Setting/changeTel/set'], resolve)
 // 设置密码
-import changePass from '@/views/Setting/changePass'
-import setpass from '@/views/Setting/changePass/set'
+const changePass = resolve => require(['@/views/Setting/changePass'], resolve)
+const setpass = resolve => require(['@/views/Setting/changePass/set'], resolve)
 // 设置语言
-import language from '@/views/Setting/language'
+const language = resolve => require(['@/views/Setting/language'], resolve)
 // 关于app
-import aboutApp from '@/views/Setting/about'
+const aboutApp = resolve => require(['@/views/Setting/about'], resolve)
 // 商城
-import mall from '@/views/Mall'
-import mallDetail from '@/views/Mall/detail'
-import cart from '@/views/Mall/cart'
-import confirm from '@/views/Mall/confirm'
-import addressEdit from '@/views/Mall/addressEdit'
-import address from '@/views/Mall/address'
-import mallOrder from '@/views/Mall/mallOrder'
+const mall = resolve => require(['@/views/Mall'], resolve)
+const mallDetail = resolve => require(['@/views/Mall/detail'], resolve)
+const cart = resolve => require(['@/views/Mall/cart'], resolve)
+const confirm = resolve => require(['@/views/Mall/confirm'], resolve)
+const addressEdit = resolve => require(['@/views/Mall/addressEdit'], resolve)
+const address = resolve => require(['@/views/Mall/address'], resolve)
+const mallOrder = resolve => require(['@/views/Mall/mallOrder'], resolve)
 Vue.use(Router)
 
 export default new Router({
