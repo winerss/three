@@ -49,7 +49,7 @@
               :value="item">{{item}}</option>
           </select>
         </div>
-        <mt-field label="数量" type="number" placeholder="请输入数量"  v-model='form.amount' @keyup.native="changeAmount"></mt-field>
+        <!-- <mt-field label="数量" type="number" placeholder="请输入数量"  v-model='form.amount' @keyup.native="changeAmount"></mt-field> -->
         <mt-field label="注册积分" type="number" placeholder="请输入注册积分" readonly v-model='enroll_point'></mt-field>
         <!-- <mt-field label="注册积分" type="number" placeholder="请输入注册积分" v-on:blur.native.capture="changeCount()" v-model='enroll_point'></mt-field> -->
         <!-- <mt-field label="消费积分" type="number" placeholder="请输入消费积分" v-model="(products[type - 1].point * form.amount) - enroll_point"></mt-field> -->
@@ -79,7 +79,7 @@ export default {
         tel: '',
         password: '',
         addressDetail: '',
-        amount: 0
+        amount: 1
       },
       headData: ['100', '50', '60', '70', '80', '90'],
       enroll_point: Number,
