@@ -98,7 +98,7 @@ export default {
         .top,.bottom
           display flex
           justify-content space-between
-          color #f00
+          color #CD0000
         .top
           p:nth-child(1)
             color #cda041

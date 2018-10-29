@@ -232,17 +232,12 @@ export default {
     picker (type) {
       this.type = type
     },
-    change_cash () {
-      var params = new FormData()
-      params.append('sid', localStorage.getItem('sid'))
-      this.axios.post(process.env.API_ROOT + '/api/transfer/change_cash', params).then((res) => {
-        console.log(res)
-      })
-    },
     getProduct () {
       var params = new FormData()
       params.append('sid', localStorage.getItem('sid'))
       this.axios.post(process.env.API_ROOT + '/api/block/get_product', params).then((res) => {
+        this.enroll_point = res.data.data[0].point
+        this.cash_point = 0
         res.data.data.forEach((element, index) => {
           this.products.push({
             id: element.id,
@@ -293,7 +288,6 @@ export default {
     this.getProduct()
     this.getArea()
     this.mix_encoll()
-    this.change_cash()
   },
   components: {
     Header

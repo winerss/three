@@ -142,7 +142,7 @@ export default {
         padding 0 .4rem
         line-height 40px
         .price
-          color #f00
+          color #CD0000
           font-size 1.2rem
         .num-input
           position absolute

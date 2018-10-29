@@ -154,7 +154,7 @@ export default {
       justify-content space-between
       line-height 30px
       .price
-        color #f00
+        color #CD0000
       .cart
         height 30px
         color #333

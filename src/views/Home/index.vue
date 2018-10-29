@@ -53,7 +53,7 @@
           </div>
         </div>
         <div class="operation">
-          <div class="left" @click="goDetail('/mall')">
+          <div class="left" @click="goDetail('/product')">
             <div class="imgwrap  "><div class="img"><img src="../../assets/img/mall.png" alt=""></div></div>
             <p class="title">商城</p>
           </div>
@@ -64,6 +64,34 @@
           <div class="right" @click="goDetail('/noticeList')">
             <div class="imgwrap  "><div class="img"><img src="../../assets/img/notice.png" alt=""></div></div>
             <p class="title">公告</p>
+          </div>
+        </div>
+        <div class="operation">
+          <div class="left" @click="tips">
+            <div class="imgwrap"><div class="img"><img src="../../assets/img/zhibo.png" alt=""></div></div>
+            <p class="title">直播间</p>
+          </div>
+          <div class="middle" @click="tips">
+            <div class="imgwrap  "><div class="img"><img src="../../assets/img/jingcai.png" alt=""></div></div>
+            <p class="title">体育竞猜</p>
+          </div>
+          <div class="right" @click="tips">
+            <div class="imgwrap  "><div class="img"><img src="../../assets/img/jingji.png" alt=""></div></div>
+            <p class="title">竞技游戏</p>
+          </div>
+        </div>
+        <div class="operation">
+          <div class="left" @click="tips">
+            <div class="imgwrap  "><div class="img"><img src="../../assets/img/yiliao.png" alt=""></div></div>
+            <p class="title">医疗咨询</p>
+          </div>
+          <div class="middle" @click="tips">
+            <div class="imgwrap  "><div class="img"><img src="../../assets/img/duobao.png" alt=""></div></div>
+            <p class="title">一币夺宝</p>
+          </div>
+          <div class="right" @click="tips">
+            <div class="imgwrap  "><div class="img"><img src="../../assets/img/zixun.png" alt=""></div></div>
+            <p class="title">新闻资讯</p>
           </div>
         </div>
       </div>
@@ -108,6 +136,13 @@ export default {
         } else {
           this.scroll.refresh()
         }
+      })
+    },
+    tips () {
+      this.$toast({
+        message: '筹备中敬请期待！',
+        position: 'bottom',
+        duration: 1000
       })
     },
     get_user_info () {

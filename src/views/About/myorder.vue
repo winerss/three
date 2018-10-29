@@ -38,7 +38,7 @@
               <div class="item-footer">
                 <div class="left">
                   <mt-button size="small" v-if="item.type === '1'" style="color: #cda041">买单</mt-button>
-                  <mt-button size="small" v-if="item.type === '2'" style="color: #f00">卖单</mt-button>
+                  <mt-button size="small" v-if="item.type === '2'" style="color: #CD0000">卖单</mt-button>
                 </div>
                 <div class="right">
                   <mt-button size="small" v-if="item.status === '1'" style="color: #cda041">已完成</mt-button>

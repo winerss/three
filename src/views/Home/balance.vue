@@ -192,5 +192,5 @@ export default {
             p:nth-child(1)
               color #cda041
             p:nth-child(2)
-              color #f00
+              color #CD0000
 </style>

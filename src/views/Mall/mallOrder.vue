@@ -94,7 +94,7 @@ export default {
             justify-content space-between
             font-size 1rem
             .price
-              color #f00
+              color #CD0000
           .footer
             display flex
             justify-content space-between

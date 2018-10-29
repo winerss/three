@@ -73,6 +73,6 @@ export default {
     text-align center
     line-height 2.6rem
     font-size .8rem
-    background #f00
+    background #CD0000
     color #333
 </style>
