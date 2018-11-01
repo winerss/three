@@ -258,7 +258,6 @@ export default {
     height 4.7rem
     bottom 0
     width 100%
-    background #CD00000
     .total
       padding 0 .6rem
       height 1.6rem

@@ -53,9 +53,9 @@
           </div>
         </div>
         <div class="operation">
-          <div class="left" @click="goDetail('/product')">
+          <div class="left" @click="goDetail('/mall')">
             <div class="imgwrap  "><div class="img"><img src="../../assets/img/mall.png" alt=""></div></div>
-            <p class="title">商城</p>
+            <p class="title">复消商城</p>
           </div>
           <div class="middle" @click="goDetail('/orderRecord')">
             <div class="imgwrap  "><div class="img"><img src="../../assets/img/record.png" alt=""></div></div>

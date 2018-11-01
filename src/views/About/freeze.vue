@@ -7,10 +7,6 @@
       <div class="income" :class="{active:isActive}">
         <p class="current">当前值</p>
         <p class="curMoney">{{ curMoney }}</p>
-        <div class="month">
-          <p>锁仓时间: {{mydate.date}}</p>
-          <p>释放时间: {{mydate.expire_time}}</p>
-        </div>
       </div>
       <div class="detail">
         <p class="title"><span></span>资产明细</p>

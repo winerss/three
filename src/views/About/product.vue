@@ -14,13 +14,11 @@
           <div class="right">
             <p class="name">{{products[type - 1].title}}</p>
             <p class="coin">价格：{{products[type - 1].point}}</p>
-            <!-- <p style="font-size: .6rem;">分享收益比例: {{products[type - 1].reword * 100}}%</p> -->
-            <!-- <p style="font-size: .6rem;margin-top:.2rem;">数量：{{products[type - 1].inventory}}</p> -->
           </div>
         </div>
         <p class="title">收货地址</p>
         <div class="address">
-          <mt-field label="收货人" placeholder="请输入收货人姓名" v-model='form.name'></mt-field>
+          <mt-field label="收货人" placeholder="请输入收货人姓名" v-model='form.user'></mt-field>
           <mt-field label="联系方式" placeholder="请输入联系方式" v-model='form.tel'></mt-field>
           <div class="borbox ">
             <mt-field label="收货地区" placeholder="请选择收货地区" :value="form.address" readonly @click.native="showAddressAreaPicker = !showAddressAreaPicker" class="address"></mt-field>
@@ -35,26 +33,11 @@
         </div>
         <p class="title">支付方式</p>
         <div class="tips">
-          注册积分小于等于{{precent * 100}}%
-          <!-- <mt-radio
-            v-model="value"
-            :options="options">
-          </mt-radio> -->
+          注册积分大于等于{{precent * 100}}%
         </div>
-        <div style="display:flex;padding: 0 .6rem;overflow:hidden;">
-          <p style="flex-shrink:1;width: 180px;max-width: 120px;line-height:2rem;color:#cda041;">注册积分比例(%)</p>
-          <select v-model="pri" style="flex-shrink:0;width:60%;border:none;background: #000;border:1px solid #000;outline:none; color:#fff;height:2rem;">
-            <option v-for="item in headData"
-              :key="item.id"
-              :value="item">{{item}}</option>
-          </select>
-        </div>
-        <!-- <mt-field label="数量" type="number" placeholder="请输入数量"  v-model='form.amount' @keyup.native="changeAmount"></mt-field> -->
-        <mt-field label="注册积分" type="number" placeholder="请输入注册积分" readonly v-model='enroll_point'></mt-field>
-        <!-- <mt-field label="注册积分" type="number" placeholder="请输入注册积分" v-on:blur.native.capture="changeCount()" v-model='enroll_point'></mt-field> -->
-        <!-- <mt-field label="消费积分" type="number" placeholder="请输入消费积分" v-model="(products[type - 1].point * form.amount) - enroll_point"></mt-field> -->
-        <!-- <mt-field label="消费积分" type="number" placeholder="请输入消费积分" v-model="zhu_point"></mt-field> -->
-        <mt-field label="现金积分" type="number" placeholder="请输入现金积分" readonly v-model="cash_point"></mt-field>
+        <mt-field label="注册积分" type="number" placeholder="请输入注册积分" v-model='price.enroll_point' v-on:blur.native.capture="enroll_fun"></mt-field>
+        <mt-field label="现金积分" type="number" placeholder="请输入现金积分" v-model="price.cash_point" v-on:keyup.native.capture="cash_fun"></mt-field>
+        <mt-field label="奖金积分" type="number" placeholder="请输入奖金积分" v-model="price.rward_point" v-on:keyup.native.capture="rward_fun"></mt-field>
         <mt-field label="交易密码" type="password" placeholder="请输入≥6的字母+数字的密码" v-model='form.password'></mt-field>
         <mt-button size="small" @click.native="confirm" :class="{ active: isActive }" class="confirm">购买</mt-button>
       </div>
@@ -75,18 +58,14 @@ export default {
       pri: '100',
       form: {
         address: '',
-        name: '',
+        user: '',
         tel: '',
         password: '',
         addressDetail: '',
         amount: 1
       },
       headData: ['100', '50', '60', '70', '80', '90'],
-      enroll_point: Number,
-      cash_point: Number,
       value: '1',
-      // options: [{label: '100%消费积分', value: '1'}, {label: '80%现金积分+20%消费积分', value: '2'}],
-      // options: [{label: '注册积分≥', value: '1'}],
       isActive: false,
       showAddressAreaPicker: false,
       data: {},
@@ -120,7 +99,12 @@ export default {
       products: [],
       url: '',
       len: [],
-      precent: 0
+      precent: 0,
+      price: {
+        enroll_point: Number || 0,
+        cash_point: Number || 0,
+        rward_point: Number || 0
+      }
     }
   },
   created () {
@@ -129,44 +113,45 @@ export default {
   watch: {
     form: {
       handler (newValue, oldValue) {
-        if (oldValue.address && oldValue.tel && oldValue.amount && oldValue.password && oldValue.name) {
+        if (oldValue.address && oldValue.tel && oldValue.amount && oldValue.password && oldValue.user) {
           this.isActive = true
         } else {
           this.isActive = false
         }
       },
       deep: true
-    },
-    pri (curVal, oldVal) {
-      if (this.form.amount !== 0) {
-        this.enroll_point = (curVal / 100) * this.form.amount * this.products[this.type - 1].point
-        this.cash_point = this.form.amount * this.products[this.type - 1].point - this.enroll_point
-      }
-    },
-    type (curVal, oldVal) {
-      if (this.form.amount !== 0) {
-        this.enroll_point = (this.pri / 100) * this.form.amount * this.products[this.type - 1].point
-        this.cash_point = this.form.amount * this.products[this.type - 1].point - this.enroll_point
-      }
     }
   },
   methods: {
-    changeAmount () {
-      console.log(this.pri)
-      this.enroll_point = (this.pri / 100) * this.form.amount * this.products[this.type - 1].point
-      this.cash_point = this.form.amount * this.products[this.type - 1].point - this.enroll_point
+    enroll_fun () {
+      if (parseFloat(this.products[this.type - 1].point * this.precent) > parseFloat(this.price.enroll_point)) {
+        this.$toast({
+          message: `注册积分大于等于${this.precent * 100}%`,
+          position: 'bottom',
+          duration: 2000
+        })
+      }
     },
-    // changeCount () {
-    //   let price = this.products[parseInt(this.type - 1)].point * this.precent * this.form.amount
-    //   if (this.enroll_point > price) {
-    //     this.$toast({
-    //       message: `注册积分需要小于等于${this.precent * 100}%`,
-    //       position: 'bottom',
-    //       duration: 1000
-    //     })
-    //   }
-    //   this.cash_point = this.products[this.type - 1].point * this.form.amount - this.enroll_point
-    // },
+    cash_fun () {
+      if (Object.prototype.toString.call(this.price.rward_point) === '[object Function]') {
+        this.price.rward_point = 0
+      }
+      this.price.rward_point = parseFloat(this.products[this.type - 1].point) - parseFloat(this.price.enroll_point) - parseFloat(this.price.cash_point)
+      if (this.price.rward_point < 0) {
+        this.price.rward_point = 0
+        this.price.cash_point = parseFloat(this.products[this.type - 1].point) - parseFloat(this.price.enroll_point) - parseFloat(this.price.rward_point)
+      }
+    },
+    rward_fun () {
+      if (Object.prototype.toString.call(this.price.cash_point) === '[object Function]') {
+        this.price.cash_point = 0
+      }
+      this.price.cash_point = parseFloat(this.products[this.type - 1].point) - parseFloat(this.price.enroll_point) - parseFloat(this.price.rward_point)
+      if (this.price.cash_point < 0) {
+        this.price.cash_point = 0
+        this.price.rward_point = parseFloat(this.products[this.type - 1].point) - parseFloat(this.price.enroll_point) - parseFloat(this.price.cash_point)
+      }
+    },
     mix_encoll () {
       var params = new FormData()
       params.append('sid', localStorage.getItem('sid'))
@@ -231,13 +216,16 @@ export default {
     },
     picker (type) {
       this.type = type
+      this.price.enroll_point = ''
+      this.price.cash_point = ''
+      this.price.rward_point = ''
     },
     getProduct () {
       var params = new FormData()
       params.append('sid', localStorage.getItem('sid'))
       this.axios.post(process.env.API_ROOT + '/api/block/get_product', params).then((res) => {
-        this.enroll_point = res.data.data[0].point
-        this.cash_point = 0
+        // this.enroll_point = res.data.data[0].point
+        // this.cash_point = 0
         res.data.data.forEach((element, index) => {
           this.products.push({
             id: element.id,
@@ -262,13 +250,14 @@ export default {
         return false
       }
       var params = new FormData()
-      params.append('enroll_point', this.enroll_point)
-      params.append('cash_point', this.cash_point)
+      params.append('enroll_point', this.price.enroll_point)
+      params.append('cash_point', this.price.cash_point)
+      params.append('pocket_point', this.price.rward_point)
       params.append('sid', localStorage.getItem('sid'))
       params.append('type', this.products[this.type - 1].id)
       params.append('sign', this.value)
       params.append('amount', this.form.amount)
-      params.append('receive_name', this.form.name)
+      params.append('receive_name', this.form.user)
       params.append('receive_address', this.form.address + this.form.addressDetail)
       params.append('receive_tel', this.form.tel)
       params.append('erji', this.form.password)

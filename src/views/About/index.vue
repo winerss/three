@@ -21,9 +21,20 @@
             <p class="money">{{data.ice_point}}</p>
           </div>
           <div class="line"></div>
-          <div class="cash" @click="goPages('/release/', data.all_point)">
+          <div class="cash" @click="goPages('/release/', data.all_point + ',' + 3)">
             <p class="title">{{lang.label4}}</p>
             <p class="money">{{data.all_point}}</p>
+          </div>
+        </div>
+        <div class="packet">
+          <div class="consume" @click="goPages('/release/', data.pocket_point + ',' + 10)">
+            <p class="title">{{lang.label33}}</p>
+            <p class="money">{{data.pocket_point}}</p>
+          </div>
+          <div class="line"></div>
+          <div class="cash" @click="goPages('/release/', data.shop_point + ',' + 11)">
+            <p class="title">{{lang.label44}}</p>
+            <p class="money">{{data.shop_point}}</p>
           </div>
         </div>
         <div class="icon-group">
@@ -72,7 +83,7 @@
             <p>关于</p>
           </div>
         </div>
-        <mt-button @click.native="clear" size="small" style="display: block;width: 90%;background: #cda041;color: #fff;margin: 2rem auto;">退出</mt-button>
+        <mt-button @click.native="clear" v-show="layoutShow" size="small" class="layout">退出</mt-button>
       </div>
     </div>
   </div>
@@ -88,7 +99,8 @@ export default {
       showRight: true,
       address: '',
       data: {},
-      lang: {}
+      lang: {},
+      layoutShow: false
     }
   },
   methods: {
@@ -166,6 +178,8 @@ export default {
         label2: 'Copy',
         label3: 'Frozen purse',
         label4: 'Release the wallet',
+        label33: 'reward purse',
+        label44: 'shopping the wallet',
         label5: 'Sharing dividends',
         label6: 'My Order',
         label7: 'Biling record',
@@ -177,7 +191,9 @@ export default {
         label: '设置',
         label2: '复制地址',
         label3: '冻结钱包',
-        label4: '释放钱包',
+        label4: '现金钱包',
+        label33: '奖金钱包',
+        label44: '购物钱包',
         label5: '分享奖励',
         label6: '我的交易平台',
         label7: '账单记录',
@@ -190,6 +206,9 @@ export default {
     } else {
       this.lang = lang.cn
     }
+    setTimeout(() => {
+      this.layoutShow = true
+    }, 100)
   },
   components: {
     Header
@@ -302,4 +321,10 @@ export default {
           font-size .8rem
       .mint-cell:last-child
         background-image none
+    .layout
+      display: block;
+      width: 90%;
+      background: #cda041;
+      color: #fff;
+      margin: 2rem auto;
 </style>

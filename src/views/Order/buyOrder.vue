@@ -17,8 +17,8 @@
             <div class="text">
               <p class="nick-name">{{item.self_nickname}}</p>
               <p class="item-time">{{item.create_time}}</p>
-              <p class="item-sign" style="color: #cda041;" v-if="item.sign === '1'">挂释放钱包</p>
-              <p class="item-sign" style="color: #cda041;" v-if="item.sign === '2'">挂现金积分</p>
+              <!-- <p class="item-sign" style="color: #cda041;" v-if="item.sign === '1'">挂释放钱包</p> -->
+              <p class="item-sign" style="color: #cda041;" v-if="item.sign === '1'">挂现金积分</p>
             </div>
             <div class="item-body">
               <div class="left">

@@ -6,12 +6,12 @@
     </Header>
     <div class="container" ref="wrapper">
       <div class="wrapper">
-        <div class="pay-type">
+        <!-- <div class="pay-type">
           <mt-cell title="支付类型" v-model="options">
-            <!-- {{options}} -->
-            <!-- <mt-radio class="mt-check" v-model="typeValue" @change.native="checked" :options="options"></mt-radio> -->
+            {{options}}
+            <mt-radio class="mt-check" v-model="typeValue" @change.native="checked" :options="options"></mt-radio>
           </mt-cell>
-        </div>
+        </div> -->
         <mt-field label="联系人" placeholder="请输入联系人姓名" v-model='form.name'></mt-field>
         <mt-field label="联系方式" placeholder="请输入联系方式" v-model='form.tel'></mt-field>
         <div class="address">

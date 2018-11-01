@@ -4,8 +4,8 @@
       <p slot="title">{{lang.lable1}}</p>
     </Header>
     <div class="container">
-      <p style="color: #cda041;line-height: 1.4rem">释放积分: {{all_point}}</p>
-      <mt-field label="数量" placeholder="提现最多为释放积分的30%" @keyup.native="filter" v-model='form.amount'></mt-field>
+      <p style="color: #cda041;line-height: 1.4rem">现金积分: {{all_point}}</p>
+      <mt-field label="数量" placeholder="提现最多为现金积分的30%" @keyup.native="filter" v-model='form.amount'></mt-field>
       <mt-field label="银行卡号" placeholder="请输入银行卡号" v-model='form.bank'></mt-field>
       <mt-field label="开户行地址" placeholder="请输入开户行地址" v-model='form.bank_address'></mt-field>
       <mt-button :class="{ active: isActive }" class="confirm" size="small" @click="comfirm" type="default">{{lang.lable9}}</mt-button>
@@ -56,7 +56,7 @@ export default {
     filter () {
       if (this.form.amount >= this.all_point * 0.3) {
         this.$toast({
-          message: '提现最多为释放积分的30%',
+          message: '提现最多为现金积分的30%',
           position: 'bottom',
           duration: 1000
         })

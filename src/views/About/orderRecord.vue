@@ -34,7 +34,7 @@ export default {
       showRight: true,
       show: true,
       items: [],
-      btns: [{id: 0, name: '全部'}, {id: 1, name: '消费积分'}, {id: 2, name: '现金积分'}, {id: 3, name: '释放积分'}, {id: 4, name: '冻结钱包'}, {id: 5, name: '消费收益'}, {id: 6, name: '算力释放'}, {id: 7, name: '发送/接收'}, {id: 8, name: '交易'}, {id: 4, name: '存入钱包'}]
+      btns: [{id: 0, name: '全部'}, {id: 1, name: '消费积分'}, {id: 2, name: '现金积分'}, {id: 4, name: '冻结钱包'}, {id: 5, name: '消费收益'}, {id: 6, name: '算力释放'}, {id: 7, name: '发送/接收'}, {id: 8, name: '交易'}, {id: 4, name: '存入钱包'}]
     }
   },
   methods: {

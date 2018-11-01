@@ -44,7 +44,7 @@ export default {
       isActive: false,
       value: '1',
       options: [{
-        label: '挂释放钱包', value: '1'
+        label: '挂现金积分', value: '1'
       }]
       // options: [{
       //   label: '挂释放钱包', value: '1'

@@ -1,7 +1,7 @@
 <template>
   <div id="release">
     <Header :showLeft="showLeft" :showTitle="showTitle">
-      <p slot="title">释放钱包</p>
+      <p slot="title">{{title}}</p>
     </Header>
     <div class="container">
       <div class="income" :class="{active:isActive}">
@@ -23,7 +23,7 @@
           </div>
         </div>
       </div>
-      <p class="footer" @click="goPage">兑换注册积分</p>
+      <!-- <p class="footer" @click="goPage">兑换注册积分</p> -->
     </div>
   </div>
 </template>
@@ -38,7 +38,9 @@ export default {
       showLeft: true,
       items: [],
       curMoney: 0,
-      isActive: false
+      isActive: false,
+      type: 0,
+      title: ''
     }
   },
   created () {
@@ -48,7 +50,7 @@ export default {
     getData () {
       var params = new FormData()
       params.append('sid', localStorage.getItem('sid'))
-      params.append('type', 3)
+      params.append('type', this.type)
       this.axios.post(process.env.API_ROOT + '/api/user/get_money_detail', params).then((res) => {
         let data = res.data.data
         this.items = data
@@ -62,7 +64,15 @@ export default {
     Header
   },
   mounted () {
-    this.curMoney = this.$route.params.id
+    this.curMoney = this.$route.params.id.split(',')[0]
+    this.type = this.$route.params.id.split(',')[1]
+    if (this.type === '3') {
+      this.title = '现金钱包'
+    } else if (this.type === '10') {
+      this.title = '奖金钱包'
+    } else if (this.type === '11') {
+      this.title = '购物钱包'
+    }
     this.getData()
     setTimeout(() => {
       this.$nextTick(function () {
@@ -148,14 +158,14 @@ export default {
           .top,.bottom
             display flex
             justify-content space-between
-    .footer
-      position fixed
-      left 0
-      right 0
-      bottom 0
-      height 2rem
-      line-height 2rem
-      text-align center
-      background #ccc
-      color #cda041
+    // .footer
+    //   position fixed
+    //   left 0
+    //   right 0
+    //   bottom 0
+    //   height 2rem
+    //   line-height 2rem
+    //   text-align center
+    //   background #ccc
+    //   color #cda041
 </style>
