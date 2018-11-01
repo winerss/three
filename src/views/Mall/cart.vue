@@ -7,8 +7,8 @@
       <div class="wrapper">
         <div class="item" v-for="(item, index) in items" :key="index">
           <p class="selectGoods" @click="select(item)"><span v-show="item.status === true"></span></p>
-          <p>商品名：{{item.title}}</p>
-          <p>金额：{{item.price}}</p>
+          <p class="name">商品名：{{item.title}}</p>
+          <p class="price">金额：{{item.price}}</p>
           <div class="num-input">
             <button @click="changeNum('mins', item)" class="mins" size="small">-</button>
             <input type="number" v-model="item.num">
@@ -221,6 +221,10 @@ export default {
         p
           float left
           margin-left .4rem
+          width 30%
+          white-space nowrap
+          text-overflow ellipsis
+          overflow hidden
         .num-input
           position absolute
           right 1rem
