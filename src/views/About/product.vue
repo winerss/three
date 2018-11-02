@@ -36,8 +36,8 @@
           注册积分大于等于{{precent * 100}}%
         </div>
         <mt-field label="注册积分" type="number" placeholder="请输入注册积分" v-model='price.enroll_point' v-on:blur.native.capture="enroll_fun"></mt-field>
-        <mt-field label="现金积分" type="number" placeholder="请输入现金积分" v-model="price.cash_point" v-on:keyup.native.capture="cash_fun"></mt-field>
-        <mt-field label="奖金积分" type="number" placeholder="请输入奖金积分" v-model="price.rward_point" v-on:keyup.native.capture="rward_fun"></mt-field>
+        <mt-field label="现金积分" type="number" placeholder="请输入现金积分" v-model="price.cash_point" @blur.native.capture="cash_fun"></mt-field>
+        <mt-field label="奖金积分" type="number" placeholder="请输入奖金积分" v-model="price.rward_point" @blur.native.capture="rward_fun"></mt-field>
         <mt-field label="交易密码" type="password" placeholder="请输入≥6的字母+数字的密码" v-model='form.password'></mt-field>
         <mt-button size="small" @click.native="confirm" :class="{ active: isActive }" class="confirm">购买</mt-button>
       </div>
@@ -130,6 +130,10 @@ export default {
           position: 'bottom',
           duration: 2000
         })
+      }
+      if (parseFloat(this.products[this.type - 1].point) === parseFloat(this.price.enroll_point)) {
+        this.price.rward_point = 0
+        this.price.cash_point = 0
       }
     },
     cash_fun () {
