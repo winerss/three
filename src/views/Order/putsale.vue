@@ -11,9 +11,9 @@
       <p>总价：CNY {{total}}</p>
       <p>手续费：CNY {{fear * common * form.amount}}</p>
     </div>
-    <mt-cell title="手机归属地" is-link to="/citys">
+    <!-- <mt-cell title="手机归属地" is-link to="/citys">
       <p>{{ selectedCity.city }}（+{{ selectedCity.tel }}）</p>
-    </mt-cell>
+    </mt-cell> -->
     <mt-field label="手机号码" v-model="form.tel" readonly placeholder="请输入手机号码"></mt-field>
     <!-- <div class="telphone">
       <mt-cell title="验证码">
@@ -56,7 +56,7 @@ export default {
   watch: {
     form: {
       handler (newValue, oldValue) {
-        if (oldValue.tel && oldValue.code && oldValue.password && oldValue.amount) {
+        if (oldValue.tel && oldValue.password && oldValue.amount) {
           this.isActive = true
         } else {
           this.isActive = false
@@ -163,11 +163,12 @@ export default {
 
 <style lang="stylus">
 #putsale
-  position absolute
+  position fixed
   top 5.2rem
   left .6rem
   right .6rem
   bottom 0
+  overflow-y: scroll
   .mint-radio-input:checked + .mint-radio-core
     background-color rgb(205,160,65)
     border-color #cda041

@@ -10,9 +10,9 @@
     </mt-radio>
     <mt-field v-show="this.value === '1'" label="买单价格" :placeholder="tips" v-model='form.price'></mt-field>
     <mt-field label="买单数量" placeholder="请输入100~2000且100的倍数" v-model="form.amount"></mt-field>
-    <mt-cell title="手机归属地" is-link to="/citys">
+    <!-- <mt-cell title="手机归属地" is-link to="/citys">
       <p>{{ selectedCity.city }}（+{{ selectedCity.tel }}）</p>
-    </mt-cell>
+    </mt-cell> -->
     <mt-field label="手机号码" v-model="form.tel" readonly  placeholder="请输入手机号码"></mt-field>
     <!-- <div class="telphone">
       <mt-cell title="验证码">
@@ -169,11 +169,12 @@ export default {
 
 <style lang="stylus">
 #putbuy
-  position absolute
+  position fixed
   top 5.2rem
   left .6rem
   right .6rem
   bottom 0
+  overflow-y: scroll;
   .mint-radio-input:checked + .mint-radio-core
     background-color rgb(205,160,65)
     border-color #cda041

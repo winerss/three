@@ -147,7 +147,7 @@ export default {
           margin-right .5rem
           background #cda041
       .items
-        padding-bottom 2.4rem
+        // padding-bottom 2.4rem
         color #333
         .item
           margin-top 8px;
@@ -158,6 +158,11 @@ export default {
           .top,.bottom
             display flex
             justify-content space-between
+          .top
+            p:nth-child(1)
+              color #cda041
+            p:nth-child(2)
+              color #CD0000
     // .footer
     //   position fixed
     //   left 0

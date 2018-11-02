@@ -28,9 +28,9 @@
             <p class="money">{{ data.zhu_point}}</p>
           </div> -->
           <div class="line"></div>
-          <div class="cash" @click="goDetail('/balance', 'cash', data.cash_point)">
+          <div class="cash" @click="goDetail('/balance', 'cash', data.all_point)">
             <p class="title">{{lang.lable5}}</p>
-            <p class="money">{{ data.cash_point }}</p>
+            <p class="money">{{ data.all_point }}</p>
           </div>
         </div>
         <mt-swipe :auto="4000">
@@ -86,8 +86,8 @@
             <p class="title">医疗咨询</p>
           </div>
           <div class="middle" @click="tips">
-            <div class="imgwrap  "><div class="img"><img src="../../assets/img/duobao.png" alt=""></div></div>
-            <p class="title">一币夺宝</p>
+            <div class="imgwrap  "><div class="img"><img src="../../assets/img/huafei.png" alt=""></div></div>
+            <p class="title">话费充值</p>
           </div>
           <div class="right" @click="tips">
             <div class="imgwrap  "><div class="img"><img src="../../assets/img/zixun.png" alt=""></div></div>
@@ -151,6 +151,7 @@ export default {
       this.axios.post(process.env.API_ROOT + '/api/user/get_user_info', params).then((res) => {
         let data = res.data
         this.data = data.data
+        console.log(data)
       })
     },
     goDetail (path, type, money) {

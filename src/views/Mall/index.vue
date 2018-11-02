@@ -1,6 +1,7 @@
 <template>
   <div id="mall">
-    <Header :showTitle="showTitle" :showLeft="showLeft" :showRight="showRight">
+    <Header :showTitle="showTitle" :showHome="showHome" :showRight="showRight">
+      <p slot="home" @click="goPage('/home')">首页</p>
       <p slot="title">商城</p>
       <p slot="right" @click="goPage('/productOrder')">我的订单</p>
     </Header>
@@ -47,7 +48,7 @@ export default {
   data () {
     return {
       url: '',
-      showLeft: true,
+      showHome: true,
       showTitle: true,
       showRight: true,
       // product: []

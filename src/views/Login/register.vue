@@ -3,11 +3,11 @@
     <Header :showLeft="showLeft">
       <p slot="title">注册</p>
     </Header>
-    <div class="telphone">
+    <!-- <div class="telphone">
       <mt-cell title="手机号归属地" is-link to="/citys">
         <p>{{ selectedCity.city }}（+{{ selectedCity.tel }}）</p>
       </mt-cell>
-    </div>
+    </div> -->
     <mt-field label="手机号码" v-model="form.tel" placeholder="请输入手机号码"></mt-field>
     <!-- <mt-cell class="share" title="验证码">
       <input type="text" placeholder="请输入验证码" v-model="form.code">

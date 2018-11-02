@@ -9,11 +9,11 @@
       :options="options">
     </mt-radio>
       <mt-field :label="lang.lable2" :placeholder="lang.lable3" v-model='form.address'></mt-field>
-      <mt-field v-show="value==='1'" :label="lang.lable4" :placeholder="lang.lable5" v-model="form.number"></mt-field>
-      <mt-field v-show="value==='2'" :label="lang.lable4" :placeholder="lang.lable55" v-model="form.number"></mt-field>
-      <mt-cell title="手机归属地" is-link to="/citys">
+      <mt-field :label="lang.lable4" :placeholder="lang.lable5" v-model="form.number"></mt-field>
+      <!-- <mt-field v-show="value==='2'" :label="lang.lable4" :placeholder="lang.lable55" v-model="form.number"></mt-field> -->
+      <!-- <mt-cell title="手机归属地" is-link to="/citys">
         <p>{{ selectedCity.city }}（+{{ selectedCity.tel }}）</p>
-      </mt-cell>
+      </mt-cell> -->
       <mt-field label="手机号码" v-model="form.tel" readonly placeholder="请输入手机号码"></mt-field>
       <!-- <div class="telphone">
         <mt-cell title="验证码">
@@ -40,14 +40,16 @@ export default {
       codeSta: true,
       time: 60,
       value: '1',
-      // options: [{
-      //   label: '消费积分', value: '1'
-      // }, {
-      //   label: '注册积分', value: '2'
-      // }],
       options: [{
         label: '注册积分', value: '1'
+      }, {
+        label: '现金积分', value: '2'
+      }, {
+        label: '奖金积分', value: '3'
       }],
+      // options: [{
+      //   label: '注册积分', value: '1'
+      // }],
       form: {
         address: '',
         number: '',

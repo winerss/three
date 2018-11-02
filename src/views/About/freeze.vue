@@ -13,8 +13,8 @@
         <div class="items">
           <div class="item" v-for="(item, index) in items" :key="index">
             <div class="top">
-              <p>{{item.note}}</p>
-              <p>{{item.account}}</p>
+              <p class="name">{{item.note}}</p>
+              <p class="price">{{item.account}}</p>
             </div>
             <div class="bottom">
               <p>{{item.create_time}}</p>
@@ -155,4 +155,9 @@ export default {
           .top,.bottom
             display flex
             justify-content space-between
+          .top
+            p:nth-child(1)
+              color #cda041
+            p:nth-child(2)
+              color #CD0000
 </style>

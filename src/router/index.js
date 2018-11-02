@@ -35,7 +35,7 @@ const user = resolve => require(['@/views/About/user'], resolve)
 const nickname = resolve => require(['@/views/About/nickname'], resolve)
 const avatar = resolve => require(['@/views/About/avatar'], resolve)
 const convert = resolve => require(['@/views/About/convert'], resolve)
-const productOrder = resolve => require(['@/views/About/productOrder'], resolve)
+const productOrder = resolve => require(['@/views/Mall/productOrder'], resolve)
 const tixian = resolve => require(['@/views/About/tixian'], resolve)
 // 设置
 const setting = resolve => require(['@/views/Setting'], resolve)

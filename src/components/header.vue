@@ -5,6 +5,7 @@
         <img src="../assets/img/back.png" alt="">
         {{data.back}}
       </p>
+      <p v-if="showHome"><slot name="home"></slot></p>
     </div>
     <div class="center">
       <p v-if="showTitle"><slot name="title"></slot></p>
@@ -32,6 +33,10 @@ export default {
       default: true
     },
     showRight: {
+      type: Boolean,
+      default: false
+    },
+    showHome: {
       type: Boolean,
       default: false
     }
