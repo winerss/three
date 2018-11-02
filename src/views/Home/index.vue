@@ -40,57 +40,57 @@
         <p style="height:.8rem;"></p>
         <div class="operation">
           <div class="left" @click="goDetail('/transfer')">
-            <div class="imgwrap "><div class="img"><img src="../../assets/img/plane.png" alt=""></div></div>
+            <div class="imgwrap animated rubberBand"><div class="img"><img src="../../assets/img/plane.png" alt=""></div></div>
             <p class="title">{{lang.lable6}}</p>
           </div>
           <div class="middle" @click="goDetail('/myorder')">
-            <div class="imgwrap  "><div class="img"><img src="../../assets/img/platform.png" alt=""></div></div>
+            <div class="imgwrap animated rubberBand"><div class="img"><img src="../../assets/img/platform.png" alt=""></div></div>
             <p class="title">我的交易平台</p>
           </div>
           <div class="right" @click="goDetail('/receive')">
-            <div class="imgwrap  "><div class="img"><img src="../../assets/img/plane1.png" alt=""></div></div>
+            <div class="imgwrap animated rubberBand"><div class="img"><img src="../../assets/img/plane1.png" alt=""></div></div>
             <p class="title">{{lang.lable8}}</p>
           </div>
         </div>
         <div class="operation">
           <div class="left" @click="goDetail('/mall')">
-            <div class="imgwrap  "><div class="img"><img src="../../assets/img/mall.png" alt=""></div></div>
+            <div class="imgwrap animated rubberBand"><div class="img"><img src="../../assets/img/mall.png" alt=""></div></div>
             <p class="title">复消商城</p>
           </div>
           <div class="middle" @click="goDetail('/orderRecord')">
-            <div class="imgwrap  "><div class="img"><img src="../../assets/img/record.png" alt=""></div></div>
+            <div class="imgwrap animated rubberBand"><div class="img"><img src="../../assets/img/record.png" alt=""></div></div>
             <p class="title">账单记录</p>
           </div>
           <div class="right" @click="goDetail('/noticeList')">
-            <div class="imgwrap  "><div class="img"><img src="../../assets/img/notice.png" alt=""></div></div>
+            <div class="imgwrap animated rubberBand"><div class="img"><img src="../../assets/img/notice.png" alt=""></div></div>
             <p class="title">公告</p>
           </div>
         </div>
         <div class="operation">
           <div class="left" @click="tips">
-            <div class="imgwrap"><div class="img"><img src="../../assets/img/zhibo.png" alt=""></div></div>
+            <div class="imgwrap animated rubberBand"><div class="img"><img src="../../assets/img/zhibo.png" alt=""></div></div>
             <p class="title">直播间</p>
           </div>
           <div class="middle" @click="tips">
-            <div class="imgwrap  "><div class="img"><img src="../../assets/img/jingcai.png" alt=""></div></div>
+            <div class="imgwrap animated rubberBand"><div class="img"><img src="../../assets/img/jingcai.png" alt=""></div></div>
             <p class="title">体育竞猜</p>
           </div>
           <div class="right" @click="tips">
-            <div class="imgwrap  "><div class="img"><img src="../../assets/img/jingji.png" alt=""></div></div>
+            <div class="imgwrap animated rubberBand"><div class="img"><img src="../../assets/img/jingji.png" alt=""></div></div>
             <p class="title">竞技游戏</p>
           </div>
         </div>
         <div class="operation">
           <div class="left" @click="tips">
-            <div class="imgwrap  "><div class="img"><img src="../../assets/img/yiliao.png" alt=""></div></div>
+            <div class="imgwrap animated rubberBand"><div class="img"><img src="../../assets/img/yiliao.png" alt=""></div></div>
             <p class="title">医疗咨询</p>
           </div>
           <div class="middle" @click="tips">
-            <div class="imgwrap  "><div class="img"><img src="../../assets/img/huafei.png" alt=""></div></div>
+            <div class="imgwrap animated rubberBand"><div class="img"><img src="../../assets/img/huafei.png" alt=""></div></div>
             <p class="title">话费充值</p>
           </div>
           <div class="right" @click="tips">
-            <div class="imgwrap  "><div class="img"><img src="../../assets/img/zixun.png" alt=""></div></div>
+            <div class="imgwrap animated rubberBand"><div class="img"><img src="../../assets/img/zixun.png" alt=""></div></div>
             <p class="title">新闻资讯</p>
           </div>
         </div>

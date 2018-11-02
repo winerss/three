@@ -47,39 +47,39 @@
             <p>账单记录</p>
           </div> -->
           <div class="item" @click="goPage('/reward')">
-            <div class="imgwrap"><div class="img"><img src="../../assets/img/share.png" alt=""></div></div>
+            <div class="imgwrap animated bounceInLeft"><div class="img"><img src="../../assets/img/share.png" alt=""></div></div>
             <p>分享奖励</p>
           </div>
           <div class="item" @click="goPage('/tixian')">
-            <div class="imgwrap"><div class="img"><img src="../../assets/img/tixian.png" alt=""></div></div>
+            <div class="imgwrap animated bounceInRight"><div class="img"><img src="../../assets/img/tixian.png" alt=""></div></div>
             <p>立即提现</p>
           </div>
         </div>
         <div class="icon-group">
           <div class="item" @click="goPage('/qrcode')">
-            <div class="imgwrap"><div class="img"><img src="../../assets/img/qrcode.png" alt=""></div></div>
+            <div class="imgwrap animated bounce"><div class="img"><img src="../../assets/img/qrcode.png" alt=""></div></div>
             <p>我的二维码</p>
           </div>
           <div class="item center" @click="goPage('/changeTel')">
-            <div class="imgwrap"><div class="img"><img src="../../assets/img/tel.png" alt=""></div></div>
+            <div class="imgwrap animated bounce"><div class="img"><img src="../../assets/img/tel.png" alt=""></div></div>
             <p>手机号码</p>
           </div>
           <div class="item" @click="goPage('/changePass/login')">
-            <div class="imgwrap"><div class="img"><img src="../../assets/img/password.png" alt=""></div></div>
+            <div class="imgwrap animated bounce"><div class="img"><img src="../../assets/img/password.png" alt=""></div></div>
             <p>修改登录密码</p>
           </div>
         </div>
         <div class="icon-group">
           <div class="item" @click="goPage('/changePass/pay')">
-            <div class="imgwrap"><div class="img"><img src="../../assets/img/payp.png" alt=""></div></div>
+            <div class="imgwrap animated bounce"><div class="img"><img src="../../assets/img/payp.png" alt=""></div></div>
             <p>修改支付密码</p>
           </div>
           <div class="item center"  @click="clear">
-            <div class="imgwrap"><div class="img"><img src="../../assets/img/dataed.png" alt=""></div></div>
+            <div class="imgwrap animated bounce"><div class="img"><img src="../../assets/img/dataed.png" alt=""></div></div>
             <p>清除缓存</p>
           </div>
           <div class="item" @click="goPage('/aboutapp')">
-            <div class="imgwrap"><div class="img"><img src="../../assets/img/about.png" alt=""></div></div>
+            <div class="imgwrap animated bounce"><div class="img"><img src="../../assets/img/about.png" alt=""></div></div>
             <p>关于</p>
           </div>
         </div>

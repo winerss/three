@@ -62,7 +62,7 @@ export default {
           this.title = '消费积分'
         }
       } else if (type === 'cash') {
-        this.type = 2
+        this.type = 3
         if (localStorage.getItem('language') === 'en') {
           this.title = 'Cashintegral'
         } else {

@@ -89,10 +89,10 @@ export default {
     .items
       color #333
       .item
-        padding 0 .6rem
+        padding .4rem .6rem
         margin-top 8px;
-        height 60px
-        line-height 30px
+        height 2.4rem
+        line-height 1.2rem
         border-top 1px solid #999
         border-bottom 1px solid #999
         .top,.bottom
