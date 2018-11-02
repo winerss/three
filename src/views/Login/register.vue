@@ -9,11 +9,11 @@
       </mt-cell>
     </div>
     <mt-field label="手机号码" v-model="form.tel" placeholder="请输入手机号码"></mt-field>
-    <mt-cell class="share" title="验证码">
+    <!-- <mt-cell class="share" title="验证码">
       <input type="text" placeholder="请输入验证码" v-model="form.code">
       <p v-show="codeSta" @click="getCode" style="font-size: 0.8rem;color:#cda041;">获取验证码</p>
       <mt-button v-show="!codeSta" style="font-size: 0.6rem;" size="small" type="primary">{{time + ' 秒后获取'}}</mt-button>
-    </mt-cell>
+    </mt-cell> -->
     <p class="price">用户名和推荐人输入后将不能更改，请仔细和对</p>
     <mt-field label="用户名" placeholder="请输入用户名"  v-model="form.name"></mt-field>
     <mt-field label="推荐人" placeholder="请输入推荐人用户名" v-model="form.oName"></mt-field>
@@ -48,7 +48,7 @@ export default {
   watch: {
     form: {
       handler (newValue, oldValue) {
-        if (oldValue.tel && oldValue.code && oldValue.name && oldValue.oName && oldValue.password && oldValue.ppassword) {
+        if (oldValue.tel && oldValue.name && oldValue.oName && oldValue.password && oldValue.ppassword) {
           this.isActive = true
         } else {
           this.isActive = false
@@ -58,37 +58,37 @@ export default {
     }
   },
   methods: {
-    getCode () {
-      let reg = /^(13[0-9]|15[012356789]|17[3678]|18[0-9]|14[57])[0-9]{8}$/
-      if (!reg.test(this.form.tel)) {
-        this.$toast({
-          message: '请检查您的手机格式',
-          position: 'bottom',
-          duration: 1000
-        })
-        return false
-      }
-      this.codeSta = false
-      var params = new FormData()
-      params.append('tel', this.form.tel)
-      params.append('type', '注册')
-      this.axios.post(process.env.API_ROOT + '/api/block/send_codes', params).then((res) => {
-        let data = res.data
-        this.$toast({
-          message: data.msg,
-          position: 'bottom',
-          duration: 1000
-        })
-      })
-      let timer = setInterval(() => {
-        this.time--
-        if (this.time === 0) {
-          clearInterval(timer)
-          this.codeSta = true
-          this.time = 60
-        }
-      }, 1000)
-    },
+    // getCode () {
+    //   let reg = /^(13[0-9]|15[012356789]|17[3678]|18[0-9]|14[57])[0-9]{8}$/
+    //   if (!reg.test(this.form.tel)) {
+    //     this.$toast({
+    //       message: '请检查您的手机格式',
+    //       position: 'bottom',
+    //       duration: 1000
+    //     })
+    //     return false
+    //   }
+    //   this.codeSta = false
+    //   var params = new FormData()
+    //   params.append('tel', this.form.tel)
+    //   params.append('type', '注册')
+    //   this.axios.post(process.env.API_ROOT + '/api/block/send_codes', params).then((res) => {
+    //     let data = res.data
+    //     this.$toast({
+    //       message: data.msg,
+    //       position: 'bottom',
+    //       duration: 1000
+    //     })
+    //   })
+    //   let timer = setInterval(() => {
+    //     this.time--
+    //     if (this.time === 0) {
+    //       clearInterval(timer)
+    //       this.codeSta = true
+    //       this.time = 60
+    //     }
+    //   }, 1000)
+    // },
     register () {
       if (!this.isActive) return false
       let reg = /^(13[0-9]|15[012356789]|17[3678]|18[0-9]|14[57])[0-9]{8}$/
@@ -146,7 +146,7 @@ export default {
       params.append('password', this.form.password)
       params.append('erji', this.form.ppassword)
       params.append('leader_user', this.form.oName)
-      params.append('code', this.form.code)
+      // params.append('code', this.form.code)
       params.append('tel', this.form.tel)
       this.axios.post(process.env.API_ROOT + '/api/login/zhuce', params).then((res) => {
         let data = res.data

@@ -76,7 +76,7 @@ export default new Router({
         name: 'home',
         component: home,
         meta: {
-          title: '中安瑞宝'
+          title: 'CSF黄金'
         }
       }, {
         path: '/order',
@@ -159,7 +159,7 @@ export default new Router({
       name: 'balance',
       component: balance,
       meta: {
-        title: '中安瑞宝余额'
+        title: 'CSF黄金余额'
       }
     }, {
       path: '/transfer',

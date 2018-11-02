@@ -131,6 +131,10 @@ export default {
           duration: 2000
         })
       }
+      if (parseFloat(this.products[this.type - 1].point) == parseFloat(this.price.enroll_point)) {
+        this.price.rward_point = 0
+        this.price.cash_point = 0
+      }
     },
     cash_fun () {
       if (Object.prototype.toString.call(this.price.rward_point) === '[object Function]') {

@@ -50,9 +50,9 @@ export default {
       if (type === 'balance') {
         this.type = 0
         if (localStorage.getItem('language') === 'en') {
-          this.title = '中安瑞宝 balance'
+          this.title = 'CSF黄金 balance'
         } else {
-          this.title = '中安瑞宝余额'
+          this.title = 'CSF黄金余额'
         }
       } else if (type === 'consume') {
         this.type = 1
