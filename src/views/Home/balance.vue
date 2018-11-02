@@ -50,9 +50,9 @@ export default {
       if (type === 'balance') {
         this.type = 0
         if (localStorage.getItem('language') === 'en') {
-          this.title = 'CSF黄金 balance'
+          this.title = 'GDC资产通证 balance'
         } else {
-          this.title = 'CSF黄金余额'
+          this.title = 'GDC资产通证余额'
         }
       } else if (type === 'consume') {
         this.type = 1

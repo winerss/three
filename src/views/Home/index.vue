@@ -204,7 +204,7 @@ export default {
         lable16: 'I have bottom line'
       },
       cn: {
-        lable1: 'CSF黄金',
+        lable1: 'GDC资产通证',
         lable2: '当前收益',
         lable3: '昨日收益',
         lable4: '消费积分',
