@@ -6,7 +6,7 @@
     </Header> -->
     <header>
       <router-link class="message-icon" to="/message"><img src="../../assets/img/message.png" alt=""></router-link>
-      <p>瑞宝科技</p>
+      <p>GDC</p>
       <div @click="H5toNativeUrl" class="scan"><img src="../../assets/img/scan.png" alt=""></div>
     </header>
     <div class="container" ref="wrapper">

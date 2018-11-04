@@ -7,14 +7,14 @@
     <mt-field v-show="this.value === '1'" label="卖单单价"  v-model="common"></mt-field>
     <mt-field label="卖单数量" placeholder="请输入100~2000且100的倍数" v-model="form.amount"></mt-field>
     <mt-field label="交易密码" type="password" placeholder="请输入≥6的字母+数字的密码" v-model="form.password"></mt-field>
-    <div class="total">
-      <p>总价：CNY {{total}}</p>
-      <p>手续费：CNY {{fear * common * form.amount}}</p>
-    </div>
     <!-- <mt-cell title="手机归属地" is-link to="/citys">
       <p>{{ selectedCity.city }}（+{{ selectedCity.tel }}）</p>
     </mt-cell> -->
     <mt-field label="手机号码" v-model="form.tel" readonly placeholder="请输入手机号码"></mt-field>
+    <div class="total">
+      <p>总价：CNY {{total}}</p>
+      <p>手续费：CNY {{fear * common * form.amount}}</p>
+    </div>
     <!-- <div class="telphone">
       <mt-cell title="验证码">
         <input type="text" v-model="form.code" placeholder="请输入验证码">
