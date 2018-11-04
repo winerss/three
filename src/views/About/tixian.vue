@@ -117,7 +117,11 @@ export default {
         lable5: '请输入发送数量',
         lable6: '交易密码',
         lable7: '请输入≥6的字母+数字的密码',
+<<<<<<< HEAD
         lable8: '可用资产本次可发送个GDC资产通证资产',
+=======
+        lable8: '可用资产本次可发送个CSF黄金资产',
+>>>>>>> bb3bdecc713030421e54f922eb73ecc9f8892fe6
         lable9: '确认转账'
       }
     }

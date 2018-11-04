@@ -131,7 +131,11 @@ export default {
           duration: 2000
         })
       }
+<<<<<<< HEAD
       if (parseFloat(this.products[this.type - 1].point) === parseFloat(this.price.enroll_point)) {
+=======
+      if (parseFloat(this.products[this.type - 1].point) == parseFloat(this.price.enroll_point)) {
+>>>>>>> bb3bdecc713030421e54f922eb73ecc9f8892fe6
         this.price.rward_point = 0
         this.price.cash_point = 0
       }

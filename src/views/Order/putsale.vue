@@ -15,6 +15,13 @@
       <p>总价：CNY {{total}}</p>
       <p>手续费：CNY {{fear * common * form.amount}}</p>
     </div>
+<<<<<<< HEAD
+=======
+    <mt-cell title="手机归属地" is-link to="/citys">
+      <p>{{ selectedCity.city }}（+{{ selectedCity.tel }}）</p>
+    </mt-cell>
+    <mt-field label="手机号码" v-model="form.tel" readonly placeholder="请输入手机号码"></mt-field>
+>>>>>>> bb3bdecc713030421e54f922eb73ecc9f8892fe6
     <!-- <div class="telphone">
       <mt-cell title="验证码">
         <input type="text" v-model="form.code" placeholder="请输入验证码">
