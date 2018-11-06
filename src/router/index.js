@@ -76,11 +76,7 @@ export default new Router({
         name: 'home',
         component: home,
         meta: {
-<<<<<<< HEAD
           title: 'GDC资产通证'
-=======
-          title: 'CSF黄金'
->>>>>>> bb3bdecc713030421e54f922eb73ecc9f8892fe6
         }
       }, {
         path: '/order',
@@ -163,11 +159,7 @@ export default new Router({
       name: 'balance',
       component: balance,
       meta: {
-<<<<<<< HEAD
         title: 'GDC资产通证余额'
-=======
-        title: 'CSF黄金余额'
->>>>>>> bb3bdecc713030421e54f922eb73ecc9f8892fe6
       }
     }, {
       path: '/transfer',

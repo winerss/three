@@ -17,6 +17,13 @@
     <p class="price">用户名和推荐人输入后将不能更改，请仔细和对</p>
     <mt-field label="用户名" placeholder="请输入用户名"  v-model="form.name"></mt-field>
     <mt-field label="推荐人" placeholder="请输入推荐人用户名" v-model="form.oName"></mt-field>
+    <div class="jiedian">
+      <mt-field label="节点人" placeholder="请输入节点人名称" v-model="form.jd_user"></mt-field>
+      <select v-model="side">
+        <option value="1">1</option>
+        <option value="2">2</option>
+      </select>
+    </div>
     <p class="price">设置登录密码和交易密码</p>
     <mt-field label="登录密码" type="password" placeholder="请输入密码" v-model="form.password"></mt-field>
     <mt-field label="交易密码" type="password" placeholder="请输入交易密码" v-model="form.ppassword"></mt-field>
@@ -37,9 +44,11 @@ export default {
         code: '',
         name: '',
         oName: '',
+        jd_user: '',
         password: '',
         ppassword: ''
       },
+      side: 1,
       showLeft: true,
       showTitle: true,
       isActive: false
@@ -48,7 +57,7 @@ export default {
   watch: {
     form: {
       handler (newValue, oldValue) {
-        if (oldValue.tel && oldValue.name && oldValue.oName && oldValue.password && oldValue.ppassword) {
+        if (oldValue.tel && oldValue.name && oldValue.oName && oldValue.jd_user && oldValue.password && oldValue.ppassword) {
           this.isActive = true
         } else {
           this.isActive = false
@@ -124,6 +133,14 @@ export default {
         })
         return false
       }
+      if (this.form.jd_user.length < 2) {
+        this.$toast({
+          message: '节点人长度大于两位',
+          position: 'bottom',
+          duration: 1000
+        })
+        return false
+      }
       if (this.form.ppassword.length < 6 || this.form.ppassword.length > 15) {
         this.$toast({
           message: '交易密码长度不正确',
@@ -146,6 +163,8 @@ export default {
       params.append('password', this.form.password)
       params.append('erji', this.form.ppassword)
       params.append('leader_user', this.form.oName)
+      params.append('jd_user', this.form.jd_user)
+      params.append('side', this.side)
       // params.append('code', this.form.code)
       params.append('tel', this.form.tel)
       this.axios.post(process.env.API_ROOT + '/api/login/zhuce', params).then((res) => {
@@ -210,6 +229,24 @@ export default {
     padding 0 .8rem
     background #cda041
     color #ebebeb
+  .jiedian
+    overflow hidden
+    .mint-cell
+      float left
+      width 70%
+      border-bottom none
+    select
+      float right
+      width 20%
+      min-height 28px
+      margin-top 10px
+      background rgba(0,0,0,.4)
+      color #cda041
+      border-color #cda041
+      outline none
+      option
+        background #333
+        color #ccc
   .total
     display flex
     p
